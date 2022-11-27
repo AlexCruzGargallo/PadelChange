@@ -1,34 +1,25 @@
-<section>
-  <h1>Manage Your Team</h1>
-  <form action="">
-    <div>
-      <p>USUARIO</p>
-      <input
-        type="text"
-        placeholder="Dirección de correo electrónico"
-        required
-      />
+<div class="page-wrapper">
+  <div class="login-wrapper">
+    <h2>Iniciar sesión</h2>
+    <hr />
+    <div class="login-fields">
+      <form class="login-form" action="">
+        <label class="label-form" for="">Email</label>
+        <input
+          type="text"
+          placeholder="Dirección de correo electrónico"
+          required
+        />
+        <label class="label-form" for="">Contraseña</label>
+        <input
+          type="password"
+          placeholder="********"
+          required
+          [type]="hide ? 'password' : 'text'"
+        />
+        <p>¿No tienes una cuenta? <a>Regístrate</a></p>
+        <input type="submit" value="Iniciar sesión" />
+      </form>
     </div>
-    <div>
-      <div>
-        <p>CONTRASEÑA</p>
-        <p>¿Has olvidado la contraseña?</p>
-      </div>
-      <input
-        type="password"
-        placeholder="********"
-        required
-        [type]="hide ? 'password' : 'text'"
-      />
-      <i class="material-icons" matSuffix (click)="hide = !hide">
-        {{ hide ? "visibility" : "visibility_off" }}
-      </i>
-    </div>
-
-    <button type="submit">Iniciar sesión</button>
-  </form>
-
-  <p>¿No tienes una cuenta? Regístrate</p>
-</section>
-
-<p>login works!</p>
+  </div>
+</div>
