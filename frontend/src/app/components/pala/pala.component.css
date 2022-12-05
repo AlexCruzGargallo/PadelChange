@@ -1,0 +1,22 @@
+.racket-card {
+  align-items: center;
+  padding: 20px;
+}
+
+.profile-pic {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.name-card {
+  margin-bottom: 70px;
+  font-size: 23px;
+}
+
+.price-card {
+  margin-right: 30px;
+  margin-left: auto;
+  font-size: 23px;
+}

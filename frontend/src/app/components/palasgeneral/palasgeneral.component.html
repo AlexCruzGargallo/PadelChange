@@ -29,6 +29,9 @@
       </div>
     </div>
   </div>
-
-  <div class="rackets-wrapper">asdasd</div>
+  <div class="cards-wrapper">
+    <div class="rackets-wrapper" *ngFor="let racket of racketsData">
+      <app-pala [data]="racket"></app-pala>
+    </div>
+  </div>
 </div>

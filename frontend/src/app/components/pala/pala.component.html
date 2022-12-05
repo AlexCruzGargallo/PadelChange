@@ -1,1 +1,19 @@
-<p>pala works!</p>
+<div class="racket-card">
+  <div style="text-align: center">
+    <img
+      class="profile-pic"
+      src="assets/imgs/user-image-default.png"
+      alt="profile-pic"
+    />
+  </div>
+  <div class="name-card">
+    <p>{{ data.name }}</p>
+    <p style="font-size: 16px"><b>Marca: </b>{{ data.brand }}</p>
+    <p style="font-size: 16px"><b>Temporada: </b>{{ data.season }}</p>
+    <p style="font-size: 16px"><b>Peso: </b>{{ data.weight }}</p>
+  </div>
+  <div class="price-card">
+    <p>Precio: {{ data.price }}€</p>
+    <button>Ver detalles</button>
+  </div>
+</div>
