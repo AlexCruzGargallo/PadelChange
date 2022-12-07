@@ -9,11 +9,20 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ModalrateracketComponent implements OnInit {
   description = new FormControl('');
-  rating = new FormControl(2);
+  rating = new FormControl(0);
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 
   ngOnInit(): void {
     console.log('hola', this.data);
   }
-  vote() {}
+  vote() {
+    let ratingRacket = {
+      racket_id: this.data._id,
+      created_by: localStorage.getItem('userId'),
+      comment: this.description.value,
+      rating: this.rating.value,
+      date: new Date(),
+    };
+    console.log(ratingRacket);
+  }
 }

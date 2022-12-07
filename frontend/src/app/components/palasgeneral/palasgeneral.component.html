@@ -4,24 +4,26 @@
       <div class="filter-wrapper">
         <mat-form-field appearance="fill">
           <mat-label>Filtrar por marca</mat-label>
-          <mat-select>
-            <mat-option>None</mat-option>
-            <mat-option value="option1">Option 1</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option3">Option 3</mat-option>
+          <mat-select [(value)]="brandSelected">
+            <mat-option value="Sin filtrar">Sin filtrar</mat-option>
+            <mat-option *ngFor="let brand of brands" [value]="brand">{{
+              brand
+            }}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
+      <div>{{ brandSelected }}</div>
       <div class="order-wrapper">
         <mat-form-field appearance="fill">
           <mat-label>Ordenar por</mat-label>
-          <mat-select>
-            <mat-option>No ordenar</mat-option>
-            <mat-option value="option1">Precio(Más Alto)</mat-option>
-            <mat-option value="option1">Precio(Más Bajo)</mat-option>
-            <mat-option value="option2">Nombre (A-Z)</mat-option>
-            <mat-option value="option3">Nombre (Z-A)</mat-option>
-            <mat-option value="option2">Temporada</mat-option>
+          <mat-select [(value)]="orderSelected" (selectionChange)="onSelect()">
+            <mat-option value="No ordenar">No ordenar</mat-option>
+            <mat-option value="priceasc">Precio(Más Alto)</mat-option>
+            <mat-option value="pricedesc">Precio(Más Bajo)</mat-option>
+            <mat-option value="nameasc">Nombre (A-Z)</mat-option>
+            <mat-option value="namedesc">Nombre (Z-A)</mat-option>
+            <mat-option value="season">Temporada</mat-option>
+            <mat-option value="rating">Valoración</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -40,7 +42,10 @@
   <div class="cards-wrapper">
     <div
       class="rackets-wrapper"
-      *ngFor="let racket of racketsData | racketFiltro : page : search"
+      *ngFor="
+        let racket of racketsData
+          | racketFiltro : page : brandSelected : search : orderSelected
+      "
     >
       <app-pala [data]="racket"></app-pala>
     </div>

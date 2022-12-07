@@ -10,6 +10,7 @@ export class PalaComponent implements OnInit {
   @Input() data: any;
   imgpath: string = 'assets/imgs/rackets/';
   rating = new FormControl();
+
   constructor() {}
 
   ngOnInit(): void {

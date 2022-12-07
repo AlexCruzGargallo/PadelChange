@@ -14,7 +14,7 @@ export class PalainfoComponent implements OnInit {
   racketData: any;
   id: string = '';
   imgpath: string = 'assets/imgs/rackets/';
-  rating = new FormControl();
+  rating = new FormControl({ disabled: true });
 
   constructor(private actRoute: ActivatedRoute, private matDialog: MatDialog) {}
 
