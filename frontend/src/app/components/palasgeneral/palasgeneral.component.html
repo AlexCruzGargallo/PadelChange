@@ -3,7 +3,7 @@
     <div class="row-wrapper">
       <div class="filter-wrapper">
         <mat-form-field appearance="fill">
-          <mat-label>Filtrar por</mat-label>
+          <mat-label>Filtrar por marca</mat-label>
           <mat-select>
             <mat-option>None</mat-option>
             <mat-option value="option1">Option 1</mat-option>
@@ -16,22 +16,37 @@
         <mat-form-field appearance="fill">
           <mat-label>Ordenar por</mat-label>
           <mat-select>
-            <mat-option>None</mat-option>
-            <mat-option value="option1">Option 1</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option3">Option 3</mat-option>
+            <mat-option>No ordenar</mat-option>
+            <mat-option value="option1">Precio(Más Alto)</mat-option>
+            <mat-option value="option1">Precio(Más Bajo)</mat-option>
+            <mat-option value="option2">Nombre (A-Z)</mat-option>
+            <mat-option value="option3">Nombre (Z-A)</mat-option>
+            <mat-option value="option2">Temporada</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <div class="search-wrapper">
         <mat-label>Buscar</mat-label>
-        <input matInput placeholder="Busca tu pala" value="" />
+        <input
+          matInput
+          class="search-input"
+          placeholder="Busca tu pala.."
+          #txtSearch
+          (keyup)="onSearchRacket(txtSearch.value)"
+        />
       </div>
     </div>
   </div>
   <div class="cards-wrapper">
-    <div class="rackets-wrapper" *ngFor="let racket of racketsData">
+    <div
+      class="rackets-wrapper"
+      *ngFor="let racket of racketsData | racketFiltro : page : search"
+    >
       <app-pala [data]="racket"></app-pala>
     </div>
+  </div>
+  <div>
+    <button (click)="prevPage()">anteriores</button>
+    <button (click)="nextPage()">siguientes</button>
   </div>
 </div>

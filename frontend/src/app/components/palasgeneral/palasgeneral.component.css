@@ -17,8 +17,6 @@
 .filter-wrapper {
   margin-right: 40px;
 }
-.order-wrapper {
-}
 .search-wrapper {
   margin-left: auto;
   margin-right: 0;
@@ -33,7 +31,13 @@
   flex: 1 0 21%;
   margin-top: 50px;
   margin-left: 10px;
+  max-width: 278px;
   background-color: #d9d9d9;
   border-radius: 5px;
   box-shadow: 0 8px 8px -4px #a4a8a9;
+}
+.search-input {
+  border-radius: 5px;
+  height: 30px;
+  margin: 10px;
 }

@@ -1,1 +1,47 @@
-<p>palainfo works!</p>
+<div class="page-wrapper">
+  <div style="margin-bottom: 20px" class="header-wrapper">
+    <div style="width: 80%" class="star-wrap">
+      <div style="margin-right: 50px">
+        <h1 style="font-weight: 600; margin-bottom: 0">
+          {{ racketData.name }}
+        </h1>
+      </div>
+      <ngx-star-rating
+        [formControl]="rating"
+        [id]="'rating'"
+        [disabled]="true"
+      ></ngx-star-rating>
+      <p style="margin-bottom: 0">(32 Val.)</p>
+    </div>
+    <div style="width: 20%">
+      <button (click)="openModalVote()" class="vote-button">Puntuar</button>
+    </div>
+  </div>
+  <div class="details-wrapper">
+    <h1 style="font-weight: 600; width: 100%">Detalles de la pala</h1>
+    <div class="info-wrapper">
+      <div class="left-wrapper">
+        <img class="racket-image" src="{{ imgpath }}" alt="" />
+        <div style="margin-top: 20px">
+          <p style="font-weight: 600; font-size: 17px">{{ racketData.name }}</p>
+        </div>
+      </div>
+      <hr />
+      <div class="right-wrapper">
+        <p><b>Temporada: </b>{{ racketData.season }}</p>
+        <p><b>Material Marco: </b> {{ racketData.frame_material }}</p>
+        <p><b>Material plano: </b> {{ racketData.flat_material }}</p>
+        <p><b>Material goma: </b> {{ racketData.rubber_material }}</p>
+        <p><b>Tacto: </b> {{ racketData.touch }}</p>
+        <p><b>Forma: </b> {{ racketData.shape }}</p>
+        <p><b>Peso: </b> {{ racketData.weight }}</p>
+        <div style="margin-top: 50px">
+          <p style="font-size: 22px">
+            <b>Precio Mercado: </b> {{ racketData.price }}€
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ratings-wrapper"></div>
+</div>

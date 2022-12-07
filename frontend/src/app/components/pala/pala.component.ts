@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-pala',
@@ -7,8 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PalaComponent implements OnInit {
   @Input() data: any;
-
+  imgpath: string = 'assets/imgs/rackets/';
+  rating = new FormControl();
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.imgpath = this.imgpath + this.data.img;
+    this.rating.setValue(this.data.ovr_rating);
+  }
 }

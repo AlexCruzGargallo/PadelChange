@@ -14,6 +14,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PalasgeneralComponent } from './components/palasgeneral/palasgeneral.component';
 import { PalaComponent } from './components/pala/pala.component';
 import { PalainfoComponent } from './components/palainfo/palainfo.component';
+import { RacketFiltroPipe } from './pipes/racket-filtro.pipe';
+import { NgxStarRatingModule } from 'ngx-star-rating';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalrateracketComponent } from './components/modalrateracket/modalrateracket.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,10 @@ import { PalainfoComponent } from './components/palainfo/palainfo.component';
     PalasgeneralComponent,
     PalaComponent,
     PalainfoComponent,
+    RacketFiltroPipe,
+    ModalrateracketComponent,
   ],
+  entryComponents: [ModalrateracketComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,6 +42,8 @@ import { PalainfoComponent } from './components/palainfo/palainfo.component';
     MatFormFieldModule,
     MatIconModule,
     MatSelectModule,
+    NgxStarRatingModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

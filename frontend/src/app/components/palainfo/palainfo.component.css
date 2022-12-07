@@ -1,0 +1,79 @@
+.page-wrapper {
+  width: 1150px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #d6d6d6;
+  padding: 40px;
+}
+.racket-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+.star-wrap {
+  display: flex;
+  align-items: center;
+}
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fafafa;
+}
+.details-wrapper {
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fafafa;
+}
+.vote-button {
+  cursor: pointer;
+  color: white;
+  background-color: #008f39;
+  height: 37px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 600;
+  font-size: 17px;
+  border-radius: 6px;
+  bottom: 0%;
+  float: right;
+}
+
+.info-wrapper {
+  display: flex;
+}
+
+hr {
+  margin-left: 115px;
+  margin-right: 115px;
+}
+
+.left-wrapper {
+  text-align: center;
+  width: 50%;
+}
+.right-wrapper {
+  margin-top: 20px;
+  width: 50%;
+}
+
+::ng-deep label.star {
+  padding: 0 5px !important;
+  font-size: 20px !important;
+  transition: all 0s !important;
+}
+
+::ng-deep label.star:before {
+  content: "\f005" !important;
+}
+
+::ng-deep label.star:hover {
+  transform: rotate(0deg) scale(1) !important;
+}
+
+::ng-deep input.star-5:checked ~ label.star:before {
+  color: #fe7;
+  text-shadow: 0 0 0px #952 !important;
+}

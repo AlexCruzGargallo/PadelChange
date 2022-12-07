@@ -1,19 +1,28 @@
 <div class="racket-card">
   <div style="text-align: center">
-    <img
-      class="profile-pic"
-      src="assets/imgs/user-image-default.png"
-      alt="profile-pic"
-    />
+    <img class="profile-pic" src="{{ imgpath }}" alt="profile-pic" />
   </div>
-  <div class="name-card">
-    <p>{{ data.name }}</p>
+  <div class="head-card">
+    <p style="height: 20px">{{ data.name }}</p>
+  </div>
+  <div class="star-wrap">
+    <ngx-star-rating
+      [formControl]="rating"
+      [id]="'rating'"
+      [disabled]="true"
+    ></ngx-star-rating>
+    <p>(32 Val.)</p>
+  </div>
+  <div class="body-card">
     <p style="font-size: 16px"><b>Marca: </b>{{ data.brand }}</p>
     <p style="font-size: 16px"><b>Temporada: </b>{{ data.season }}</p>
-    <p style="font-size: 16px"><b>Peso: </b>{{ data.weight }}</p>
   </div>
   <div class="price-card">
     <p>Precio: {{ data.price }}€</p>
-    <button>Ver detalles</button>
+    <div style="text-align: center">
+      <a [routerLink]="['/racket', data._id]">
+        <button class="button-details">Ver detalles</button>
+      </a>
+    </div>
   </div>
 </div>

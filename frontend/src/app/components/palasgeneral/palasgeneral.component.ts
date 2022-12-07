@@ -9,12 +9,28 @@ import { PalaComponent } from '../pala/pala.component';
 export class PalasgeneralComponent implements OnInit {
   apiUrl: string = 'http://localhost:4000/api';
   racketsData: any;
+  public page: number = 0;
+  public search: string = '';
+
   constructor() {}
 
   async ngOnInit(): Promise<void> {
     this.racketsData = await this.getAllRacketsData();
-    console.log(this.apiUrl);
-    console.log(this.racketsData);
+  }
+
+  nextPage() {
+    this.page += 8;
+  }
+
+  prevPage() {
+    if (this.page > 0) {
+      this.page -= 8;
+    }
+  }
+
+  onSearchRacket(search: string) {
+    this.page = 0;
+    this.search = search;
   }
 
   public async getAllRacketsData(): Promise<any> {

@@ -12,11 +12,21 @@
   margin-right: 200px;
 }
 .section-wrapper {
-  margin-left: 20px;
-  font-size: 18px;
+  margin-left: 30px;
+  font-size: 22px;
   font-weight: 400;
 }
 
+.section-wrapper a {
+  text-decoration: none;
+  color: black;
+}
+
+.section-wrapper a:hover {
+  font-weight: 500;
+  border-bottom: 3px solid currentColor;
+  color: black;
+}
 
 .right-side-navbar {
   height: 100%;
