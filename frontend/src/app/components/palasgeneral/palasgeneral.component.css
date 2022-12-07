@@ -1,0 +1,43 @@
+.page-wrapper {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.tools-wrapper {
+  margin: auto;
+  width: 1150px;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+  box-shadow: 0 8px 8px -4px #a4a8a9;
+}
+.row-wrapper {
+  display: flex;
+  align-items: center;
+}
+.filter-wrapper {
+  margin-right: 40px;
+}
+.search-wrapper {
+  margin-left: auto;
+  margin-right: 0;
+}
+.cards-wrapper {
+  margin: auto;
+  width: 1150px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.rackets-wrapper {
+  flex: 1 0 21%;
+  margin-top: 50px;
+  margin-left: 10px;
+  max-width: 278px;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+  box-shadow: 0 8px 8px -4px #a4a8a9;
+}
+.search-input {
+  border-radius: 5px;
+  height: 30px;
+  margin: 10px;
+}

@@ -1,0 +1,81 @@
+.navbar-wrapper {
+  background-color: #d9d9d9;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+.logo-wrapper {
+  margin-left: 20px;
+  font-size: 25px;
+  font-weight: 600;
+  margin-right: 200px;
+}
+.section-wrapper {
+  margin-left: 30px;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.section-wrapper a {
+  text-decoration: none;
+  color: black;
+}
+
+.section-wrapper a:hover {
+  font-weight: 500;
+  border-bottom: 3px solid currentColor;
+  color: black;
+}
+
+.right-side-navbar {
+  height: 100%;
+  display: flex;
+  margin-left: auto;
+  margin-right: 0;
+  align-items: center;
+}
+.notification-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.message-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.profile-wrapper {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.profile-pic {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 50px;
+}
+.bell-icon-nav {
+  transform: scale(1.6);
+}
+.chat-icon-nav {
+  transform: scale(1.3);
+}
+.red-circle {
+  text-align: center;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  width: 25px;
+  height: 13px;
+  padding: 4px;
+  padding-bottom: 6px;
+  color: aliceblue;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
+}

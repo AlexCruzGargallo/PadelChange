@@ -1,0 +1,34 @@
+<div class="modal-wrapper">
+  <h1 style="font-weight: 600; margin-bottom: 20px">
+    Puntua la {{ this.data.name }}
+  </h1>
+  <form action="">
+    <div style="">
+      <div class="stars-wrap">
+        <div style="width: 50%">
+          <h1 style="margin-left: 23px">Establece una puntuación:</h1>
+        </div>
+        <div style="width: 50%">
+          <ngx-star-rating
+            [formControl]="rating"
+            [id]="'rating2'"
+            [disabled]="false"
+          ></ngx-star-rating>
+        </div>
+      </div>
+      <div class="desc-wrap">
+        <h1 style="margin-top: 20px; margin-left: 46px; float: left">
+          Descripcion:
+        </h1>
+        <textarea
+          class="textarea-desc"
+          placeholder="Añade una descripción a tu puntuación"
+          [formControl]="description"
+        ></textarea>
+      </div>
+      <div class="button-wrap">
+        <button (click)="vote()" class="vote-button">Puntuar</button>
+      </div>
+    </div>
+  </form>
+</div>

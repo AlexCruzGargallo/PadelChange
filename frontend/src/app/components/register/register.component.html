@@ -5,14 +5,61 @@
     <div class="register-fields">
       <form class="register-form" action="">
         <label class="label-form" for="">Nombre y apellidos:</label>
-        <input type="text" />
+        <p *ngIf="name.invalid && name.touched" style="color: red">
+          {{ getNameErrorMessage() }}
+        </p>
+        <input
+          type="text"
+          placeholder="Nombre y apellidos"
+          [formControl]="name"
+          [ngStyle]="{
+            'border-color': name.invalid && name.touched ? 'red' : '#ccc'
+          }"
+        />
         <label class="label-form" for="">Email:</label>
-        <input type="text" />
+        <p *ngIf="email.invalid && email.touched" style="color: red">
+          {{ getEmailErrorMessage() }}
+        </p>
+        <input
+          type="text"
+          placeholder="Correo electrónico"
+          [formControl]="email"
+          [ngStyle]="{
+            'border-color': email.invalid && email.touched ? 'red' : '#ccc'
+          }"
+        />
         <label class="label-form" for="">Contraseña:</label>
-        <input type="password" />
-        <label class="label-form" for="">Confirmar contraseña:</label>
-        <input type="password" />
-        <input type="submit" />
+        <p *ngIf="password.invalid && password.touched" style="color: red">
+          {{ getPasswordErrorMessage() }}
+        </p>
+        <input
+          type="password"
+          placeholder="********"
+          [formControl]="password"
+          [ngStyle]="{
+            'border-color':
+              password.invalid && password.touched ? 'red' : '#ccc'
+          }"
+        />
+        <label class="label-form" for="">Confirmar contraseña: </label>
+        <p
+          *ngIf="confirmPassword.invalid && confirmPassword.touched"
+          style="color: red"
+        >
+          {{ getConfirmPasswordErrorMessage() }}
+        </p>
+        <input
+          type="password"
+          placeholder="********"
+          [formControl]="confirmPassword"
+          [ngStyle]="{
+            'border-color':
+              confirmPassword.invalid && confirmPassword.touched
+                ? 'red'
+                : '#ccc'
+          }"
+        />
+        <input type="submit" value="Registrate" (click)="submit()" />
       </form>
     </div>
   </div>

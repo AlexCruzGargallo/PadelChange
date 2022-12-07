@@ -7,22 +7,11 @@ import Jwt from '../utilities/jwt'
 class UserController {
     public async register(req: Request, res: Response) {
         try {
-            let { firstName, lastName, email, password } = req.body
+            let { name, email, password } = req.body
 
             // Parse First and Lastname
-            let parsedFirstName = (firstName as string).toLowerCase()
-            parsedFirstName = Utilities.capitalizeFirstLetter(parsedFirstName)
-
-            let parsedLastName = (lastName as string).toLowerCase()
-            let parsedLastNameArray = parsedLastName.split(' ')
-
-            for (let i = 0; i < parsedLastNameArray.length; i++) {
-                parsedLastNameArray[i] = Utilities.capitalizeFirstLetter(
-                    parsedLastNameArray[i]
-                )
-            }
-
-            parsedLastName = parsedLastNameArray.join(' ')
+            let parsedname = (name as string).toLowerCase()
+            name = Utilities.capitalizeFirstLetter(parsedname)
 
             // Validate user inputs
             if (!Utilities.emailValidation(email)) {
@@ -33,15 +22,10 @@ class UserController {
                 throw new Error('La contraseña no es válida.')
             }
 
-            if (!Utilities.nameValidation(parsedFirstName)) {
+            if (!Utilities.nameValidation(name)) {
                 throw new Error('El nombre no es válido.')
             }
-            req.body.firstName = parsedFirstName
-
-            if (!Utilities.nameValidation(parsedLastName)) {
-                throw new Error('El apellido no es válido.')
-            }
-            req.body.lastName = parsedLastName
+            req.body.name = name
 
             // Hash the user password
             const hashedPassword = await bcrypt.hash(password, 10)
@@ -52,7 +36,20 @@ class UserController {
             await user.save()
             console.log(`User has been created`, user)
 
-            res.send(user)
+            let aux = JSON.parse(JSON.stringify(user))
+            delete aux.__v
+            delete aux.password
+            const accessToken = Jwt.sign(aux)
+            delete aux._id
+
+            const registerPayload = {
+                payload:{
+                    user: user,
+                    accessToken: accessToken
+                }
+            }
+
+            res.send(registerPayload)
         } catch (err) {
             console.error(err)
             res.status(400).send(err)
