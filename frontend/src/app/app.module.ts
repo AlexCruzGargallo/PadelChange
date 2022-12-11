@@ -19,6 +19,8 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalrateracketComponent } from './components/modalrateracket/modalrateracket.component';
 import { StarsComponent } from './components/stars/stars.component';
+import { PalacreateComponent } from './components/palacreate/palacreate.component';
+import { EditprofileComponent } from './components/editprofile/editprofile.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { StarsComponent } from './components/stars/stars.component';
     RacketFiltroPipe,
     ModalrateracketComponent,
     StarsComponent,
+    PalacreateComponent,
+    EditprofileComponent,
   ],
   entryComponents: [ModalrateracketComponent],
   imports: [

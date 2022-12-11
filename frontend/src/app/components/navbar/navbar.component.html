@@ -11,13 +11,28 @@
       <div class="red-circle">2</div>
       <mat-icon class="bell-icon-nav">notifications</mat-icon>
     </div>
-    <div class="profile-wrapper">
-      <div>
-        <img
-          class="profile-pic"
-          src="assets/imgs/user-image-default.png"
-          alt="profile-pic"
-        />
+    <div class="profile-wrapper" tabindex="0">
+      <div *ngIf="isLoggedIn()">
+        <div class="image-menu" (click)="changeSubmenu()">
+          <img
+            class="profile-pic"
+            src="assets/imgs/user-image-default.png"
+            alt="profile-pic"
+          />
+        </div>
+        <div class="sub-menu" *ngIf="submenu">
+          <a routerLink="/profile/edit"><li>Editar perfil</li></a>
+          <li><a>Historial</a></li>
+          <li (click)="logout()"><a>Cerrar sesión</a></li>
+        </div>
+      </div>
+      <div class="user-icon" *ngIf="!isLoggedIn()">
+        <div class="image-menu" (click)="changeSubmenu()">
+          <mat-icon>person</mat-icon>
+        </div>
+        <div class="sub-menu" *ngIf="submenu">
+          <a routerLink="/login"><li>Iniciar sesión</li></a>
+        </div>
       </div>
     </div>
   </div>

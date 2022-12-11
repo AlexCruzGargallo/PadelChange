@@ -6,19 +6,21 @@
       <form class="login-form" action="">
         <label class="label-form" for="">Email</label>
         <input
+          [formControl]="email"
           type="text"
           placeholder="Dirección de correo electrónico"
           required
         />
         <label class="label-form" for="">Contraseña</label>
         <input
+          [formControl]="password"
           type="password"
           placeholder="********"
           required
           [type]="hide ? 'password' : 'text'"
         />
         <p>¿No tienes una cuenta? <a>Regístrate</a></p>
-        <input type="submit" value="Iniciar sesión" />
+        <input type="submit" (click)="onClick()" value="Iniciar sesión" />
       </form>
     </div>
   </div>
