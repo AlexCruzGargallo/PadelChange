@@ -18,6 +18,7 @@ import { RacketFiltroPipe } from './pipes/racket-filtro.pipe';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalrateracketComponent } from './components/modalrateracket/modalrateracket.component';
+import { StarsComponent } from './components/stars/stars.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ModalrateracketComponent } from './components/modalrateracket/modalrate
     PalainfoComponent,
     RacketFiltroPipe,
     ModalrateracketComponent,
+    StarsComponent,
   ],
   entryComponents: [ModalrateracketComponent],
   imports: [

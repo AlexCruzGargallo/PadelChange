@@ -12,6 +12,9 @@ import { ModalrateracketComponent } from '../modalrateracket/modalrateracket.com
 export class PalainfoComponent implements OnInit {
   apiUrl: string = 'http://localhost:4000/api';
   racketData: any;
+  racketsRatingData: any;
+  ratingsLength: number = 0;
+
   id: string = '';
   imgpath: string = 'assets/imgs/rackets/';
   rating = new FormControl({ disabled: true });
@@ -24,9 +27,13 @@ export class PalainfoComponent implements OnInit {
       this.id = id;
     }
     this.racketData = await this.getRacketData(this.id);
+    this.racketsRatingData = await this.getAllRacketsRatingData(this.id);
+    this.ratingsLength = this.racketsRatingData.length;
     this.imgpath = this.imgpath + this.racketData.img;
     this.rating.setValue(this.racketData.ovr_rating);
+
     console.log(this.racketData);
+    console.log(this.racketsRatingData);
     console.log(this.id);
   }
 
@@ -50,5 +57,23 @@ export class PalainfoComponent implements OnInit {
       return Promise.reject();
     }
     return Promise.resolve(racket);
+  }
+
+  public async getAllRacketsRatingData(id: string): Promise<any> {
+    const response = await fetch(`${this.apiUrl}/racketratings/${id}`, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const { racketRatings } = await response.json();
+
+    if (!response.ok) {
+      return Promise.reject();
+    }
+    return Promise.resolve(racketRatings);
   }
 }

@@ -23,7 +23,6 @@ export class PalasgeneralComponent implements OnInit {
       ...new Set(this.racketsData.map((item: { brand: any }) => item.brand)),
     ];
     this.brands.sort();
-    console.log(this.brands);
   }
 
   nextPage() {
@@ -41,7 +40,10 @@ export class PalasgeneralComponent implements OnInit {
     this.search = search;
   }
   onSelect() {
-    console.log("ssss")
+    console.log('ssss');
+    this.page = 0;
+  }
+  onFilter() {
     this.page = 0;
   }
 

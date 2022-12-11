@@ -4,6 +4,7 @@ import cors from "cors";
 
 import UsersRouter from "./routes/userRouter";
 import RacketsRouter from "./routes/racketRouter";
+import RacketRatingsRouter from "./routes/racketRatingRouter";
 import connectDB from "./config/db";
 import authenticateToken from "./middlewares/authenticate";
 
@@ -19,6 +20,7 @@ app.use(express.json());
 
 app.use("/api/users", UsersRouter);
 app.use("/api/rackets", RacketsRouter);
+app.use("/api/racketratings", RacketRatingsRouter);
 
 app.get("/", authenticateToken, (req: Request, res: Response) => {
   res.send("Node + TypeScript + Express + MongoDB server is running");
