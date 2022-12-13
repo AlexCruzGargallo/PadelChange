@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalrateracketComponent } from '../modalrateracket/modalrateracket.component';
 
@@ -14,7 +14,7 @@ export class PalainfoComponent implements OnInit {
   racketData: any;
   racketsRatingData: any;
   ratingsLength: number = 0;
-
+  ovrRating: number = 0;
   id: string = '';
   imgpath: string = 'assets/imgs/rackets/';
   rating = new FormControl({ disabled: true });
@@ -34,7 +34,20 @@ export class PalainfoComponent implements OnInit {
 
     console.log(this.racketData);
     console.log(this.racketsRatingData);
-    console.log(this.id);
+    let i = 0;
+    this.racketsRatingData.map((rating: any) => {
+      i += rating.rating;
+    });
+    this.racketsRatingData.map(async (rating: any) => {
+      console.log(rating.created_by);
+      let user: any = await this.getUserData(rating.created_by);
+      rating.user = user;
+    });
+
+    console.log(this.racketsRatingData);
+    this.ovrRating = i / this.racketsRatingData.length;
+    console.log(this.ovrRating | 0);
+    this.rating.setValue(this.ovrRating | 0);
   }
 
   openModalVote() {
@@ -75,5 +88,22 @@ export class PalainfoComponent implements OnInit {
       return Promise.reject();
     }
     return Promise.resolve(racketRatings);
+  }
+  public async getUserData(id: string): Promise<any> {
+    const response = await fetch(`${this.apiUrl}/users/${id}`, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const { user } = await response.json();
+
+    if (!response.ok) {
+      return Promise.reject();
+    }
+    return Promise.resolve(user);
   }
 }

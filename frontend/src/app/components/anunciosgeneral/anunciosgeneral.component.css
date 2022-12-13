@@ -29,53 +29,29 @@
   display: flex;
   flex-wrap: wrap;
 }
-.rackets-wrapper {
-  flex: 1 0 21%;
-  margin-top: 20px;
-  margin-left: 5px;
-  margin-right: 5px;
-  max-width: 278px;
-  background-color: #d9d9d9;
-  border-radius: 5px;
-  box-shadow: 0 8px 8px -4px #a4a8a9;
-}
 .search-input {
   padding-left: 10px;
   border-radius: 5px;
   height: 30px;
   margin: 10px;
 }
-.pag-button {
-  cursor: pointer;
-  margin-top: 50px;
-  margin-left: 50px;
-  margin-right: 50px;
-  color: white;
-  background-color: rgb(1, 4, 37);
-  border-radius: 5px;
-  padding: 10px;
-}
-.buttons-wrapper {
-  text-align: center;
-}
 .btn {
-  margin: 30px 30px;
+  margin-right: 50px;
   cursor: pointer;
   position: relative;
-  font-size: 14px;
+  font-size: 15px;
   text-transform: uppercase;
   text-decoration: none;
   padding: 1em 2em;
   display: inline-block;
-  border: none;
   border-radius: 6em;
   transition: all 0.2s;
+  border: none;
   font-family: inherit;
-  font-weight: 500;
-  color: white;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
   background-color: #016dd9;
 }
-
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);

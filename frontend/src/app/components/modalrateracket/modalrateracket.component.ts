@@ -25,25 +25,29 @@ export class ModalrateracketComponent implements OnInit {
       date: new Date(),
       tokenPayload: {
         accessToken: localStorage.getItem('token'),
-        _id: localStorage.getItem('userId')
+        _id: localStorage.getItem('userId'),
       },
     };
     this.sendRating(ratingRacket);
+    window.location.reload();
     console.log(ratingRacket);
   }
 
   public async sendRating(args: any): Promise<any> {
-    const response = await fetch(`${this.apiUrl}/racketratings/rating/${this.data._id}`, {
-      method: 'POST',
-      mode: 'cors',
-      cache: 'no-cache',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + localStorage.getItem('token'),
-      },
-      body: JSON.stringify(args),
-    });
+    const response = await fetch(
+      `${this.apiUrl}/racketratings/rating/${this.data._id}`,
+      {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + localStorage.getItem('token'),
+        },
+        body: JSON.stringify(args),
+      }
+    );
 
     const { message, payload } = await response.json();
     console.log(response);

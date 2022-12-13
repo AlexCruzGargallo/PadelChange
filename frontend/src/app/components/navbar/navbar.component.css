@@ -89,7 +89,19 @@
   background-color: #d9d9d9;
   translate: -120px 12px;
 }
+.sub-menu-off {
+  position: absolute;
+  background-color: #d9d9d9;
+  translate: -120px 18px;
+}
 .sub-menu li {
+  cursor: pointer;
+  border: solid 1px black;
+  width: 150px;
+  list-style-type: none;
+  padding: 10px;
+}
+.sub-menu-off li {
   cursor: pointer;
   border: solid 1px black;
   width: 150px;
@@ -100,7 +112,14 @@
   text-decoration: none;
   color: black;
 }
+.sub-menu-off a {
+  text-decoration: none;
+  color: black;
+}
 .sub-menu li:hover {
+  background-color: #f8f8f8;
+}
+.sub-menu-off li:hover {
   background-color: #f8f8f8;
 }
 .image-menu {

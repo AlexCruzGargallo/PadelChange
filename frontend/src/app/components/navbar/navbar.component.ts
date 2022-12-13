@@ -7,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   submenu: boolean = false;
+  apiUrl: string = 'http://localhost:4000/api';
+  apiImgUrl: string = 'http://localhost:4000/imgs/'
+  userData: any = ''
 
   constructor() {}
 
-  ngOnInit(): void {}
+  async ngOnInit(): Promise<void> {
+    const id = localStorage.getItem('userId');
+    if (id) {
+      this.userData = await this.getUserData(id);
+    }
+  }
 
   changeSubmenu() {
     this.submenu = !this.submenu;
@@ -25,5 +33,23 @@ export class NavbarComponent implements OnInit {
   logout() {
     localStorage.removeItem('userId');
     localStorage.removeItem('token');
+  }
+
+  public async getUserData(id: string): Promise<any> {
+    const response = await fetch(`${this.apiUrl}/users/${id}`, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const { user } = await response.json();
+
+    if (!response.ok) {
+      return Promise.reject();
+    }
+    return Promise.resolve(user);
   }
 }

@@ -1,1 +1,75 @@
-<p>editprofile works!</p>
+<div class="page-wrapper">
+  <div class="register-wrapper">
+    <h2>Editar perfil</h2>
+    <hr />
+    <div class="register-fields">
+      <form class="register-form" action="">
+        <div style="margin-right: 100px">
+          <image-cropper
+            *ngIf="imageName != ''"
+            [imageChangedEvent]="imgChangeEvt"
+            [aspectRatio]="4 / 4"
+            [maintainAspectRatio]="true"
+            [resizeToWidth]="300"
+            format="png"
+            (imageCropped)="imageCropped($event)"
+            (imageLoaded)="imgLoad()"
+            (cropperReady)="initCropper()"
+            (loadImageFailed)="imgFailed()"
+          >
+          </image-cropper>
+          <img
+            style="width: 300px"
+            *ngIf="imageName == ''"
+            [src]="imgPath"
+            alt=""
+          />
+          <p *ngIf="errorFileMsg != ''" style="color: red">
+            {{ errorFileMsg }}
+          </p>
+        </div>
+        <div>
+          <input type="file" (change)="onFileChange($event)" />
+        </div>
+        <div>
+          <img
+            [src]="
+              imageName == 'user-image-default.png'
+                ? 'assets/imgs/user-image-default.png'
+                : croppedImage
+            "
+            alt=""
+          />
+        </div>
+        <div>
+          <button (click)="onSaveImage()">Guardar</button>
+        </div>
+        <label class="label-form" for="">Nombre y apellidos:</label>
+        <p *ngIf="name.invalid && name.touched" style="color: red">
+          {{ getNameErrorMessage() }}
+        </p>
+        <input
+          type="text"
+          placeholder="Nombre y apellidos"
+          [formControl]="name"
+          [ngStyle]="{
+            'border-color': name.invalid && name.touched ? 'red' : '#ccc'
+          }"
+        />
+        <label class="label-form" for="">Email:</label>
+        <p *ngIf="email.invalid && email.touched" style="color: red">
+          {{ getEmailErrorMessage() }}
+        </p>
+        <input
+          type="text"
+          placeholder="Correo electrónico"
+          [formControl]="email"
+          [ngStyle]="{
+            'border-color': email.invalid && email.touched ? 'red' : '#ccc'
+          }"
+        />
+        <input type="submit" value="Guardar perfil" (click)="submit()" />
+      </form>
+    </div>
+  </div>
+</div>

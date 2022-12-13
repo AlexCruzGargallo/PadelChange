@@ -21,7 +21,9 @@ import { ModalrateracketComponent } from './components/modalrateracket/modalrate
 import { StarsComponent } from './components/stars/stars.component';
 import { PalacreateComponent } from './components/palacreate/palacreate.component';
 import { EditprofileComponent } from './components/editprofile/editprofile.component';
-
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { HttpClientModule } from '@angular/common/http';
+import { AnunciosgeneralComponent } from './components/anunciosgeneral/anunciosgeneral.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +39,7 @@ import { EditprofileComponent } from './components/editprofile/editprofile.compo
     StarsComponent,
     PalacreateComponent,
     EditprofileComponent,
+    AnunciosgeneralComponent,
   ],
   entryComponents: [ModalrateracketComponent],
   imports: [
@@ -50,6 +53,8 @@ import { EditprofileComponent } from './components/editprofile/editprofile.compo
     MatSelectModule,
     NgxStarRatingModule,
     MatDialogModule,
+    ImageCropperModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

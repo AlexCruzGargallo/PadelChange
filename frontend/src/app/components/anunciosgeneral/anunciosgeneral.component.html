@@ -3,19 +3,16 @@
     <div class="row-wrapper">
       <div class="filter-wrapper">
         <mat-form-field appearance="fill">
-          <mat-label>Filtrar por marca</mat-label>
-          <mat-select [(value)]="brandSelected" (selectionChange)="onFilter()">
+          <mat-label>Filtrar por distancia</mat-label>
+          <mat-select>
             <mat-option value="Sin filtrar">Sin filtrar</mat-option>
-            <mat-option *ngFor="let brand of brands" [value]="brand">{{
-              brand
-            }}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <div class="order-wrapper">
         <mat-form-field appearance="fill">
           <mat-label>Ordenar por</mat-label>
-          <mat-select [(value)]="orderSelected" (selectionChange)="onSelect()">
+          <mat-select>
             <mat-option value="No ordenar">No ordenar</mat-option>
             <mat-option value="priceasc">Precio(Más Alto)</mat-option>
             <mat-option value="pricedesc">Precio(Más Bajo)</mat-option>
@@ -25,34 +22,21 @@
           </mat-select>
         </mat-form-field>
       </div>
-      <div style="width: 100%; text-align: center">
-        <a routerLink="/rackets/create">No encuentra su pala?</a>
-      </div>
+
       <div class="search-wrapper">
         <mat-label>Buscar</mat-label>
         <input
           matInput
           class="search-input"
-          placeholder="Busca tu pala.."
+          placeholder="Buscar anuncio.."
           #txtSearch
-          (keyup)="onSearchRacket(txtSearch.value)"
+          (keyup)="(true)"
         />
+      </div>
+      <div style="text-align: center">
+        <button class="btn">Crear anuncio</button>
       </div>
     </div>
   </div>
-  <div class="cards-wrapper">
-    <div
-      class="rackets-wrapper"
-      *ngFor="
-        let racket of racketsData
-          | racketFiltro : page : brandSelected : search : orderSelected
-      "
-    >
-      <app-pala [data]="racket"></app-pala>
-    </div>
-  </div>
-  <div class="buttons-wrapper">
-    <button class="btn" (click)="prevPage()">Anterior</button>
-    <button class="btn" (click)="nextPage()">Siguiente</button>
-  </div>
+  <div class="cards-wrapper"></div>
 </div>
