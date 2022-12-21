@@ -7,14 +7,14 @@
   </div>
   <hr style="margin-bottom: 0px;" />
   <div class="body-card">
-    <p style="font-size: 16px"><b>Marca: </b>{{ data.brand }}</p>
-    <p style="font-size: 16px"><b>Temporada: </b>{{ data.season }}</p>
+    <p style="font-size: 16px"><b i18n>Marca: </b>{{ data.brand }}</p>
+    <p style="font-size: 16px"><b i18n>Temporada: </b>{{ data.season }}</p>
   </div>
   <div class="price-card">
-    <p style="font-size: 16px"><b>Precio:</b> {{ data.price }}€</p>
+    <p style="font-size: 16px"><b i18n>Precio:</b> {{ data.price }}€</p>
     <div style="text-align: center">
       <a [routerLink]="['/racket', data._id]">
-        <button class="btn">Ver detalles</button>
+        <button class="btn" i18n>Ver detalles</button>
       </a>
     </div>
   </div>

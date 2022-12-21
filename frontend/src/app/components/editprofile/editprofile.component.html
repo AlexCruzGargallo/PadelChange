@@ -1,6 +1,6 @@
 <div class="page-wrapper">
   <div class="register-wrapper">
-    <h2>Editar perfil</h2>
+    <h2 i18n>Editar perfil</h2>
     <hr />
     <div class="register-fields">
       <form class="register-form" action="">
@@ -42,9 +42,9 @@
           />
         </div>
         <div>
-          <button (click)="onSaveImage()">Guardar</button>
+          <button (click)="onSaveImage()" i18n>Guardar</button>
         </div>
-        <label class="label-form" for="">Nombre y apellidos:</label>
+        <label class="label-form" for="" i18n>Nombre y apellidos:</label>
         <p *ngIf="name.invalid && name.touched" style="color: red">
           {{ getNameErrorMessage() }}
         </p>
@@ -56,7 +56,7 @@
             'border-color': name.invalid && name.touched ? 'red' : '#ccc'
           }"
         />
-        <label class="label-form" for="">Email:</label>
+        <label class="label-form" for="" i18n>Email:</label>
         <p *ngIf="email.invalid && email.touched" style="color: red">
           {{ getEmailErrorMessage() }}
         </p>
@@ -68,7 +68,7 @@
             'border-color': email.invalid && email.touched ? 'red' : '#ccc'
           }"
         />
-        <input type="submit" value="Guardar perfil" (click)="submit()" />
+        <input type="submit" value="Guardar perfil" (click)="submit()" i18n/>
       </form>
     </div>
   </div>

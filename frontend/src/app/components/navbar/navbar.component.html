@@ -1,7 +1,7 @@
 <div class="navbar-wrapper">
   <div class="logo-wrapper">PadelChange</div>
-  <div class="section-wrapper"><a routerLink="/adverts">Anuncios</a></div>
-  <div class="section-wrapper"><a routerLink="/rackets">Palas</a></div>
+  <div class="section-wrapper"><a routerLink="/adverts" i18n>Anuncios</a></div>
+  <div class="section-wrapper"><a routerLink="/rackets" i18n>Palas</a></div>
   <div class="right-side-navbar">
     <div class="notification-wrapper">
       <div class="red-circle">2</div>
@@ -22,10 +22,10 @@
         </div>
         <div class="sub-menu" *ngIf="submenu">
           <a routerLink="/profile/edit" (click)="changeSubmenu()"
-            ><li>Editar perfil</li></a
+            ><li i18n>Editar perfil</li></a
           >
-          <li (click)="changeSubmenu();"><a>Historial</a></li>
-          <li (click)="logout(); changeSubmenu();"><a>Cerrar sesión</a></li>
+          <li (click)="changeSubmenu();"><a i18n>Historial</a></li>
+          <li (click)="logout(); changeSubmenu();"><a i18n>Cerrar sesión</a></li>
         </div>
       </div>
       <div style="margin-right: 50px" *ngIf="!isLoggedIn()">

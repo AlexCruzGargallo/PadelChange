@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="6325653919561787204" datatype="html">
+        <source>No ordenar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anunciosgeneral/anunciosgeneral.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palasgeneral/palasgeneral.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="586139087050674522" datatype="html">
+        <source>Precio(Más Alto)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anunciosgeneral/anunciosgeneral.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palasgeneral/palasgeneral.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6350483950741849546" datatype="html">
+        <source>Precio(Más Bajo)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anunciosgeneral/anunciosgeneral.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palasgeneral/palasgeneral.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="52569323574113682" datatype="html">
+        <source>Nombre (A-Z)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anunciosgeneral/anunciosgeneral.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palasgeneral/palasgeneral.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5537385786708545579" datatype="html">
+        <source>Nombre (Z-A)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anunciosgeneral/anunciosgeneral.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palasgeneral/palasgeneral.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5815728598624235424" datatype="html">
+        <source>Temporada</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anunciosgeneral/anunciosgeneral.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palasgeneral/palasgeneral.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8713073708350341933" datatype="html">
+        <source>Buscar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anunciosgeneral/anunciosgeneral.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palasgeneral/palasgeneral.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5775571024432337838" datatype="html">
+        <source>Crear anuncio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anunciosgeneral/anunciosgeneral.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3109061688544988185" datatype="html">
+        <source>Editar perfil</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/editprofile/editprofile.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1372173599787735409" datatype="html">
+        <source>Guardar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/editprofile/editprofile.component.html</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8620794543809503234" datatype="html">
+        <source>Nombre y apellidos:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/editprofile/editprofile.component.html</context>
+          <context context-type="linenumber">47,48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/register/register.component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6631334172623029500" datatype="html">
+        <source>Email:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/editprofile/editprofile.component.html</context>
+          <context context-type="linenumber">59,60</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/register/register.component.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4768749765465246664" datatype="html">
+        <source>Email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7132730488496169673" datatype="html">
+        <source>Contraseña</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="436088666714609226" datatype="html">
+        <source>¿No tienes una cuenta? <x id="START_LINK" ctype="x-a" equiv-text="&lt;a&gt;"/>Regístrate<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2054784582941753828" datatype="html">
+        <source>Establece una puntuación:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/modalrateracket/modalrateracket.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="72818503208115332" datatype="html">
+        <source> Descripcion: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/modalrateracket/modalrateracket.component.html</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="370301114128226870" datatype="html">
+        <source>Puntuar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/modalrateracket/modalrateracket.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2453168256351486591" datatype="html">
+        <source>Anuncios</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="253981665938614071" datatype="html">
+        <source>Palas</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2337884761304775820" datatype="html">
+        <source>Historial</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1294390259244223882" datatype="html">
+        <source>Cerrar sesión</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4404713948934507073" datatype="html">
+        <source>Marca: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/pala/pala.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7648514012183434275" datatype="html">
+        <source>Temporada: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/pala/pala.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palainfo/palainfo.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2520628223219999682" datatype="html">
+        <source>Precio:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/pala/pala.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4483039947937805015" datatype="html">
+        <source>Ver detalles</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/pala/pala.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6477654287821741553" datatype="html">
+        <source>Valorar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palainfo/palainfo.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="635385177438699732" datatype="html">
+        <source>Detalles de la pala</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palainfo/palainfo.component.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6233298367581979931" datatype="html">
+        <source>Material Marco: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palainfo/palainfo.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5158976649650169713" datatype="html">
+        <source>Material plano: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palainfo/palainfo.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3308291289621551438" datatype="html">
+        <source>Material goma: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palainfo/palainfo.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7435020371866398194" datatype="html">
+        <source>Tacto: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palainfo/palainfo.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2201477612388566465" datatype="html">
+        <source>Forma: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palainfo/palainfo.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2061566847321134632" datatype="html">
+        <source>Peso: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palainfo/palainfo.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6953925558899586191" datatype="html">
+        <source>Precio Mercado: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palainfo/palainfo.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1545665446323973672" datatype="html">
+        <source>Filtrar por marca</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palasgeneral/palasgeneral.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4553541981596433856" datatype="html">
+        <source>Sin filtrar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palasgeneral/palasgeneral.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1575837182017282473" datatype="html">
+        <source>No encuentra su pala?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palasgeneral/palasgeneral.component.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="452830638458584000" datatype="html">
+        <source>Anterior</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palasgeneral/palasgeneral.component.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3237447972400589452" datatype="html">
+        <source>Siguiente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/palasgeneral/palasgeneral.component.html</context>
+          <context context-type="linenumber">56,57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7724271655992335183" datatype="html">
+        <source>Contraseña:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/register/register.component.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6161304091736202574" datatype="html">
+        <source>Confirmar contraseña: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/register/register.component.html</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
