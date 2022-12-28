@@ -24,6 +24,9 @@ import { EditprofileComponent } from './components/editprofile/editprofile.compo
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { HttpClientModule } from '@angular/common/http';
 import { AnunciosgeneralComponent } from './components/anunciosgeneral/anunciosgeneral.component';
+import { ModalcreateadvertComponent } from './components/modalcreateadvert/modalcreateadvert.component';
+import { ModalpleaseloginComponent } from './components/modalpleaselogin/modalpleaselogin.component';
+import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +43,9 @@ import { AnunciosgeneralComponent } from './components/anunciosgeneral/anunciosg
     PalacreateComponent,
     EditprofileComponent,
     AnunciosgeneralComponent,
+    ModalcreateadvertComponent,
+    ModalpleaseloginComponent,
+    FooterComponent,
   ],
   entryComponents: [ModalrateracketComponent],
   imports: [

@@ -14,7 +14,6 @@ export class ModalrateracketComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 
   ngOnInit(): void {
-    console.log('hola', this.data);
   }
   vote() {
     let ratingRacket = {

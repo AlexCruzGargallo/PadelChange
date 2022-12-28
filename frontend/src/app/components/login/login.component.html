@@ -19,7 +19,9 @@
           required
           [type]="hide ? 'password' : 'text'"
         />
-        <p i18n>¿No tienes una cuenta? <a>Regístrate</a></p>
+        <p i18n>
+          ¿No tienes una cuenta? <a routerLink="/register">Regístrate</a>
+        </p>
         <input type="submit" (click)="onClick()" value="Iniciar sesión" />
       </form>
     </div>

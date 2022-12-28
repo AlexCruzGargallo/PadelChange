@@ -8,16 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   submenu: boolean = false;
   apiUrl: string = 'http://localhost:4000/api';
-  apiImgUrl: string = 'http://localhost:4000/imgs/'
-  userData: any = ''
+  apiImgUrl: string = 'http://localhost:4000/imgs/';
+  userData: any = '';
 
   constructor() {}
 
   async ngOnInit(): Promise<void> {
     const id = localStorage.getItem('userId');
+
     if (id) {
       this.userData = await this.getUserData(id);
     }
+    console.log(this.apiImgUrl + this.userData.image);
   }
 
   changeSubmenu() {
@@ -33,6 +35,7 @@ export class NavbarComponent implements OnInit {
   logout() {
     localStorage.removeItem('userId');
     localStorage.removeItem('token');
+    window.location.reload();
   }
 
   public async getUserData(id: string): Promise<any> {

@@ -1,0 +1,13 @@
+<h1>Crea tu anuncio!</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label for="username" i18n>Pala:</label>
+  <input type="text" id="username" formControlName="username" />
+  <label for="password" i18n>Estado de la pala:</label>
+  <input type="text" id="racket" formControlName="racket" />
+  <label for="acceptoffer"></label>
+  Aceptar ofertas:
+  <input type="checkbox" name="checkbox" (chage)="onCheckboxChange()" />
+  <p>Palas que te interesan:</p>
+  {{ this.want_items }}
+  <button type="submit" [disabled]="!form.valid" i18n>Enviar</button>
+</form>

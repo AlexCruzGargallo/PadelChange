@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalrateracketComponent } from '../modalrateracket/modalrateracket.component';
+import { ModalpleaseloginComponent } from '../modalpleaselogin/modalpleaselogin.component';
 
 @Component({
   selector: 'app-palainfo',
@@ -51,7 +52,19 @@ export class PalainfoComponent implements OnInit {
   }
 
   openModalVote() {
-    this.matDialog.open(ModalrateracketComponent, { data: this.racketData });
+    if (this.isLoggedIn()) {
+      this.matDialog.open(ModalrateracketComponent, { data: this.racketData });
+    } else {
+      this.matDialog.open(ModalpleaseloginComponent);
+    }
+  }
+
+  isLoggedIn(): boolean {
+    if (localStorage.getItem('userId') && localStorage.getItem('token')) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public async getRacketData(id: string): Promise<any> {

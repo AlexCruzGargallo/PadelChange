@@ -1,5 +1,7 @@
 <div class="navbar-wrapper">
-  <div class="logo-wrapper">PadelChange</div>
+  <a class="logoa-wrapper" routerLink="/"
+    ><div class="logo-wrapper">PadelChange</div></a
+  >
   <div class="section-wrapper"><a routerLink="/adverts" i18n>Anuncios</a></div>
   <div class="section-wrapper"><a routerLink="/rackets" i18n>Palas</a></div>
   <div class="right-side-navbar">
@@ -16,7 +18,7 @@
         <div class="image-menu" (click)="changeSubmenu()">
           <img
             class="profile-pic"
-            [src]="apiImgUrl+userData.image"
+            [src]="apiImgUrl + userData.image"
             alt="profile-pic"
           />
         </div>
@@ -24,8 +26,8 @@
           <a routerLink="/profile/edit" (click)="changeSubmenu()"
             ><li i18n>Editar perfil</li></a
           >
-          <li (click)="changeSubmenu();"><a i18n>Historial</a></li>
-          <li (click)="logout(); changeSubmenu();"><a i18n>Cerrar sesión</a></li>
+          <li (click)="changeSubmenu()"><a i18n>Historial</a></li>
+          <li (click)="logout(); changeSubmenu()"><a i18n>Cerrar sesión</a></li>
         </div>
       </div>
       <div style="margin-right: 50px" *ngIf="!isLoggedIn()">
