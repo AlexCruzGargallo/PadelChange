@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div class="header">
+    <mat-icon>search</mat-icon>
+    <input
+      matInput
+      class="search-input"
+      placeholder="Busca tu pala.."
+      #txtSearch
+      (keyup)="onSearchRacket(txtSearch.value)"
+    />
+  </div>
+  <div class="rackets-wrapper">
+    <div *ngFor="let racket of data | modalRacketPipe : search">
+      <div (click)="onClickRacketDiv(racket)" class="racket-div">
+        <img
+          class="racket-image"
+          src="assets/imgs/rackets/{{ racket.img }}"
+          alt=""
+        />
+        {{ racket.name }}
+      </div>
+    </div>
+  </div>
+</div>

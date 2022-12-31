@@ -1,13 +1,99 @@
 <h1>Crea tu anuncio!</h1>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <label for="username" i18n>Pala:</label>
-  <input type="text" id="username" formControlName="username" />
-  <label for="password" i18n>Estado de la pala:</label>
-  <input type="text" id="racket" formControlName="racket" />
-  <label for="acceptoffer"></label>
-  Aceptar ofertas:
-  <input type="checkbox" name="checkbox" (chage)="onCheckboxChange()" />
-  <p>Palas que te interesan:</p>
-  {{ this.want_items }}
-  <button type="submit" [disabled]="!form.valid" i18n>Enviar</button>
+  <div class="first-div">
+    <label for="racket" i18n>Pala que ofreces:</label>
+    <div class="pala-div">
+      <div
+        style="text-align: center; display: table-caption"
+        *ngIf="this.myRacket != ''"
+      >
+        <div>
+          <img
+            class="racket-image"
+            src="assets/imgs/rackets/{{ myRacket.img }}"
+            alt=""
+          />
+          <mat-icon
+            style="position: absolute; cursor: pointer"
+            (click)="this.myRacket = ''"
+            >close</mat-icon
+          >
+        </div>
+
+        {{ this.myRacket.name }}
+      </div>
+      <div *ngIf="this.myRacket == ''">
+        <a (click)="openRacketModal()"
+          ><mat-icon class="add-circle">add_circle</mat-icon></a
+        >
+      </div>
+    </div>
+    <div class="state-div">
+      <label for="state" i18n>Estado de la pala:</label>
+    </div>
+    <div class="state-select-div">
+      <mat-select
+        class="mat-select"
+        [(value)]="stateSelected"
+        (selectionChange)="onSelectState()"
+      >
+        <mat-option value="Sin especificar">Sin especificar</mat-option>
+        <mat-option value="Muy desgastada">Muy desgastada</mat-option>
+        <mat-option value="Algo desgastada">Algo desgastada</mat-option>
+        <mat-option value="Casi nueva">Casi nueva</mat-option>
+        <mat-option value="Nueva">Nueva</mat-option>
+      </mat-select>
+    </div>
+  </div>
+  <hr />
+  <h1>Cambiar por:</h1>
+  <div class="state-select-div">
+    <mat-select [(value)]="changeFor" (selectionChange)="onSelectChangeFor()">
+      <mat-option value="Palas">Palas</mat-option>
+      <mat-option value="Dinero">Dinero</mat-option>
+    </mat-select>
+  </div>
+  <div *ngIf="changeFor === 'Palas'">
+    <p>Palas que te interesan:</p>
+    <div class="pala-div-want">
+      <div
+        style="
+          text-align: center;
+          display: table-caption;
+          max-width: 100px;
+          margin-right: 20px;
+        "
+        *ngFor="let pala of want_items"
+      >
+        <div style="display: inline-flex">
+          <img
+            class="racket-image"
+            src="assets/imgs/rackets/{{ pala.img }}"
+            alt=""
+          />
+          <mat-icon
+            style="position: relative; cursor: pointer"
+            (click)="this.myRacket = ''"
+            >close</mat-icon
+          >
+        </div>
+        {{ pala.name }}
+      </div>
+      <div>
+        <a (click)="openWantRacketModal()"
+          ><mat-icon class="add-circle">add_circle</mat-icon></a
+        >
+      </div>
+    </div>
+  </div>
+  <div *ngIf="changeFor === 'Dinero'">
+    <p>Palas que te interesan:</p>
+    <div class="pala-div"></div>
+  </div>
+
+  <div>
+    <label for="acceptoffer">Aceptar ofertas:</label>
+    <input type="checkbox" name="checkbox" (chage)="onCheckboxChange()" />
+  </div>
+  <button type="submit" [disabled]="!form.valid" i18n>Crear anuncio</button>
 </form>

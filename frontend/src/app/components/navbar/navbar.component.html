@@ -5,11 +5,11 @@
   <div class="section-wrapper"><a routerLink="/adverts" i18n>Anuncios</a></div>
   <div class="section-wrapper"><a routerLink="/rackets" i18n>Palas</a></div>
   <div class="right-side-navbar">
-    <div class="notification-wrapper">
+    <div class="notification-wrapper" *ngIf="isLoggedIn()">
       <div class="red-circle">2</div>
       <mat-icon class="chat-icon-nav"> chat_bubble</mat-icon>
     </div>
-    <div class="message-wrapper">
+    <div class="message-wrapper" *ngIf="isLoggedIn()">
       <div class="red-circle">2</div>
       <mat-icon class="bell-icon-nav">notifications</mat-icon>
     </div>

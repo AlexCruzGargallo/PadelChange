@@ -13,6 +13,7 @@ export class AnunciosgeneralComponent implements OnInit {
   ngOnInit(): void {}
 
   openModalCreateAd() {
+    
     this.matDialog.open(ModalcreateadvertComponent);
   }
 }

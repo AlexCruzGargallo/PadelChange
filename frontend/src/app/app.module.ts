@@ -27,6 +27,8 @@ import { AnunciosgeneralComponent } from './components/anunciosgeneral/anunciosg
 import { ModalcreateadvertComponent } from './components/modalcreateadvert/modalcreateadvert.component';
 import { ModalpleaseloginComponent } from './components/modalpleaselogin/modalpleaselogin.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ModalsearchracketComponent } from './components/modalsearchracket/modalsearchracket.component';
+import { ModalRacketPipePipe } from './pipes/modal-racket-pipe.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +48,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ModalcreateadvertComponent,
     ModalpleaseloginComponent,
     FooterComponent,
+    ModalsearchracketComponent,
+    ModalRacketPipePipe,
   ],
   entryComponents: [ModalrateracketComponent],
   imports: [

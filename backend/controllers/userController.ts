@@ -126,12 +126,13 @@ class UserController {
   public async getUserData(req: any, res: Response) {
     try {
       const userId = req.params.id;
+      console.log(userId)
       const user = await User.findOne({
         _id: userId,
       });
 
       if (!user) {
-        throw new Error("No se encontró la pala");
+        throw new Error("No se encontró el usuario");
       }
 
       res.send({
