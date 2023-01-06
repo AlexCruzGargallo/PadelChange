@@ -1,5 +1,6 @@
 .add-circle {
-  margin-left: 20px;
+  height: 100px;
+  width: 100px;
   cursor: pointer;
   font-size: 100px;
   transition: all 0.2s ease-in-out;
@@ -41,4 +42,66 @@
   height: 100px;
   border-radius: 50%;
   background-color: #efefef;
+}
+.textarea-desc {
+  width: 820px;
+  height: 200px;
+  resize: none;
+  font-size: 17px;
+  border-radius: 8px;
+  padding: 10px;
+}
+.file-container {
+  width: 600px;
+  border: 4px dotted black;
+}
+.file {
+  opacity: 0;
+  padding: 5rem;
+  width: auto;
+}
+.img-uploads {
+  height: 100px;
+  margin-right: 30px;
+  width: 100px;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  cursor: pointer;
+  background-color: none;
+  padding: 5px;
+  border-radius: 5px;
+}
+.tags-wrapper {
+  margin-top: 15px;
+  display: flex;
+  position: relative;
+  max-width: 80%;
+}
+.tag-div {
+  position: relative;
+  background-color: gainsboro;
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 10px;
+}
+.tag {
+  border: 0px;
+  background-color: gainsboro;
+  border-radius: 5px;
+  padding: 5px;
+}
+.create-button {
+  cursor: pointer;
+  background: #0011ff;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+}
+.button-div {
+  text-align: center;
+  margin: 10px;
+}
+.create-button:hover {
+  background: aqua;
 }

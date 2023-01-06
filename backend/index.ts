@@ -5,6 +5,7 @@ import cors from "cors";
 import UsersRouter from "./routes/userRouter";
 import RacketsRouter from "./routes/racketRouter";
 import RacketRatingsRouter from "./routes/racketRatingRouter";
+import AdvertsRouter from "./routes/advertRouter";
 import connectDB from "./config/db";
 import authenticateToken from "./middlewares/authenticate";
 
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use("/api/users", UsersRouter);
 app.use("/api/rackets", RacketsRouter);
 app.use("/api/racketratings", RacketRatingsRouter);
+app.use("/api/adverts", AdvertsRouter);
 
 app.use(express.static(path.join(__dirname, "public")));
 

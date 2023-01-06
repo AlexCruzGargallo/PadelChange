@@ -18,8 +18,8 @@ export class NavbarComponent implements OnInit {
 
     if (id) {
       this.userData = await this.getUserData(id);
+      console.log(this.apiImgUrl + this.userData.image);
     }
-    console.log(this.apiImgUrl + this.userData.image);
   }
 
   changeSubmenu() {
@@ -35,7 +35,17 @@ export class NavbarComponent implements OnInit {
   logout() {
     localStorage.removeItem('userId');
     localStorage.removeItem('token');
+    localStorage.removeItem('userImage');
     window.location.reload();
+  }
+
+  getUserImage(): string {
+    const imageName = localStorage.getItem('userImage');
+    if (imageName) {
+      return imageName;
+    } else {
+      return '';
+    }
   }
 
   public async getUserData(id: string): Promise<any> {

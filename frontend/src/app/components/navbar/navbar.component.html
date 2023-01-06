@@ -18,7 +18,7 @@
         <div class="image-menu" (click)="changeSubmenu()">
           <img
             class="profile-pic"
-            [src]="apiImgUrl + userData.image"
+            [src]="apiImgUrl + getUserImage()"
             alt="profile-pic"
           />
         </div>
@@ -31,13 +31,10 @@
         </div>
       </div>
       <div style="margin-right: 50px" *ngIf="!isLoggedIn()">
-        <div class="image-menu" (click)="changeSubmenu()">
-          <mat-icon class="user-icon">person</mat-icon>
-        </div>
-        <div class="sub-menu-off" *ngIf="submenu">
-          <a routerLink="/login" (click)="changeSubmenu()"
-            ><li>Iniciar sesión</li></a
-          >
+        <div class="image-menu">
+          <a routerLink="/login"
+            ><button class="button-1" i18n>Iniciar sesión</button>
+          </a>
         </div>
       </div>
     </div>
