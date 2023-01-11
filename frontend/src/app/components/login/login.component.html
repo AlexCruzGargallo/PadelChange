@@ -4,21 +4,25 @@
     <hr />
     <div class="login-fields">
       <form class="login-form" action="">
-        <label class="label-form" for="">Email</label>
+        <label class="label-form" for="" i18n>Email</label>
         <input
+          [formControl]="email"
           type="text"
           placeholder="Dirección de correo electrónico"
           required
         />
-        <label class="label-form" for="">Contraseña</label>
+        <label class="label-form" for="" i18n>Contraseña</label>
         <input
+          [formControl]="password"
           type="password"
           placeholder="********"
           required
           [type]="hide ? 'password' : 'text'"
         />
-        <p>¿No tienes una cuenta? <a>Regístrate</a></p>
-        <input type="submit" value="Iniciar sesión" />
+        <p i18n>
+          ¿No tienes una cuenta? <a routerLink="/register">Regístrate</a>
+        </p>
+        <input type="submit" (click)="onClick()" value="Iniciar sesión" />
       </form>
     </div>
   </div>

@@ -1,0 +1,46 @@
+<div class="wrapper">
+  <div class="image">
+    <img class="user-pic" [src]="apiImgUrl + userData.image" alt="user-pic" />
+  </div>
+  <div class="stars-name">
+    <div style="display: flex; margin-bottom: 10px">
+      <mat-icon> location_on</mat-icon> {{ this.data.location[0].city }} ({{
+        km
+      }}
+      km)
+    </div>
+    <div style="display: flex">
+      <ngx-star-rating
+        [formControl]="rating"
+        [id]="'rating2'"
+        [disabled]="false"
+      ></ngx-star-rating>
+      (0 val)
+    </div>
+
+    <div class="span-name">{{ userData.name }}</div>
+  </div>
+  <div class="trade-wrapper">
+    <div class="sell-wrapper">
+      <div style="justify-content: center; align-items: center; display: flex">
+        <img
+          [src]="'assets/imgs/rackets/' + sellItemData.img"
+          alt="sell-racket"
+          class="want-racket-image"
+        />
+      </div>
+      {{ sellItemData.name }}
+    </div>
+    <div style="width: 50px">
+      <mat-icon class="icon">compare_arrows</mat-icon>
+    </div>
+    <div class="sell-wrapper" *ngFor="let want of wantItemsData">
+      <img
+        [src]="'assets/imgs/rackets/' + want.img"
+        alt="sell-racket"
+        class="want-racket-image"
+      />
+      {{ want.name }}
+    </div>
+  </div>
+</div>

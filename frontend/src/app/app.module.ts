@@ -18,7 +18,19 @@ import { RacketFiltroPipe } from './pipes/racket-filtro.pipe';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalrateracketComponent } from './components/modalrateracket/modalrateracket.component';
-
+import { StarsComponent } from './components/stars/stars.component';
+import { PalacreateComponent } from './components/palacreate/palacreate.component';
+import { EditprofileComponent } from './components/editprofile/editprofile.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { HttpClientModule } from '@angular/common/http';
+import { AnunciosgeneralComponent } from './components/anunciosgeneral/anunciosgeneral.component';
+import { ModalcreateadvertComponent } from './components/modalcreateadvert/modalcreateadvert.component';
+import { ModalpleaseloginComponent } from './components/modalpleaselogin/modalpleaselogin.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ModalsearchracketComponent } from './components/modalsearchracket/modalsearchracket.component';
+import { ModalRacketPipePipe } from './pipes/modal-racket-pipe.pipe';
+import { AnuncioComponent } from './components/anuncio/anuncio.component';
+import { AnuncioinfoComponent } from './components/anuncioinfo/anuncioinfo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +43,17 @@ import { ModalrateracketComponent } from './components/modalrateracket/modalrate
     PalainfoComponent,
     RacketFiltroPipe,
     ModalrateracketComponent,
+    StarsComponent,
+    PalacreateComponent,
+    EditprofileComponent,
+    AnunciosgeneralComponent,
+    ModalcreateadvertComponent,
+    ModalpleaseloginComponent,
+    FooterComponent,
+    ModalsearchracketComponent,
+    ModalRacketPipePipe,
+    AnuncioComponent,
+    AnuncioinfoComponent,
   ],
   entryComponents: [ModalrateracketComponent],
   imports: [
@@ -44,6 +67,8 @@ import { ModalrateracketComponent } from './components/modalrateracket/modalrate
     MatSelectModule,
     NgxStarRatingModule,
     MatDialogModule,
+    ImageCropperModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

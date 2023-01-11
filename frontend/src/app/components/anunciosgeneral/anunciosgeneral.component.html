@@ -1,0 +1,54 @@
+<div class="page-wrapper">
+  <div class="tools-wrapper">
+    <div class="row-wrapper">
+      <div class="filter-wrapper">
+        <mat-form-field appearance="fill">
+          <mat-label>Filtrar por distancia</mat-label>
+          <mat-select>
+            <mat-option value="Sin filtrar">Sin filtrar</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="order-wrapper">
+        <mat-form-field appearance="fill">
+          <mat-label>Ordenar por</mat-label>
+          <mat-select>
+            <mat-option value="No ordenar" i18n>No ordenar</mat-option>
+            <mat-option value="priceasc" i18n>Precio(Más Alto)</mat-option>
+            <mat-option value="pricedesc" i18n>Precio(Más Bajo)</mat-option>
+            <mat-option value="nameasc" i18n>Nombre (A-Z)</mat-option>
+            <mat-option value="namedesc" i18n>Nombre (Z-A)</mat-option>
+            <mat-option value="season" i18n>Temporada</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="search-wrapper">
+        <mat-label i18n>Buscar</mat-label>
+        <input
+          matInput
+          class="search-input"
+          placeholder="Buscar anuncio.."
+          #txtSearch
+          (keyup)="(true)"
+        />
+      </div>
+      <div style="text-align: center">
+        <button class="btn" (click)="openModalCreateAd()" i18n>
+          Crear anuncio
+        </button>
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="advert-wrapperr">
+      <div
+        class="advert"
+        *ngFor="let advert of adverts"
+        [routerLink]="['/advert', advert._id]"
+      >
+        <app-anuncio [data]="advert"></app-anuncio>
+      </div>
+    </div>
+  </section>
+</div>

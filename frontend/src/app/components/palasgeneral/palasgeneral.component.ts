@@ -11,11 +11,18 @@ export class PalasgeneralComponent implements OnInit {
   racketsData: any;
   public page: number = 0;
   public search: string = '';
+  public brands: any[] = [];
+  public brandSelected: string = 'Sin filtrar';
+  public orderSelected: string = 'No ordenar';
 
   constructor() {}
 
   async ngOnInit(): Promise<void> {
     this.racketsData = await this.getAllRacketsData();
+    this.brands = [
+      ...new Set(this.racketsData.map((item: { brand: any }) => item.brand)),
+    ];
+    this.brands.sort();
   }
 
   nextPage() {
@@ -31,6 +38,13 @@ export class PalasgeneralComponent implements OnInit {
   onSearchRacket(search: string) {
     this.page = 0;
     this.search = search;
+  }
+  onSelect() {
+    console.log('ssss');
+    this.page = 0;
+  }
+  onFilter() {
+    this.page = 0;
   }
 
   public async getAllRacketsData(): Promise<any> {

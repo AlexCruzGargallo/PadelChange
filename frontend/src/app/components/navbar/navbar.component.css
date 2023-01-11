@@ -1,9 +1,10 @@
 .navbar-wrapper {
-  background-color: #d9d9d9;
-  width: 100%;
+  background-color: white;
   height: 70px;
   display: flex;
   align-items: center;
+  padding-left: 80px;
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
 }
 .logo-wrapper {
   margin-left: 20px;
@@ -32,7 +33,7 @@
   height: 100%;
   display: flex;
   margin-left: auto;
-  margin-right: 0;
+  margin-right: 50px;
   align-items: center;
 }
 .notification-wrapper {
@@ -49,21 +50,31 @@
   margin-left: 20px;
   margin-right: 20px;
 }
+.logoa-wrapper {
+  text-decoration: none;
+  color: black;
+}
 .profile-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
   margin-left: 20px;
   margin-right: 20px;
 }
 .profile-pic {
+  border: solid 0.5px gray;
   height: 40px;
   width: 40px;
   border-radius: 50%;
   margin-right: 50px;
 }
 .bell-icon-nav {
-  transform: scale(1.6);
+  cursor: pointer;
+  transform: scale(1.4);
 }
 .chat-icon-nav {
-  transform: scale(1.3);
+  cursor: pointer;
+  transform: scale(1.2);
 }
 .red-circle {
   text-align: center;
@@ -78,4 +89,83 @@
   border-radius: 50%;
   position: absolute;
   z-index: 2;
+}
+.sub-menu {
+  font-size: 15px;
+  position: absolute;
+  background-color: white;
+  translate: -120px 12px;
+  border-radius: 5px;
+  border: solid 0.5px rgb(189, 189, 189);
+}
+.sub-menu-off {
+  position: absolute;
+  background-color: #d9d9d9;
+  translate: -120px 18px;
+}
+.sub-menu li {
+  cursor: pointer;
+  border-radius: 5px;
+  width: 150px;
+  list-style-type: none;
+  padding: 10px;
+}
+.sub-menu-off li {
+  cursor: pointer;
+  border: solid 1px black;
+  width: 150px;
+  list-style-type: none;
+  padding: 10px;
+}
+.sub-menu a {
+  text-decoration: none;
+  color: black;
+}
+.sub-menu-off a {
+  text-decoration: none;
+  color: black;
+}
+.sub-menu li:hover {
+  background-color: #f8f8f8;
+}
+.sub-menu-off li:hover {
+  background-color: #f8f8f8;
+}
+.image-menu {
+  cursor: pointer;
+}
+.user-icon {
+  cursor: pointer;
+  transform: scale(1.4);
+  padding-top: 3px;
+}
+.button-1 {
+  background-color: #0011ff;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-1:hover,
+.button-1:focus {
+  background-color: #4869fc;
 }

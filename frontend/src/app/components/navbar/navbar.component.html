@@ -1,23 +1,41 @@
 <div class="navbar-wrapper">
-  <div class="logo-wrapper">PadelChange</div>
-  <div class="section-wrapper"><a href="">Anuncios</a></div>
-  <div class="section-wrapper"><a routerLink="/rackets">Palas</a></div>
+  <a class="logoa-wrapper" routerLink="/"
+    ><div class="logo-wrapper">PadelChange</div></a
+  >
+  <div class="section-wrapper"><a routerLink="/adverts" i18n>Anuncios</a></div>
+  <div class="section-wrapper"><a routerLink="/rackets" i18n>Palas</a></div>
   <div class="right-side-navbar">
-    <div class="notification-wrapper">
+    <div class="notification-wrapper" *ngIf="isLoggedIn()">
       <div class="red-circle">2</div>
       <mat-icon class="chat-icon-nav"> chat_bubble</mat-icon>
     </div>
-    <div class="message-wrapper">
+    <div class="message-wrapper" *ngIf="isLoggedIn()">
       <div class="red-circle">2</div>
       <mat-icon class="bell-icon-nav">notifications</mat-icon>
     </div>
-    <div class="profile-wrapper">
-      <div>
-        <img
-          class="profile-pic"
-          src="assets/imgs/user-image-default.png"
-          alt="profile-pic"
-        />
+    <div class="profile-wrapper" tabindex="0">
+      <div *ngIf="isLoggedIn()">
+        <div class="image-menu" (click)="changeSubmenu()">
+          <img
+            class="profile-pic"
+            [src]="apiImgUrl + getUserImage()"
+            alt="profile-pic"
+          />
+        </div>
+        <div class="sub-menu" *ngIf="submenu">
+          <a routerLink="/profile/edit" (click)="changeSubmenu()"
+            ><li i18n>Editar perfil</li></a
+          >
+          <li (click)="changeSubmenu()"><a i18n>Historial</a></li>
+          <li (click)="logout(); changeSubmenu()"><a i18n>Cerrar sesión</a></li>
+        </div>
+      </div>
+      <div style="margin-right: 50px" *ngIf="!isLoggedIn()">
+        <div class="image-menu">
+          <a routerLink="/login"
+            ><button class="button-1" i18n>Iniciar sesión</button>
+          </a>
+        </div>
       </div>
     </div>
   </div>

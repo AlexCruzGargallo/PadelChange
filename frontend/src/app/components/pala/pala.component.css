@@ -4,6 +4,7 @@
 }
 
 .profile-pic {
+  background-color: white;
   height: 100px;
   width: 100px;
   border-radius: 50%;
@@ -13,9 +14,9 @@
 .head-card {
   text-align: left;
   margin-left: 5px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 23px;
+  margin-top: 17px;
+  margin-bottom: 35px;
+  font-size: 20px;
 }
 .star-wrap {
   width: 100%;
@@ -25,23 +26,13 @@
   margin-bottom: 10px;
 }
 .body-card {
+  margin-top: 15px;
   margin-left: 5px;
   margin-bottom: 10px;
 }
 .price-card {
   margin-left: 5px;
   font-size: 23px;
-}
-
-.button-details {
-  cursor: pointer;
-  color: white;
-  background-color: black;
-  padding: 10px;
-  font-size: 17px;
-  border-radius: 10px;
-  margin-top: 10px;
-  bottom: 0%;
 }
 
 ::ng-deep label.star {
@@ -61,4 +52,56 @@
 ::ng-deep input.star-5:checked ~ label.star:before {
   color: #fe7;
   text-shadow: 0 0 0px #952 !important;
+}
+.btn {
+  margin-top: 10px;
+  cursor: pointer;
+  position: relative;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1em 2em;
+  display: inline-block;
+  border-radius: 6em;
+  transition: all 0.2s;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  color: black;
+  background-color: white;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }

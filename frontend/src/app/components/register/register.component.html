@@ -4,7 +4,7 @@
     <hr />
     <div class="register-fields">
       <form class="register-form" action="">
-        <label class="label-form" for="">Nombre y apellidos:</label>
+        <label class="label-form" for="" i18n>Nombre y apellidos:</label>
         <p *ngIf="name.invalid && name.touched" style="color: red">
           {{ getNameErrorMessage() }}
         </p>
@@ -16,7 +16,7 @@
             'border-color': name.invalid && name.touched ? 'red' : '#ccc'
           }"
         />
-        <label class="label-form" for="">Email:</label>
+        <label class="label-form" for="" i18n>Email:</label>
         <p *ngIf="email.invalid && email.touched" style="color: red">
           {{ getEmailErrorMessage() }}
         </p>
@@ -28,7 +28,7 @@
             'border-color': email.invalid && email.touched ? 'red' : '#ccc'
           }"
         />
-        <label class="label-form" for="">Contraseña:</label>
+        <label class="label-form" for="" i18n>Contraseña:</label>
         <p *ngIf="password.invalid && password.touched" style="color: red">
           {{ getPasswordErrorMessage() }}
         </p>
@@ -41,7 +41,7 @@
               password.invalid && password.touched ? 'red' : '#ccc'
           }"
         />
-        <label class="label-form" for="">Confirmar contraseña: </label>
+        <label class="label-form" for="" i18n>Confirmar contraseña: </label>
         <p
           *ngIf="confirmPassword.invalid && confirmPassword.touched"
           style="color: red"
@@ -59,6 +59,9 @@
                 : '#ccc'
           }"
         />
+        <p i18n>
+          ¿Ya tienes una cuenta? <a routerLink="/login">Inicia sesión</a>
+        </p>
         <input type="submit" value="Registrate" (click)="submit()" />
       </form>
     </div>
