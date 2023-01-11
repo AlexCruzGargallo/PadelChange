@@ -40,5 +40,15 @@
       </div>
     </div>
   </div>
-  <div class="cards-wrapper"></div>
+  <section>
+    <div class="advert-wrapperr">
+      <div
+        class="advert"
+        *ngFor="let advert of adverts"
+        [routerLink]="['/advert', advert._id]"
+      >
+        <app-anuncio [data]="advert"></app-anuncio>
+      </div>
+    </div>
+  </section>
 </div>

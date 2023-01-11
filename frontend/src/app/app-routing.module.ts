@@ -8,6 +8,7 @@ import { PalainfoComponent } from './components/palainfo/palainfo.component';
 import { PalacreateComponent } from './components/palacreate/palacreate.component';
 import { EditprofileComponent } from './components/editprofile/editprofile.component';
 import { AnunciosgeneralComponent } from './components/anunciosgeneral/anunciosgeneral.component';
+import { AnuncioinfoComponent } from './components/anuncioinfo/anuncioinfo.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'rackets/create', component: PalacreateComponent },
   { path: 'profile/edit', component: EditprofileComponent },
   { path: 'adverts', component: AnunciosgeneralComponent },
+  { path: 'advert/:id', component: AnuncioinfoComponent },
   { path: '', component: HomeComponent },
 ];
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalsearchracketComponent } from '../modalsearchracket/modalsearchracket.component';
+import axios, { isCancel, AxiosError } from 'axios';
 
 @Component({
   selector: 'app-modalcreateadvert',
@@ -21,6 +22,10 @@ export class ModalcreateadvertComponent implements OnInit {
   images: any = [];
   tagList: string[] = [];
   description: string = '';
+  lat: number = 0;
+  lon: number = 0;
+  city: any;
+  area: any;
 
   constructor(private matDialog: MatDialog) {}
 
@@ -78,7 +83,12 @@ export class ModalcreateadvertComponent implements OnInit {
       final_date: null,
       description: this.description,
       tags: this.tagList,
-      location: '',
+      location: {
+        area: this.area,
+        city: this.city,
+        lat: this.lat,
+        lon: this.lon,
+      },
       tokenPayload: {
         accessToken: localStorage.getItem('token'),
         _id: localStorage.getItem('userId'),
@@ -118,6 +128,37 @@ export class ModalcreateadvertComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    console.log('holaa');
+    const pos: any = await new Promise((resolve, reject): any => {
+      navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+
+    this.lat = pos.coords.latitude;
+    this.lon = pos.coords.longitude;
+
+    const options = {
+      method: 'GET',
+      url: 'https://trueway-geocoding.p.rapidapi.com/ReverseGeocode',
+      params: { location: this.lat + ',' + this.lon, language: 'en' },
+      headers: {
+        'X-RapidAPI-Key': '6b3bace803msh1c3a2968f9ac789p1c908ajsn4052d05ed24e',
+        'X-RapidAPI-Host': 'trueway-geocoding.p.rapidapi.com',
+      },
+    };
+    let cityDetails: any = {};
+    let city: any = await axios
+      .request(options)
+      .then((response) => {
+        cityDetails = response.data.results[0];
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+    if (cityDetails.locality && cityDetails.area) {
+      this.city = cityDetails.locality;
+      this.area = cityDetails.area;
+    }
     this.racketsData = await this.getAllRacketsData();
   }
 

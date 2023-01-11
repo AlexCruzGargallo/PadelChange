@@ -29,6 +29,8 @@ import { ModalpleaseloginComponent } from './components/modalpleaselogin/modalpl
 import { FooterComponent } from './components/footer/footer.component';
 import { ModalsearchracketComponent } from './components/modalsearchracket/modalsearchracket.component';
 import { ModalRacketPipePipe } from './pipes/modal-racket-pipe.pipe';
+import { AnuncioComponent } from './components/anuncio/anuncio.component';
+import { AnuncioinfoComponent } from './components/anuncioinfo/anuncioinfo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +52,8 @@ import { ModalRacketPipePipe } from './pipes/modal-racket-pipe.pipe';
     FooterComponent,
     ModalsearchracketComponent,
     ModalRacketPipePipe,
+    AnuncioComponent,
+    AnuncioinfoComponent,
   ],
   entryComponents: [ModalrateracketComponent],
   imports: [

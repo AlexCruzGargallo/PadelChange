@@ -40,6 +40,42 @@ class AdvertController {
       res.status(400).send(err);
     }
   }
+
+  public async getAllAdverts(req: any, res: Response) {
+    try {
+      const adverts = await Advert.find();
+
+      if (!adverts) {
+        throw new Error("No se encontraron los anuncios");
+      }
+
+      res.send({
+        adverts: adverts,
+      });
+    } catch (err: any) {
+      console.error(err);
+      res.status(400).send(err);
+    }
+  }
+  public async getAdvert(req: any, res: Response) {
+    try {
+      const advertId = req.params.id;
+      const advert = await Advert.findOne({
+        _id: advertId,
+      });
+
+      if (!advert) {
+        throw new Error("No se encontró el anuncio");
+      }
+
+      res.send({
+        advert: advert,
+      });
+    } catch (err: any) {
+      console.error(err);
+      res.status(400).send(err);
+    }
+  }
 }
 
 export default AdvertController;

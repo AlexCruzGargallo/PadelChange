@@ -4,8 +4,8 @@ import AdvertController from "../controllers/advertController";
 const router = express.Router();
 const advertController = new AdvertController();
 
-router.post("/advert", advertController.createAdvert)
-
-
+router.post("/advert", advertController.createAdvert);
+router.get("/", advertController.getAllAdverts);
+router.get("/:id", advertController.getAdvert);
 
 export default router;
