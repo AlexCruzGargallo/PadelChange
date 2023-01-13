@@ -33,8 +33,21 @@ class AdvertController {
       let rbody = req.body;
       console.log(rbody);
 
+      let newAdvId = 0;
       const advert = new Advert(req.body);
-      await advert.save();
+
+      await advert.save(function (err: any, adv: any) {
+        while (!adv) {}
+        newAdvId = adv._id;
+        var fs = require("fs");
+        var dir = `./public/adverts/${newAdvId}`;
+        if (!fs.existsSync(dir)) {
+          fs.mkdirSync(dir);
+        }
+        res.send({ id: newAdvId });
+      });
+
+      console.log("anuncioID:", newAdvId);
     } catch (err: any) {
       console.error(err);
       res.status(400).send(err);
@@ -72,6 +85,24 @@ class AdvertController {
         advert: advert,
       });
     } catch (err: any) {
+      console.error(err);
+      res.status(400).send(err);
+    }
+  }
+
+  public async upload(req: any, res: Response) {
+    try {
+      const id = req.params.id;
+      console.log("Uploading file...");
+      let file = req["files"].thumbnail;
+      console.log("File uploaded: ", file.name);
+
+      file.mv("public/adverts/" + id + "/" + file.name);
+      // Validate user inputs
+      if (!file) {
+        throw new Error("La imagen no es válida.");
+      }
+    } catch (err) {
       console.error(err);
       res.status(400).send(err);
     }

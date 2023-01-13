@@ -7,5 +7,6 @@ const advertController = new AdvertController();
 router.post("/advert", advertController.createAdvert);
 router.get("/", advertController.getAllAdverts);
 router.get("/:id", advertController.getAdvert);
+router.post("/upload/:id", advertController.upload);
 
 export default router;

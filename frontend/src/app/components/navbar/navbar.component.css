@@ -97,6 +97,7 @@
   translate: -120px 12px;
   border-radius: 5px;
   border: solid 0.5px rgb(189, 189, 189);
+  z-index: 9;
 }
 .sub-menu-off {
   position: absolute;
@@ -144,7 +145,7 @@
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
   font-size: 14px;

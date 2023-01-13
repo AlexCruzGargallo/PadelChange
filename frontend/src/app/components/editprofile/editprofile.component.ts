@@ -112,6 +112,7 @@ export class EditprofileComponent implements OnInit {
   initCropper() {}
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;
+    console.log('CROPPED', this.croppedImage);
   }
   imgFailed() {
     alert('Image failed to show');
@@ -142,8 +143,7 @@ export class EditprofileComponent implements OnInit {
       }
       fd.append('file', imageFile);
 
-      let url = '';
-      url = `${this.apiUrl}/users/upload`;
+      let url = `${this.apiUrl}/users/upload`;
 
       if (imageFile) {
         fileName = imageFile.name;

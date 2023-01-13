@@ -126,7 +126,6 @@ class UserController {
   public async getUserData(req: any, res: Response) {
     try {
       const userId = req.params.id;
-      console.log(userId)
       const user = await User.findOne({
         _id: userId,
       });

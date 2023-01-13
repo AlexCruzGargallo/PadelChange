@@ -31,6 +31,8 @@ import { ModalsearchracketComponent } from './components/modalsearchracket/modal
 import { ModalRacketPipePipe } from './pipes/modal-racket-pipe.pipe';
 import { AnuncioComponent } from './components/anuncio/anuncio.component';
 import { AnuncioinfoComponent } from './components/anuncioinfo/anuncioinfo.component';
+import { NgImageSliderModule } from 'ng-image-slider';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +59,7 @@ import { AnuncioinfoComponent } from './components/anuncioinfo/anuncioinfo.compo
   ],
   entryComponents: [ModalrateracketComponent],
   imports: [
+    NgImageSliderModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
