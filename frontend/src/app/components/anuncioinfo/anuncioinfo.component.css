@@ -16,6 +16,7 @@
   font-size: 19px;
 }
 .user-photo {
+  cursor: pointer;
   height: 80px;
   width: 80px;
   border-radius: 50%;

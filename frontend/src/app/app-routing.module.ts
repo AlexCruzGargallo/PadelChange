@@ -10,6 +10,7 @@ import { EditprofileComponent } from './components/editprofile/editprofile.compo
 import { AnunciosgeneralComponent } from './components/anunciosgeneral/anunciosgeneral.component';
 import { AnuncioinfoComponent } from './components/anuncioinfo/anuncioinfo.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'adverts', component: AnunciosgeneralComponent },
   { path: 'advert/:id', component: AnuncioinfoComponent },
   { path: 'chat', component: ChatComponent },
+  { path: 'profile/:id', component: ProfileComponent},
 
   { path: '', component: HomeComponent },
 ];

@@ -1,15 +1,17 @@
 <div class="head-wrap">
   <div class="left-panel">
     <div style="padding: 25px">
-      <img
-        class="user-photo"
-        [src]="'http://localhost:4000/imgs/' + user.image"
-        alt=""
-      />
+      <a [routerLink]="['/profile', user._id]">
+        <img
+          class="user-photo"
+          [src]="'http://localhost:4000/imgs/' + user.image"
+          alt=""
+        />
+      </a>
     </div>
     <div style="align-items: center; display: flex">
       <div style="display: flex; flex-direction: column; gap: 10px">
-        <div class="stars-name"style="display: flex">
+        <div class="stars-name" style="display: flex">
           <ngx-star-rating
             [formControl]="rating"
             [id]="'rating2'"
@@ -87,7 +89,7 @@
         [src]="'assets/imgs/rackets/' + racket.img"
         alt=""
       />
-      {{racket.name}}
+      {{ racket.name }}
     </div>
     <div class="handshake-div" *ngIf="advertData.accept_offers">
       <i class="fas fa-handshake handshake"></i>

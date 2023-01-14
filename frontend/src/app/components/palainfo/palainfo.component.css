@@ -21,12 +21,14 @@
   border-radius: 10px;
   padding: 20px;
   background-color: white;
+  box-shadow: 0 8px 8px -4px #a4a8a9;
 }
 .details-wrapper {
   margin-bottom: 20px;
   border-radius: 10px;
   padding: 20px;
   background-color: white;
+  box-shadow: 0 8px 8px -4px #a4a8a9;
 }
 .vote-button {
   cursor: pointer;
@@ -83,6 +85,7 @@ hr {
   border-radius: 10px;
   padding: 20px;
   background-color: white;
+  box-shadow: 0 8px 8px -4px #a4a8a9;
 }
 .rating-wrapper {
   margin-bottom: 20px;

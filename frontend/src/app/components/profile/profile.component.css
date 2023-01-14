@@ -1,0 +1,25 @@
+.user-photo {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+.header-wrapper {
+  margin-top: 40px;
+  background-color: white;
+  width: 70%;
+  padding: 25px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 5px;
+  box-shadow: 0 8px 8px -4px #a4a8a9;
+}
+.anuncis-wrapper {
+  margin-top: 40px;
+  background-color: white;
+  width: 70%;
+  padding: 25px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 5px;
+  box-shadow: 0 8px 8px -4px #a4a8a9;
+}

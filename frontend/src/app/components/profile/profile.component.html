@@ -1,0 +1,26 @@
+<div class="header-wrapper">
+  <img
+    class="user-photo"
+    [src]="'http://localhost:4000/imgs/' + user.image"
+    alt=""
+  />
+</div>
+<div class="anuncis-wrapper">
+  <h1>Anuncios</h1>
+  <div>
+    <span
+      ><p>En curso: {{ this.advertsResultNotFinished.length }}</p></span
+    >
+    <span
+      ><p>Finalizados: {{ this.advertsResultFinished.length }}</p></span
+    >
+    <span
+      ><p>Totales: {{ this.advertsResult.length }}</p></span
+    >
+  </div>
+  <div>
+    <div><h2>Ultimos anuncios:</h2>
+    </div>
+  </div>
+</div>
+<div class="valoraciones"></div>

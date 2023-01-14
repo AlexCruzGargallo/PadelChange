@@ -34,6 +34,7 @@ import { AnuncioinfoComponent } from './components/anuncioinfo/anuncioinfo.compo
 import { NgImageSliderModule } from 'ng-image-slider';
 import { CommonModule } from '@angular/common';
 import { ChatComponent } from './components/chat/chat.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { ChatComponent } from './components/chat/chat.component';
     AnuncioComponent,
     AnuncioinfoComponent,
     ChatComponent,
+    ProfileComponent,
   ],
   imports: [
     AppRoutingModule,
