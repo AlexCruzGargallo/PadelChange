@@ -15,6 +15,7 @@
   align-items: center;
 }
 .filter-wrapper {
+  padding: 20px;
   margin-right: 40px;
 }
 .search-wrapper {
@@ -22,6 +23,7 @@
   align-items: center;
   margin-left: auto;
   margin-right: 10px;
+  margin-top: 8px;
 }
 .cards-wrapper {
   margin: auto;
@@ -36,43 +38,25 @@
   margin: 10px;
 }
 .btn {
-  margin-right: 50px;
+  margin-top: 10px;
   cursor: pointer;
   position: relative;
-  font-size: 15px;
+  font-size: 14px;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 1em 2em;
+  padding: 15px 20px;
   display: inline-block;
-  border-radius: 6em;
+  border-radius: 15px;
   transition: all 0.2s;
   border: none;
   font-family: inherit;
-  font-weight: 600;
-  color: rgb(255, 255, 255);
+  font-weight: 500;
+  color: white;
   background-color: #016dd9;
 }
+
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 100px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s;
+  background-color: #004285;
 }
 mat-form-field {
   padding: 10px;
@@ -96,4 +80,22 @@ mat-form-field {
 }
 .advert:hover {
   background-color: #fdfdfd;
+}
+@media (max-width: 1080px) {
+  .row-wrapper {
+    flex-direction: column;
+  }
+  .search-wrapper {
+    margin-left: 0px !important;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .order-wrapper {
+    width: 80%;
+  }
+  .filter-wrapper {
+    width: 80%;
+    margin-right: 0px !important;
+  }
 }

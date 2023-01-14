@@ -156,11 +156,11 @@ export class ModalcreateadvertComponent implements OnInit {
     let cityDetails: any = {};
     let city: any = await axios
       .request(options)
-      .then((response) => {
+      .then((response: any) => {
         cityDetails = response.data.results[0];
         console.log(response.data);
       })
-      .catch(function (error) {
+      .catch(function (error: any) {
         console.error(error);
       });
     if (cityDetails.locality && cityDetails.area) {

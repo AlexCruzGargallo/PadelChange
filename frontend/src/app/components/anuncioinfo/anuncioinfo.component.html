@@ -9,7 +9,7 @@
     </div>
     <div style="align-items: center; display: flex">
       <div style="display: flex; flex-direction: column; gap: 10px">
-        <div style="display: flex">
+        <div class="stars-name"style="display: flex">
           <ngx-star-rating
             [formControl]="rating"
             [id]="'rating2'"
@@ -27,7 +27,7 @@
     </div>
   </div>
   <div class="right-panel">
-    <button class="green-button">Mensaje</button>
+    <button routerLink="/chat" class="green-button">Mensaje</button>
   </div>
 </div>
 <div class="racket-wrapper">
@@ -70,7 +70,7 @@
       <b>Fotos ({{ advertData.images.length }})</b>
     </h1>
   </div>
-  <div>
+  <div style="padding: 20px; padding-top: 0px">
     <ng-image-slider [images]="imgCollection" #nav></ng-image-slider>
   </div>
 </div>
@@ -80,8 +80,22 @@
       <b>Cambiar por...</b>
     </h1>
   </div>
+  <div class="bodychange">
+    <div class="racket-change" *ngFor="let racket of want_items">
+      <img
+        class="want-images"
+        [src]="'assets/imgs/rackets/' + racket.img"
+        alt=""
+      />
+      {{racket.name}}
+    </div>
+    <div class="handshake-div" *ngIf="advertData.accept_offers">
+      <i class="fas fa-handshake handshake"></i>
+      Acepta ofertas
+    </div>
+  </div>
 </div>
-<div class="photos-wrapper">
+<div class="last-wrapper">
   <div class="sub-header">
     <h1>
       <b>Descripción</b>
@@ -92,7 +106,9 @@
     <hr />
     <div class="tags-wrapper">
       <div class="tag-div" *ngFor="let tag of advertData.tags">
-        <div style="display: flex; align-items: center">{{ tag }}</div>
+        <div style="position: relative; display: flex; align-items: center">
+          {{ tag }}
+        </div>
       </div>
     </div>
   </div>

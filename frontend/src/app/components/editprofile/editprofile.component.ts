@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
-  FormControl,
+  UntypedFormControl,
   Validators,
-  FormGroup,
+  UntypedFormGroup,
   AbstractControl,
   ValidationErrors,
   ValidatorFn,
@@ -31,17 +31,17 @@ export class EditprofileComponent implements OnInit {
   regexlastName: RegExp = /^[a-z À-ÿ\u00f1\u00d1,.'-]+$/i;
   regexPassword: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 
-  imgpath = new FormControl('');
-  name = new FormControl('', [
+  imgpath = new UntypedFormControl('');
+  name = new UntypedFormControl('', [
     Validators.required,
     Validators.minLength(2),
     Validators.maxLength(60),
     Validators.pattern(this.regexName),
   ]);
-  email = new FormControl('', [Validators.required, Validators.email]);
+  email = new UntypedFormControl('', [Validators.required, Validators.email]);
 
   //Creating Formgroup for register
-  form = new FormGroup({
+  form = new UntypedFormGroup({
     name: this.name,
     email: this.email,
   });

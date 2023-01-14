@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +32,8 @@ import { ModalRacketPipePipe } from './pipes/modal-racket-pipe.pipe';
 import { AnuncioComponent } from './components/anuncio/anuncio.component';
 import { AnuncioinfoComponent } from './components/anuncioinfo/anuncioinfo.component';
 import { NgImageSliderModule } from 'ng-image-slider';
+import { CommonModule } from '@angular/common';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -56,12 +58,12 @@ import { NgImageSliderModule } from 'ng-image-slider';
     ModalRacketPipePipe,
     AnuncioComponent,
     AnuncioinfoComponent,
+    ChatComponent,
   ],
-  entryComponents: [ModalrateracketComponent],
   imports: [
+    AppRoutingModule,
     NgImageSliderModule,
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -72,7 +74,9 @@ import { NgImageSliderModule } from 'ng-image-slider';
     MatDialogModule,
     ImageCropperModule,
     HttpClientModule,
+    CommonModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent],
 })

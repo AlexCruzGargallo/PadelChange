@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -16,7 +16,8 @@ export class AnuncioinfoComponent implements OnInit {
   lon: number = 0;
   lat: number = 0;
   sell_item: any;
-  rating: FormControl = new FormControl();
+  want_items: any[] = [];
+  rating: UntypedFormControl = new UntypedFormControl();
   imgCollection: Array<Object> = [];
 
   constructor(private actRoute: ActivatedRoute) {}
@@ -32,6 +33,10 @@ export class AnuncioinfoComponent implements OnInit {
     this.lon = this.advertData.location[0].lon;
     this.rating.setValue(5);
     this.sell_item = await this.getRacketData(this.advertData.sell_item);
+    this.advertData.want_items.map(async (wi: string) => {
+      const racketData = await this.getRacketData(wi);
+      this.want_items.push(racketData);
+    });
     this.advertData.images.map((image: string) => {
       const i = {
         image:

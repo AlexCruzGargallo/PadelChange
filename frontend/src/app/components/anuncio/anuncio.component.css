@@ -13,6 +13,7 @@
   margin-right: 20px;
 }
 .stars-name {
+  width: 28%;
   padding-top: 5px;
 }
 .span-name {
@@ -22,15 +23,17 @@
   font-weight: 500;
 }
 .image {
+  width: 7%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .trade-wrapper {
+  max-width: 65%;
   margin-left: auto;
   display: flex;
-  justify-content: center;
   align-items: center;
+  overflow: auto;
 }
 .sell-wrapper {
   height: 100%;
@@ -66,4 +69,22 @@
 ::ng-deep input.star-5:checked ~ label.star:before {
   color: #fe7;
   text-shadow: 0 0 0px #952 !important;
+}
+
+@media (max-width: 1080px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .image {
+    width: auto !important;
+  }
+  .trade-wrapper {
+    width: auto;
+    margin-left: 0px !important;
+    width: 100%;
+    max-width: none;
+  }
+  .stars-name {
+    width: auto;
+  }
 }

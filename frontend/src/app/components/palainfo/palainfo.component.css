@@ -3,7 +3,6 @@
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #d6d6d6;
   padding: 40px;
 }
 .racket-image {
@@ -21,13 +20,13 @@
   align-items: center;
   border-radius: 10px;
   padding: 20px;
-  background-color: #fafafa;
+  background-color: white;
 }
 .details-wrapper {
   margin-bottom: 20px;
   border-radius: 10px;
   padding: 20px;
-  background-color: #fafafa;
+  background-color: white;
 }
 .vote-button {
   cursor: pointer;
@@ -83,7 +82,7 @@ hr {
   margin-bottom: 20px;
   border-radius: 10px;
   padding: 20px;
-  background-color: #fafafa;
+  background-color: white;
 }
 .rating-wrapper {
   margin-bottom: 20px;
@@ -110,49 +109,22 @@ hr {
   display: flex;
   align-items: center;
 }
-.btn {
-  float: right;
-  margin-top: 10px;
+.green-button {
   cursor: pointer;
-  position: relative;
-  font-size: 15px;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1em 2em;
-  display: inline-block;
-  border-radius: 6em;
-  transition: all 0.2s;
+  background-color: #008f39;
+  color: white;
   border: none;
-  font-family: inherit;
+  padding: 10px 20px;
+  border-radius: 7px;
   font-weight: 600;
-  color: black;
-  background-color: rgb(21, 255, 0);
+  font-size: 17px;
+  float: right;
 }
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+.green-button:hover {
+  background-color: #006e2c;
 }
-
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 100px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s;
-}
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
+@media (max-width: 1080px) {
+  .info-wrapper {
+    flex-direction: column;
+  }
 }

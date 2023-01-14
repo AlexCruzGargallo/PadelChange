@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalrateracketComponent } from '../modalrateracket/modalrateracket.component';
@@ -18,7 +18,7 @@ export class PalainfoComponent implements OnInit {
   ovrRating: number = 0;
   id: string = '';
   imgpath: string = 'assets/imgs/rackets/';
-  rating = new FormControl({ disabled: true });
+  rating = new UntypedFormControl({ disabled: true });
 
   constructor(private actRoute: ActivatedRoute, private matDialog: MatDialog) {}
 

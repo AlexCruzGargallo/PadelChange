@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-pala',
@@ -9,7 +9,7 @@ import { FormControl } from '@angular/forms';
 export class PalaComponent implements OnInit {
   @Input() data: any;
   imgpath: string = 'assets/imgs/rackets/';
-  rating = new FormControl();
+  rating = new UntypedFormControl();
 
   constructor() {}
 

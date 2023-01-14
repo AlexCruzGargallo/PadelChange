@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { RegisterComponent } from './register.component';
@@ -27,26 +27,26 @@ describe('RegisterComponent', () => {
       fixture = TestBed.createComponent(RegisterComponent)
       component = fixture.componentInstance
       fixture.detectChanges()
-      component.form = new FormGroup({
-          email: new FormControl('', [Validators.required, Validators.email]),
-          password: new FormControl('', [
+      component.form = new UntypedFormGroup({
+          email: new UntypedFormControl('', [Validators.required, Validators.email]),
+          password: new UntypedFormControl('', [
               Validators.required,
               Validators.minLength(8),
               Validators.pattern(regexPassword),
           ]),
-          firstName: new FormControl('', [
+          firstName: new UntypedFormControl('', [
               Validators.required,
               Validators.minLength(2),
               Validators.maxLength(60),
               Validators.pattern(regexName),
           ]),
-          lastName: new FormControl('', [
+          lastName: new UntypedFormControl('', [
               Validators.required,
               Validators.minLength(2),
               Validators.maxLength(60),
               Validators.pattern(regexName),
           ]),
-          confirmPassword: new FormControl('', [
+          confirmPassword: new UntypedFormControl('', [
               Validators.required,
               Validators.minLength(8),
           ]),

@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -9,8 +9,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ModalrateracketComponent implements OnInit {
   apiUrl: string = 'http://localhost:4000/api';
-  description = new FormControl('');
-  rating = new FormControl(0);
+  description = new UntypedFormControl('');
+  rating = new UntypedFormControl(0);
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 
   ngOnInit(): void {

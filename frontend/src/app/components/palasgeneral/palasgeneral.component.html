@@ -2,28 +2,30 @@
   <div class="tools-wrapper">
     <div class="row-wrapper">
       <div class="filter-wrapper">
-        <mat-form-field appearance="fill">
-          <mat-label i18n>Filtrar por marca</mat-label>
-          <mat-select [(value)]="brandSelected" (selectionChange)="onFilter()">
-            <mat-option value="Sin filtrar" i18n>Sin filtrar</mat-option>
-            <mat-option *ngFor="let brand of brands" [value]="brand">{{
-              brand
-            }}</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <mat-select
+          style="border: 1px solid; border-radius: 5px; padding: 6px"
+          [(value)]="brandSelected"
+          (selectionChange)="onFilter()"
+        >
+          <mat-option value="Sin filtrar" i18n>Sin filtrar</mat-option>
+          <mat-option *ngFor="let brand of brands" [value]="brand">{{
+            brand
+          }}</mat-option>
+        </mat-select>
       </div>
       <div class="order-wrapper">
-        <mat-form-field appearance="fill">
-          <mat-label>Ordenar por</mat-label>
-          <mat-select [(value)]="orderSelected" (selectionChange)="onSelect()">
-            <mat-option value="No ordenar" i18n>No ordenar</mat-option>
-            <mat-option value="priceasc" i18n>Precio(Más Alto)</mat-option>
-            <mat-option value="pricedesc" i18n>Precio(Más Bajo)</mat-option>
-            <mat-option value="nameasc" i18n>Nombre (A-Z)</mat-option>
-            <mat-option value="namedesc" i18n>Nombre (Z-A)</mat-option>
-            <mat-option value="season" i18n>Temporada</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <mat-select
+          style="border: 1px solid; border-radius: 5px; padding: 6px"
+          [(value)]="orderSelected"
+          (selectionChange)="onSelect()"
+        >
+          <mat-option value="No ordenar" i18n>No ordenar</mat-option>
+          <mat-option value="priceasc" i18n>Precio(Más Alto)</mat-option>
+          <mat-option value="pricedesc" i18n>Precio(Más Bajo)</mat-option>
+          <mat-option value="nameasc" i18n>Nombre (A-Z)</mat-option>
+          <mat-option value="namedesc" i18n>Nombre (Z-A)</mat-option>
+          <mat-option value="season" i18n>Temporada</mat-option>
+        </mat-select>
       </div>
       <div style="width: 100%; text-align: center">
         <a routerLink="/rackets/create" i18n>No encuentra su pala?</a>

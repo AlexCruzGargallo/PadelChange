@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-anuncio',
@@ -17,7 +17,7 @@ export class AnuncioComponent implements OnInit {
   lon: number = 0;
   lat: number = 0;
 
-  rating = new FormControl();
+  rating = new UntypedFormControl();
 
   constructor() {}
 
