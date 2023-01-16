@@ -47,6 +47,14 @@ export class NavbarComponent implements OnInit {
       return '';
     }
   }
+  getUserId(): string {
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+      return userId;
+    } else {
+      return '';
+    }
+  }
 
   public async getUserData(id: string): Promise<any> {
     const response = await fetch(`${this.apiUrl}/users/${id}`, {

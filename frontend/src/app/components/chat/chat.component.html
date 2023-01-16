@@ -12,158 +12,76 @@
         </div>
       </div>
       <div style="max-height: 90%; overflow-y: auto; overflow-x: hidden">
-        <div class="contact">
+        <div
+          [ngClass]="
+            chatsFiltered[activeChat]._id == chat._id
+              ? 'contact-selected'
+              : 'contact'
+          "
+          *ngFor="let chat of chatsFiltered"
+        >
           <img
             class="imagee"
-            [src]="'http://localhost:4000/imgs/ja-morant-hd_3000x2000.jpg'"
+            [src]="'http://localhost:4000/imgs/' + chat.userTrade.image"
             alt=""
+            *ngIf="chatsFiltered[activeChat].userTrade"
           />
           <div style="display: flex; flex-direction: column; padding: 10px">
-            <div>Juan Lebron</div>
-            <div style="font-weight: 200">hola alex que..</div>
-          </div>
-        </div>
-        <div class="contact">
-          <img
-            class="imagee"
-            [src]="'http://localhost:4000/imgs/ja-morant-hd_3000x2000.jpg'"
-            alt=""
-          />
-          <div style="display: flex; flex-direction: column; padding: 10px">
-            <div>Juan Lebron</div>
-            <div style="font-weight: 200">hola alex que..</div>
-          </div>
-        </div>
-        <div class="contact">
-          <img
-            class="imagee"
-            [src]="'http://localhost:4000/imgs/ja-morant-hd_3000x2000.jpg'"
-            alt=""
-          />
-          <div style="display: flex; flex-direction: column; padding: 10px">
-            <div>Juan Lebron</div>
-            <div style="font-weight: 200">hola alex que..</div>
-          </div>
-        </div>
-        <div class="contact">
-          <img
-            class="imagee"
-            [src]="'http://localhost:4000/imgs/ja-morant-hd_3000x2000.jpg'"
-            alt=""
-          />
-          <div style="display: flex; flex-direction: column; padding: 10px">
-            <div>Juan Lebron</div>
-            <div style="font-weight: 200">hola alex que..</div>
-          </div>
-        </div>
-        <div class="contact">
-          <img
-            class="imagee"
-            [src]="'http://localhost:4000/imgs/ja-morant-hd_3000x2000.jpg'"
-            alt=""
-          />
-          <div style="display: flex; flex-direction: column; padding: 10px">
-            <div>Juan Lebron</div>
-            <div style="font-weight: 200">hola alex que..</div>
-          </div>
-        </div>
-        <div class="contact">
-          <img
-            class="imagee"
-            [src]="'http://localhost:4000/imgs/ja-morant-hd_3000x2000.jpg'"
-            alt=""
-          />
-          <div style="display: flex; flex-direction: column; padding: 10px">
-            <div>Juan Lebron</div>
-            <div style="font-weight: 200">hola alex que..</div>
-          </div>
-        </div>
-        <div class="contact">
-          <img
-            class="imagee"
-            [src]="'http://localhost:4000/imgs/ja-morant-hd_3000x2000.jpg'"
-            alt=""
-          />
-          <div style="display: flex; flex-direction: column; padding: 10px">
-            <div>Juan Lebron</div>
-            <div style="font-weight: 200">hola alex que..</div>
-          </div>
-        </div>
-        <div class="contact">
-          <img
-            class="imagee"
-            [src]="'http://localhost:4000/imgs/ja-morant-hd_3000x2000.jpg'"
-            alt=""
-          />
-          <div style="display: flex; flex-direction: column; padding: 10px">
-            <div>Juan Lebron</div>
-            <div style="font-weight: 200">hola alex que..</div>
-          </div>
-        </div>
-        <div class="contact">
-          <img
-            class="imagee"
-            [src]="'http://localhost:4000/imgs/ja-morant-hd_3000x2000.jpg'"
-            alt=""
-          />
-          <div style="display: flex; flex-direction: column; padding: 10px">
-            <div>Juan Lebron</div>
-            <div style="font-weight: 200">hola alex que..</div>
-          </div>
-        </div>
-        <div class="contact">
-          <img
-            class="imagee"
-            [src]="'http://localhost:4000/imgs/ja-morant-hd_3000x2000.jpg'"
-            alt=""
-          />
-          <div style="display: flex; flex-direction: column; padding: 10px">
-            <div>Juan Lebron</div>
-            <div style="font-weight: 200">hola alex que..</div>
-          </div>
-        </div>
-        <div class="contact">
-          <img
-            class="imagee"
-            [src]="'http://localhost:4000/imgs/ja-morant-hd_3000x2000.jpg'"
-            alt=""
-          />
-          <div style="display: flex; flex-direction: column; padding: 10px">
-            <div>Juan Lebron</div>
-            <div style="font-weight: 200">hola alex que..</div>
-          </div>
-        </div>
-        <div class="contact">
-          <img
-            class="imagee"
-            [src]="'http://localhost:4000/imgs/ja-morant-hd_3000x2000.jpg'"
-            alt=""
-          />
-          <div style="display: flex; flex-direction: column; padding: 10px">
-            <div>Juan Lebron</div>
-            <div style="font-weight: 200">hola alex que..</div>
-          </div>
-        </div>
-        <div class="contact">
-          <img
-            class="imagee"
-            [src]="'http://localhost:4000/imgs/ja-morant-hd_3000x2000.jpg'"
-            alt=""
-          />
-          <div style="display: flex; flex-direction: column; padding: 10px">
-            <div>Juan Lebron</div>
+            <div *ngIf="chatsFiltered[activeChat].userTrade">
+              {{ chat.userTrade.name }}
+            </div>
             <div style="font-weight: 200">hola alex que..</div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="messages">
-      <div class="messages-header"></div>
-      <div class="messages-body"></div>
+    <div class="messages" *ngIf="chatsFiltered[activeChat]">
+      <div class="messages-header" *ngIf="chatsFiltered[activeChat].userTrade">
+        <img
+          class="imagee"
+          [src]="
+            'http://localhost:4000/imgs/' +
+            chatsFiltered[activeChat].userTrade.image
+          "
+          alt=""
+        />
+        {{ chatsFiltered[activeChat].userTrade.name }}
+
+        <a
+          style="margin-left: auto; margin-right: 20px"
+          [routerLink]="['/advert', chatsFiltered[activeChat].advert_id]"
+        >
+          <button class="btn">Ir al anuncio</button></a
+        >
+      </div>
+      <div class="messages-body">
+        <div *ngFor="let msg of messageArray">
+          <div
+            [ngClass]="
+              msg.user == user._id ? 'local-user-msg' : 'other-user-msg'
+            "
+          >
+            <div>
+              {{
+                msg.user == user._id
+                  ? user.name
+                  : chatsFiltered[activeChat].userTrade.name
+              }}
+            </div>
+            <div>
+              {{ msg.message }}
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="messages-bottom">
         <div class="write-box">
-          <div class="icon-wrap">
+          <div
+            class="icon-wrap"
+            (click)="sendMessage()"
+            style="cursor: pointer"
+          >
             <i class="fas fa-paper-plane plane"></i>
           </div>
           <div class="message-wrap">
@@ -171,6 +89,7 @@
               placeholder="Escribe un mensaje aqui"
               class="input-msg"
               type="text"
+              [(ngModel)]="messageText"
             />
           </div>
         </div>

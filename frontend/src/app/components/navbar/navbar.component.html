@@ -26,7 +26,12 @@
           <a routerLink="/profile/edit" (click)="changeSubmenu()"
             ><li i18n>Editar perfil</li></a
           >
-          <li (click)="changeSubmenu()"><a i18n>Historial</a></li>
+          <a [routerLink]="['/profile', getUserId()]">
+            <li i18n>Ver perfil</li>
+          </a>
+          <a [routerLink]="['/myadverts']">
+            <li (click)="changeSubmenu()">Ver anuncios</li>
+          </a>
           <li (click)="logout(); changeSubmenu()"><a i18n>Cerrar sesión</a></li>
         </div>
       </div>

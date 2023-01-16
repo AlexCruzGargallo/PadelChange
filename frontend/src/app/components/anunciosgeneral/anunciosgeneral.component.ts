@@ -10,10 +10,15 @@ import { ModalcreateadvertComponent } from '../modalcreateadvert/modalcreateadve
 export class AnunciosgeneralComponent implements OnInit {
   apiUrl: string = 'http://localhost:4000/api';
   adverts: any;
+  advertFiltered: any;
   constructor(private matDialog: MatDialog) {}
 
   async ngOnInit(): Promise<void> {
     this.adverts = await this.getAllAdvertsData();
+    this.advertFiltered = this.adverts.filter(
+      (a: any) => a.user_id != localStorage.getItem('userId')
+    );
+    console.log(this.advertFiltered);
   }
 
   openModalCreateAd() {
@@ -37,5 +42,4 @@ export class AnunciosgeneralComponent implements OnInit {
     }
     return Promise.resolve(adverts);
   }
-
 }

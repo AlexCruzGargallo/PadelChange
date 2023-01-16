@@ -1,6 +1,6 @@
 .head-wrap {
   font-weight: 500;
-  width: 70%;
+  width: 50%;
   background-color: white;
   margin-right: auto;
   margin-left: auto;
@@ -48,9 +48,39 @@
   background-color: #006e2c;
 }
 
+.orange-button {
+  cursor: pointer;
+  background-color: #d69303;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.orange-button:hover {
+  background-color: #925800;
+}
+
+.red-button {
+  cursor: pointer;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.red-button:hover {
+  background-color: #6e0000;
+}
+
 .racket-wrapper {
   font-weight: 500;
-  width: 70%;
+  width: 50%;
   background-color: white;
   margin-right: auto;
   margin-left: auto;
@@ -100,7 +130,7 @@
 
 .photos-wrapper {
   font-weight: 500;
-  width: 70%;
+  width: 50%;
   background-color: white;
   margin-right: auto;
   margin-left: auto;
@@ -167,7 +197,7 @@
 
 .last-wrapper {
   font-weight: 500;
-  width: 70%;
+  width: 50%;
   background-color: white;
   margin-right: auto;
   margin-left: auto;

@@ -35,6 +35,12 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { CommonModule } from '@angular/common';
 import { ChatComponent } from './components/chat/chat.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AdvertimageComponent } from './components/advertimage/advertimage.component';
+import { ModalrateuserComponent } from './components/modalrateuser/modalrateuser.component';
+import { ModalconfirmfinishadvertComponent } from './components/modalconfirmfinishadvert/modalconfirmfinishadvert.component';
+import { MyadvertsComponent } from './components/myadverts/myadverts.component';
+import { MyanuncioComponent } from './components/myanuncio/myanuncio.component';
+import { ModalconfirmstartchatComponent } from './components/modalconfirmstartchat/modalconfirmstartchat.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +67,12 @@ import { ProfileComponent } from './components/profile/profile.component';
     AnuncioinfoComponent,
     ChatComponent,
     ProfileComponent,
+    AdvertimageComponent,
+    ModalrateuserComponent,
+    ModalconfirmfinishadvertComponent,
+    MyadvertsComponent,
+    MyanuncioComponent,
+    ModalconfirmstartchatComponent,
   ],
   imports: [
     AppRoutingModule,

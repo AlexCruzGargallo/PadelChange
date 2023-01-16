@@ -107,6 +107,21 @@ class AdvertController {
       res.status(400).send(err);
     }
   }
+
+  public async finish(req: any, res: Response) {
+    try {
+      console.log("fine");
+      const id = req.params.id;
+
+      const filter = { _id: id };
+      const update = { final_date: new Date() };
+      console.log("fine");
+      let advert = await Advert.findOneAndUpdate(filter, update);
+    } catch (err) {
+      console.error(err);
+      res.status(400).send(err);
+    }
+  }
 }
 
 export default AdvertController;

@@ -46,7 +46,7 @@
     <div class="advert-wrapperr">
       <div
         class="advert"
-        *ngFor="let advert of adverts"
+        *ngFor="let advert of advertFiltered"
         [routerLink]="['/advert', advert._id]"
       >
         <app-anuncio [data]="advert"></app-anuncio>

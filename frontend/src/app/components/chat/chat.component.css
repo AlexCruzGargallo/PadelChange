@@ -36,14 +36,22 @@
   flex-direction: column;
 }
 .messages-header {
+  font-size: 17px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding-left: 25px;
   border-top-right-radius: 5px;
   background-color: white;
   height: 10%;
   border-bottom: 3px solid rgb(249 249 249);
 }
 .messages-body {
+  max-height: 80%;
   height: 80%;
+  overflow: auto;
   background-color: white;
+  padding: 25px;
 }
 .messages-bottom {
   padding: 25px;
@@ -56,6 +64,7 @@
 }
 .icon-wrap {
   border: 1px solid rgb(192, 198, 204);
+  min-width: 50px;
   width: 5%;
   background-color: rgb(221, 228, 235);
   border-top-left-radius: 5px;
@@ -105,4 +114,50 @@ input:focus {
   height: 50px;
   width: 50px;
   border-radius: 50%;
+}
+.contact-selected {
+  position: relative;
+  display: flex;
+  padding: 15px;
+  max-height: 100px;
+  width: 100%;
+  background-color: rgb(249, 249, 249);
+}
+.btn {
+  margin-top: 10px;
+  cursor: pointer;
+  position: relative;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: inline-block;
+  border-radius: 15px;
+  transition: all 0.2s;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  color: white;
+  background-color: #016dd9;
+}
+
+.btn:hover {
+  background-color: #004285;
+}
+
+.local-user-msg {
+  background-color: #989ad7;
+  width: 70%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-bottom: 20px;
+}
+.other-user-msg {
+  background-color: #f1f1fb;
+  width: 70%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: auto;
+  margin-bottom: 20px;
 }

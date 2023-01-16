@@ -1,6 +1,6 @@
 .page-wrapper {
-  width: 70%;
-  margin-top: 50px;
+  width: 50%;
+  margin-top: 25px;
   margin-left: auto;
   margin-right: auto;
   padding: 40px;
@@ -91,7 +91,7 @@ hr {
   margin-bottom: 20px;
   border-radius: 10px;
   padding: 20px;
-  background-color: #d9d9d9;
+  border: 1px solid gray;
 }
 .user-image {
   height: 100px;
@@ -106,7 +106,7 @@ hr {
   border-radius: 10px;
   margin-left: 20px;
   padding: 15px;
-  background-color: white;
+  background-color: rgb(249, 249, 249);
 }
 .first-line {
   display: flex;

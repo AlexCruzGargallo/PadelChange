@@ -1,0 +1,44 @@
+.confirm-wrapper {
+  padding: 50px;
+  font-size: 18px;
+  max-width: 500px;
+}
+.text {
+  margin-bottom: 20px;
+}
+.buttons {
+  justify-content: center;
+  display: flex;
+  gap: 50px;
+}
+
+.green-button {
+  cursor: pointer;
+  background-color: #008f39;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 17px;
+  margin-top: 10px;
+}
+.green-button:hover {
+  background-color: #006e2c;
+}
+
+.white-button {
+  cursor: pointer;
+  background-color: rgb(249, 249, 249);
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 17px;
+  margin-top: 10px;
+  border: 1px solid black;
+}
+.white-button:hover {
+  background-color: white;
+}

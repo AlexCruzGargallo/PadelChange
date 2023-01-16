@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { ModalconfirmfinishadvertComponent } from '../modalconfirmfinishadvert/modalconfirmfinishadvert.component';
+import { ModalconfirmstartchatComponent } from '../modalconfirmstartchat/modalconfirmstartchat.component';
 
 @Component({
   selector: 'app-anuncioinfo',
@@ -20,7 +23,11 @@ export class AnuncioinfoComponent implements OnInit {
   rating: UntypedFormControl = new UntypedFormControl();
   imgCollection: Array<Object> = [];
 
-  constructor(private actRoute: ActivatedRoute) {}
+  constructor(
+    private actRoute: ActivatedRoute,
+    private matDialog: MatDialog,
+    private matDialog2: MatDialog
+  ) {}
 
   async ngOnInit(): Promise<void> {
     const id = this.actRoute.snapshot.paramMap.get('id');
@@ -51,6 +58,25 @@ export class AnuncioinfoComponent implements OnInit {
     });
     console.log(this.imgCollection);
     this.km = this.calcCrow(this.lat, this.lon, 41.385063, 2.173404);
+  }
+
+  itsMe(): boolean {
+    if (this.advertData.user_id == localStorage.getItem('userId')) {
+      return true;
+    }
+    return false;
+  }
+
+  openModalConfirm() {
+    this.matDialog.open(ModalconfirmfinishadvertComponent, {
+      data: this.advertData,
+    });
+  }
+
+  openModalChat() {
+    this.matDialog2.open(ModalconfirmstartchatComponent, {
+      data: this.advertData,
+    });
   }
 
   public async getAdvertsData(id: string): Promise<any> {

@@ -2,12 +2,13 @@
   margin-top: 20px;
   font-size: 16px;
   font-weight: 500;
+  margin-bottom: 90px;
 }
 .login-wrapper {
   margin: auto;
   width: 615px;
   height: 410px;
-  background-color: #d9d9d9;
+  background-color: white;
   border-radius: 5px;
   box-shadow: 0 8px 8px -4px #a4a8a9;
 }
@@ -52,8 +53,9 @@ input[type="submit"] {
   font-weight: 600;
   margin-left: 500px;
   width: 50%;
-  background-color: #ffffff;
-  color: black;
+  background-color: #016dd9;
+
+  color: white;
   padding: 14px 20px;
   margin: 30px 90px;
   border: none;
@@ -62,9 +64,8 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #f1f1f1;
-  border: solid 1px;
-  border-color: black;
+  background-color: #004285;
+  border-color: white;
 }
 hr {
   border: 0;

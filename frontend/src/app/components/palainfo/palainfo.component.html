@@ -2,7 +2,7 @@
   <div class="header-wrapper">
     <div style="width: 80%" class="star-wrap">
       <div style="margin-right: 50px">
-        <h1 style="font-weight: 600; margin-bottom: 0">
+        <h1 style=" margin-bottom: 0">
           {{ racketData.name }}
         </h1>
       </div>
@@ -21,12 +21,12 @@
   </div>
 
   <div class="details-wrapper">
-    <h1 style="font-weight: 600; width: 100%" i18n>Detalles de la pala</h1>
+    <h1 style="width: 100%" i18n>Detalles de la pala</h1>
     <div class="info-wrapper">
       <div class="left-wrapper">
         <img class="racket-image" src="{{ imgpath }}" alt="" />
         <div style="margin-top: 20px">
-          <p style="font-weight: 600; font-size: 17px">{{ racketData.name }}</p>
+          <p style=" font-size: 17px"><b>{{ racketData.name }}</b></p>
         </div>
       </div>
       <hr />
@@ -49,13 +49,13 @@
 
   <div class="ratings-wrapper">
     <div class="headerrating-wrapper">
-      <h1 style="font-weight: 600">Valoraciones</h1>
+      <h1 style="">Valoraciones</h1>
     </div>
 
     <div>
       <div class="rating-wrapper" *ngFor="let ratings of racketsRatingData">
         <div style="margin-bottom: 15px" class="first-line">
-          <h2 style="font-weight: 500; margin-bottom: 0px; margin-right: 20px">
+          <h2 style=" margin-bottom: 0px; margin-right: 20px">
             {{ ratings.user.name }}
           </h2>
           <app-stars [data]="ratings.rating"></app-stars>

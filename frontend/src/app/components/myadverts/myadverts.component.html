@@ -1,0 +1,30 @@
+<div class="page-wrapper">
+  <section>
+    <div class="advert-wrapperr">
+      <h1>Anuncios activos</h1>
+      <div *ngFor="let advert of advertFiltered" style="width: 48%">
+        <div
+          class="advert"
+          *ngIf="advert.final_date == null"
+          [routerLink]="['/advert', advert._id]"
+        >
+          <app-myanuncio [data]="advert"></app-myanuncio>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="advert-wrapperr">
+      <h1>Anuncios finalizados</h1>
+      <div *ngFor="let advert of advertFiltered" style="width: 48%">
+        <div
+          *ngIf="advert.final_date != null"
+          class="advert"
+          [routerLink]="['/advert', advert._id]"
+        >
+          <app-myanuncio [data]="advert"></app-myanuncio>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
