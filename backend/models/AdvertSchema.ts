@@ -13,6 +13,7 @@ const AdvertSchema = new Schema({
   description: { type: String, required: true },
   tags: [{ type: String, required: true }],
   location: [{}],
+  type: { type: String, required: true }
 });
 
 export default mongoose.model("Advert", AdvertSchema);

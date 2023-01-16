@@ -1,4 +1,4 @@
-<mat-dialog-content>
+<mat-dialog-content style="color: black">
   <h1>Crea tu anuncio!</h1>
   <form (ngSubmit)="onSubmit()">
     <div class="first-div">
@@ -27,6 +27,7 @@
           <a (click)="openRacketModal()"
             ><mat-icon class="add-circle">add_circle</mat-icon></a
           >
+          <p><b>Añadir una pala</b></p>
         </div>
       </div>
       <div class="state-div">
@@ -62,7 +63,10 @@
     </div>
     <hr />
     <h1>Cambiar por:</h1>
-    <div class="state-select-div">
+    <div
+      class="state-select-div"
+      style="border: 1px solid; border-radius: 5px; padding: 10px"
+    >
       <mat-select [(value)]="changeFor" (selectionChange)="onSelectChangeFor()">
         <mat-option value="Palas">Palas</mat-option>
         <mat-option value="Dinero">Dinero</mat-option>
@@ -103,8 +107,8 @@
       </div>
     </div>
     <div *ngIf="changeFor === 'Dinero'">
-      <p>Palas que te interesan:</p>
-      <div class="pala-div"></div>
+      <p>Cuanto dinero quieres por la pala (€):</p>
+      <input class="price-input" (keypress)="numberOnly($event)" type="text" placeholder="Precio">
     </div>
 
     <div>
@@ -149,7 +153,7 @@
       <hr />
     </div>
     <div class="button-div">
-      <button type="submit" class="create-button" i18n>Crear anuncio</button>
+      <button type="submit" class="btn" i18n>Crear anuncio</button>
     </div>
   </form>
 </mat-dialog-content>

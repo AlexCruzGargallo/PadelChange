@@ -52,6 +52,14 @@ export class ModalcreateadvertComponent implements OnInit {
     this.tagList.splice(index, 1);
   }
 
+  numberOnly(event: any): boolean {
+    const charCode = event.which ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+  }
+
   save(event: any): void {
     if (this.images.length < 5) {
       var reader = new FileReader();
@@ -96,6 +104,7 @@ export class ModalcreateadvertComponent implements OnInit {
         lat: this.lat,
         lon: this.lon,
       },
+      type: this.changeFor,
       tokenPayload: {
         accessToken: localStorage.getItem('token'),
         _id: localStorage.getItem('userId'),

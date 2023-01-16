@@ -146,6 +146,7 @@ input:focus {
 }
 
 .local-user-msg {
+  color: black;
   background-color: #989ad7;
   width: 70%;
   padding: 10px;
@@ -160,4 +161,20 @@ input:focus {
   border-radius: 5px;
   margin-right: auto;
   margin-bottom: 20px;
+}
+.contact-square {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+@media (max-width: 1450px) {
+  .chat-wrapper {
+    width: auto;
+  }
+}
+@media (max-width: 780px) {
+  .contact-square {
+    display: none;
+  }
 }

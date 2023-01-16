@@ -15,6 +15,7 @@ import { PalasgeneralComponent } from './components/palasgeneral/palasgeneral.co
 import { PalaComponent } from './components/pala/pala.component';
 import { PalainfoComponent } from './components/palainfo/palainfo.component';
 import { RacketFiltroPipe } from './pipes/racket-filtro.pipe';
+import { ChatFiltroPipe } from './pipes/chat.pipe';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalrateracketComponent } from './components/modalrateracket/modalrateracket.component';
@@ -53,6 +54,7 @@ import { ModalconfirmstartchatComponent } from './components/modalconfirmstartch
     PalaComponent,
     PalainfoComponent,
     RacketFiltroPipe,
+    ChatFiltroPipe,
     ModalrateracketComponent,
     StarsComponent,
     PalacreateComponent,

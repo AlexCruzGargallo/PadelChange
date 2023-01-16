@@ -16,7 +16,8 @@ export class AnunciosgeneralComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.adverts = await this.getAllAdvertsData();
     this.advertFiltered = this.adverts.filter(
-      (a: any) => a.user_id != localStorage.getItem('userId')
+      (a: any) =>
+        a.user_id != localStorage.getItem('userId') && a.final_date == null
     );
     console.log(this.advertFiltered);
   }

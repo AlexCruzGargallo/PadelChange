@@ -16,6 +16,13 @@
   width: 20%;
   margin-bottom: 20px;
 }
+.price-input {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-bottom: 5px;
+}
 .pala-div {
   margin-top: 10px;
   padding: 20px;
@@ -104,4 +111,25 @@
 }
 .create-button:hover {
   background: aqua;
+}
+.btn {
+  margin-top: 10px;
+  cursor: pointer;
+  position: relative;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: inline-block;
+  border-radius: 15px;
+  transition: all 0.2s;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  color: white;
+  background-color: #016dd9;
+}
+
+.btn:hover {
+  background-color: #004285;
 }

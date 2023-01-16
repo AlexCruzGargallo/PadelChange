@@ -7,7 +7,11 @@
   <div class="right-side-navbar">
     <div class="notification-wrapper" *ngIf="isLoggedIn()">
       <div class="red-circle">2</div>
-      <mat-icon class="chat-icon-nav"> chat_bubble</mat-icon>
+      <a [routerLink]="'/chat'">
+        <mat-icon style="color: black" class="chat-icon-nav">
+          chat_bubble</mat-icon
+        >
+      </a>
     </div>
     <div class="message-wrapper" *ngIf="isLoggedIn()">
       <div class="red-circle">2</div>

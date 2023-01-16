@@ -34,6 +34,29 @@ class ChatController {
       res.status(400).send(err);
     }
   }
+
+  public async saveMessage(req: any, res: Response) {
+    try {
+      const chat = await Chat.findOne({_id :req.body.chat_id});
+
+      let messages = chat.messages;
+      let newMessage = req.body;
+      messages.push(newMessage);
+
+      chat.messages = messages;
+
+      console.log("CHAT:",chat)
+      
+      await chat.save();
+
+      res.send({
+        chat: chat,
+      });
+    } catch (err) {
+      console.error(err);
+      res.status(400).send(err);
+    }
+  }
 }
 
 export default ChatController;

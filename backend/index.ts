@@ -55,6 +55,12 @@ io.on("connection", (socket: any) => {
     });
   });
 
+  socket.on("leave", function (data: any) {
+    socket.leave(data.room);
+    console.log(data.user + "joined the room : " + data.room);
+    socket.to(data.room).emit("user left", socket.id);
+  });
+
   socket.on("message", function (data: any) {
     io.in(data.room).emit("new message", {
       user: data.user,

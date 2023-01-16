@@ -81,6 +81,7 @@ export class RegisterComponent implements OnInit {
       if (payload?.accessToken) {
         localStorage.setItem('token', payload.accessToken);
         localStorage.setItem('userId', payload.user._id);
+        localStorage.setItem('userImage', payload.user.image);
         return Promise.resolve(message);
       }
     }

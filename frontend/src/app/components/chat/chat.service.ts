@@ -50,4 +50,8 @@ export class ChatService {
       );
       return observable;
   }
+
+  leaveRoom(data: any) {
+    this.socket.emit('leave', data);
+  }
 }

@@ -8,6 +8,8 @@
             style="width: 140px; height: 24px; border: none"
             placeholder="Busca un contacto"
             type="text"
+            #txtSearch
+            (keyup)="onSearchContact(txtSearch.value)"
           />
         </div>
       </div>
@@ -18,7 +20,8 @@
               ? 'contact-selected'
               : 'contact'
           "
-          *ngFor="let chat of chatsFiltered"
+          *ngFor="let chat of chatsFiltered | chatFiltro : search; let i = index "
+          (click)="onClickChat(i)"
         >
           <img
             class="imagee"
@@ -26,11 +29,13 @@
             alt=""
             *ngIf="chatsFiltered[activeChat].userTrade"
           />
-          <div style="display: flex; flex-direction: column; padding: 10px">
-            <div *ngIf="chatsFiltered[activeChat].userTrade">
+          <div class="contact-square" style="">
+            <div *ngIf="chat.userTrade">
               {{ chat.userTrade.name }}
             </div>
-            <div style="font-weight: 200">hola alex que..</div>
+            <div *ngIf="chat.messages.length > 0" style="font-weight: 200">
+              {{ chat.messages.at(-1).body }}
+            </div>
           </div>
         </div>
       </div>
@@ -69,7 +74,9 @@
                   : chatsFiltered[activeChat].userTrade.name
               }}
             </div>
-            <div>
+            <div
+              style="max-width: 100%; word-break: break-all; overflow: hidden"
+            >
               {{ msg.message }}
             </div>
           </div>

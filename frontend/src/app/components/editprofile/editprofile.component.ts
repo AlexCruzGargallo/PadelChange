@@ -154,6 +154,7 @@ export class EditprofileComponent implements OnInit {
           formData
         );
         upload$.subscribe();
+        localStorage.setItem('userImage', imageFile.name);
       }
     } else {
       this.errorFileMsg = 'No hay ningun fichero seleccionado';
