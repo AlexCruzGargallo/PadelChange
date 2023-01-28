@@ -42,6 +42,7 @@ import { ModalconfirmfinishadvertComponent } from './components/modalconfirmfini
 import { MyadvertsComponent } from './components/myadverts/myadverts.component';
 import { MyanuncioComponent } from './components/myanuncio/myanuncio.component';
 import { ModalconfirmstartchatComponent } from './components/modalconfirmstartchat/modalconfirmstartchat.component';
+import { ModalconfirmdeleteadvertComponent } from './components/modalconfirmdeleteadvert/modalconfirmdeleteadvert.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { ModalconfirmstartchatComponent } from './components/modalconfirmstartch
     MyadvertsComponent,
     MyanuncioComponent,
     ModalconfirmstartchatComponent,
+    ModalconfirmdeleteadvertComponent,
   ],
   imports: [
     AppRoutingModule,

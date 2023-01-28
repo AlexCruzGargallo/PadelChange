@@ -1,7 +1,8 @@
 .page-wrapper {
-  margin-top: 20px;
+  margin-top: 90px;
   font-size: 16px;
   font-weight: 500;
+  min-height: 100vh;
 }
 .advert-wrapperr {
   margin-top: 20px;

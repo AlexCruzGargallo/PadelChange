@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import Advert from "../models/AdvertSchema";
+import Chat from "../models/ChatSchema";
 import User from "../models/UserSchema";
 
 class AdvertController {
@@ -117,6 +118,21 @@ class AdvertController {
       const update = { final_date: new Date() };
       console.log("fine");
       let advert = await Advert.findOneAndUpdate(filter, update);
+    } catch (err) {
+      console.error(err);
+      res.status(400).send(err);
+    }
+  }
+
+  public async delete(req: any, res: Response) {
+    try {
+      const id = req.params.id;
+      await Advert.deleteMany({ _id: id });
+
+      await Chat.deleteMany({ advert_id: id });
+      res.send({
+        status: "ok",
+      });
     } catch (err) {
       console.error(err);
       res.status(400).send(err);

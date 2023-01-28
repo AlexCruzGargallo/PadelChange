@@ -9,6 +9,7 @@ router.get("/", advertController.getAllAdverts);
 router.get("/:id", advertController.getAdvert);
 router.post("/upload/:id", advertController.upload);
 router.put("/finish/:id", advertController.finish)
+router.delete("/delete/:id", advertController.delete)
 
 
 export default router;

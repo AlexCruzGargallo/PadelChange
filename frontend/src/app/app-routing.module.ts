@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'adverts', component: AnunciosgeneralComponent },
   { path: 'advert/:id', component: AnuncioinfoComponent },
   { path: 'chat', component: ChatComponent },
+  { path: 'chat/:id', component: ChatComponent },
   { path: 'profile/:id', component: ProfileComponent},
   { path: 'myadverts', component: MyadvertsComponent},
 

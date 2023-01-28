@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   submenu: boolean = false;
+  sidemenu: boolean = false;
   apiUrl: string = 'http://localhost:4000/api';
   apiImgUrl: string = 'http://localhost:4000/imgs/';
   userData: any = '';
@@ -24,6 +25,9 @@ export class NavbarComponent implements OnInit {
 
   changeSubmenu() {
     this.submenu = !this.submenu;
+  }
+  changeSidemenu() {
+    this.sidemenu = !this.sidemenu;
   }
   isLoggedIn(): boolean {
     if (localStorage.getItem('userId') && localStorage.getItem('token')) {

@@ -28,6 +28,10 @@ export class PalainfoComponent implements OnInit {
       this.id = id;
     }
     this.racketData = await this.getRacketData(this.id);
+    console.log(this.racketData);
+    console.log('aa', this.racketData._id);
+    let racket = await this.addViewRacket(this.racketData._id);
+    console.log('aa', racket);
     this.racketsRatingData = await this.getAllRacketsRatingData(this.id);
     this.ratingsLength = this.racketsRatingData.length;
     this.imgpath = this.imgpath + this.racketData.img;
@@ -118,5 +122,26 @@ export class PalainfoComponent implements OnInit {
       return Promise.reject();
     }
     return Promise.resolve(user);
+  }
+
+  public async addViewRacket(id: string): Promise<any> {
+    const response: Response = await fetch(
+      `${this.apiUrl}/rackets/addView/${id}`,
+      {
+        method: 'PUT',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + localStorage.getItem('token'),
+        },
+      }
+    );
+
+    if (!response.ok) {
+      return Promise.reject();
+    }
+    return Promise.resolve();
   }
 }

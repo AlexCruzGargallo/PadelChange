@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ModalconfirmfinishadvertComponent } from '../modalconfirmfinishadvert/modalconfirmfinishadvert.component';
 import { ModalconfirmstartchatComponent } from '../modalconfirmstartchat/modalconfirmstartchat.component';
+import { ModalconfirmdeleteadvertComponent } from '../modalconfirmdeleteadvert/modalconfirmdeleteadvert.component';
 
 @Component({
   selector: 'app-anuncioinfo',
@@ -11,6 +12,7 @@ import { ModalconfirmstartchatComponent } from '../modalconfirmstartchat/modalco
   styleUrls: ['./anuncioinfo.component.css'],
 })
 export class AnuncioinfoComponent implements OnInit {
+  userData: any;
   apiUrl: string = 'http://localhost:4000/api';
   id: string = '';
   user: any;
@@ -20,20 +22,27 @@ export class AnuncioinfoComponent implements OnInit {
   lat: number = 0;
   sell_item: any;
   want_items: any[] = [];
+  chats: any;
   rating: UntypedFormControl = new UntypedFormControl();
   imgCollection: Array<Object> = [];
 
   constructor(
+    private router: Router,
     private actRoute: ActivatedRoute,
     private matDialog: MatDialog,
     private matDialog2: MatDialog
   ) {}
 
   async ngOnInit(): Promise<void> {
+    const Userid = localStorage.getItem('userId');
+    if (Userid) {
+      this.userData = await this.getUserData(Userid);
+    }
     const id = this.actRoute.snapshot.paramMap.get('id');
     if (id) {
       this.id = id;
     }
+    this.chats = await this.getChats();
     this.advertData = await this.getAdvertsData(this.id);
     this.user = await this.getUserData(this.advertData.user_id);
     this.lat = this.advertData.location[0].lat;
@@ -73,8 +82,40 @@ export class AnuncioinfoComponent implements OnInit {
     });
   }
 
+  async itsAdmin() {
+    console.log(this.userData);
+    if(this.userData.admin){
+      
+    }
+    return this.userData.admin;
+  }
+
   openModalChat() {
-    this.matDialog2.open(ModalconfirmstartchatComponent, {
+    let trobat = false;
+    let url = '';
+
+    this.chats.map((chat: any) => {
+      if (
+        chat.advert_id == this.advertData._id &&
+        chat.members.includes(localStorage.getItem('userId')) &&
+        chat.members.includes(this.advertData.user_id)
+      ) {
+        trobat = true;
+        url = chat._id;
+      }
+    });
+
+    if (!trobat) {
+      this.matDialog2.open(ModalconfirmstartchatComponent, {
+        data: this.advertData,
+      });
+    } else {
+      this.router.navigate(['/chat', url]);
+    }
+  }
+
+  deleteAdvert() {
+    this.matDialog.open(ModalconfirmdeleteadvertComponent, {
       data: this.advertData,
     });
   }
@@ -131,6 +172,24 @@ export class AnuncioinfoComponent implements OnInit {
       return Promise.reject();
     }
     return Promise.resolve(racket);
+  }
+
+  public async getChats(): Promise<any> {
+    const response = await fetch(`${this.apiUrl}/chat/`, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const { chats } = await response.json();
+
+    if (!response.ok) {
+      return Promise.reject();
+    }
+    return Promise.resolve(chats);
   }
 
   calcCrow(lat1: number, lon1: number, lat2: number, lon2: number): number {

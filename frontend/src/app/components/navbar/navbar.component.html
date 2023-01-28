@@ -1,9 +1,17 @@
 <div class="navbar-wrapper">
+  <div (click)="changeSidemenu()" class="menu-icon">
+    <mat-icon style="font-size: 35px; height: 35px; width: 35px">menu</mat-icon>
+  </div>
   <a class="logoa-wrapper" routerLink="/"
-    ><div class="logo-wrapper">PadelChange</div></a
+    ><div class="logo-wrapper">
+      PadelChange {{ userData.admin ? "[ADMIN]" : null }}
+    </div></a
   >
   <div class="section-wrapper"><a routerLink="/adverts" i18n>Anuncios</a></div>
   <div class="section-wrapper"><a routerLink="/rackets" i18n>Palas</a></div>
+  <div class="section-wrapper" *ngIf="userData.admin">
+    <a routerLink="/rackets" i18n>Peticiones de palas</a>
+  </div>
   <div class="right-side-navbar">
     <div class="notification-wrapper" *ngIf="isLoggedIn()">
       <div class="red-circle">2</div>
@@ -31,7 +39,7 @@
             ><li i18n>Editar perfil</li></a
           >
           <a [routerLink]="['/profile', getUserId()]">
-            <li i18n>Ver perfil</li>
+            <li (click)="changeSubmenu()" i18n>Ver perfil</li>
           </a>
           <a [routerLink]="['/myadverts']">
             <li (click)="changeSubmenu()">Ver anuncios</li>
@@ -47,5 +55,56 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+<div *ngIf="this.sidemenu == true" class="sidemenu">
+  <div
+    style="display: flex; padding-left: 10px; align-items: center"
+    *ngIf="isLoggedIn()"
+  >
+    <div>
+      <img
+        style="margin-right: 25px"
+        class="profile-pic"
+        [src]="apiImgUrl + getUserImage()"
+        alt="profile-pic"
+      />
+    </div>
+    <div style="display: flex">
+      {{ this.userData.name }}
+    </div>
+  </div>
+  <div *ngIf="isLoggedIn()" routerLink="/profile/edit" class="item-div">
+    <mat-icon>person_outline</mat-icon>Editar perfil
+  </div>
+  <div
+    *ngIf="isLoggedIn()"
+    [routerLink]="['/profile', getUserId()]"
+    class="item-div"
+  >
+    <mat-icon>person_outline</mat-icon>Ver perfil
+  </div>
+  <div *ngIf="isLoggedIn()" [routerLink]="['/myadverts']" class="item-div">
+    <mat-icon> format_list_bulleted</mat-icon>Mis anuncios
+  </div>
+  <div [routerLink]="['/login']" *ngIf="!isLoggedIn()" class="item-div">
+    <mat-icon>person_outline</mat-icon>Iniciar sesión
+  </div>
+  <hr style="width: 95%" />
+  <div [routerLink]="['/']" class="item-div">
+    <mat-icon> home</mat-icon>Home
+  </div>
+  <div [routerLink]="['/adverts']" class="item-div">
+    <mat-icon> format_list_bulleted</mat-icon>Ver Anuncios
+  </div>
+  <div [routerLink]="['/rackets']" class="item-div">
+    <mat-icon> format_list_bulleted</mat-icon>Ver Palas
+  </div>
+  <div [routerLink]="['/chat']" class="item-div">
+    <mat-icon> mail_outline</mat-icon>Chats
+  </div>
+  <hr style="width: 95%" />
+  <div class="item-div" *ngIf="isLoggedIn()" (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>Cerrar sesión
   </div>
 </div>

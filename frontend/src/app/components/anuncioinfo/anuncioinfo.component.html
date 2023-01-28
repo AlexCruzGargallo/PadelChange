@@ -28,13 +28,20 @@
       </div>
     </div>
   </div>
-  <div style="display: flex; gap: 20px" class="right-panel" *ngIf="itsMe() && advertData.final_date == null">
+  <div
+    style="display: flex; gap: 20px"
+    class="right-panel"
+    *ngIf="itsMe() && advertData.final_date == null"
+  >
     <button routerLink="/chat" class="orange-button">Editar</button>
     <button routerLink="/chat" class="red-button">Eliminar</button>
     <button (click)="openModalConfirm()" class="green-button">Finalizar</button>
   </div>
-  <div class="right-panel" *ngIf="!itsMe()">
+  <div class="right-panel" *ngIf="!itsMe() && !userData.admin">
     <button (click)="openModalChat()" class="green-button">Mensaje</button>
+  </div>
+  <div class="right-panel" *ngIf="userData.admin">
+    <button (click)="deleteAdvert()" class="red-button">Eliminar</button>
   </div>
 </div>
 <div class="racket-wrapper">

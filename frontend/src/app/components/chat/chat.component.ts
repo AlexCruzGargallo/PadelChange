@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { io } from 'socket.io-client';
 import { ChatService } from './chat.service';
 
@@ -18,7 +19,10 @@ export class ChatComponent implements OnInit {
   search: string = '';
   messageArray: Array<{ user: String; message: String }> = [];
 
-  constructor(private _chatService: ChatService) {
+  constructor(
+    private _chatService: ChatService,
+    private actRoute: ActivatedRoute
+  ) {
     this._chatService.newUserJoined().subscribe();
     this._chatService
       .newMessageRecieved()
@@ -47,8 +51,15 @@ export class ChatComponent implements OnInit {
       });
     });
 
-    console.log('ROOM:', this.chatsFiltered[this.activeChat]._id);
-    console.log(this.messageArray);
+    const chatId = this.actRoute.snapshot.paramMap.get('id');
+
+    if (chatId) {
+      this.chatsFiltered.map((a: any, index: number) => {
+        if (a._id == chatId) {
+          this.activeChat = index;
+        }
+      });
+    }
     this.chatsFiltered[this.activeChat].messages.map((m: any) => {
       this.messageArray.push({ user: m.author, message: m.body });
     });
@@ -73,6 +84,8 @@ export class ChatComponent implements OnInit {
       room: this.chatsFiltered[this.activeChat]._id,
       message: this.messageText,
     });
+
+    this.messageText = '';
   }
 
   onClickChat(i: number) {
