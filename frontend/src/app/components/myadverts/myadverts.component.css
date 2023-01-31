@@ -1,0 +1,21 @@
+.page-wrapper {
+  margin-top: 90px;
+  font-size: 16px;
+  font-weight: 500;
+  min-height: 100vh;
+}
+.advert-wrapperr {
+  margin-top: 20px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+.advert {
+  box-shadow: 0 8px 8px -4px #a4a8a9;
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: white;
+}

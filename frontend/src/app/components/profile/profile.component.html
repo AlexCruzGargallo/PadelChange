@@ -1,0 +1,109 @@
+<div style="min-height: 100vh; margin-top: 90px">
+  <div class="header-wrapper">
+    <div style="padding: 25px; display: flex; gap: 20px; width: 100%">
+      <div>
+        <img
+          class="user-photo"
+          [src]="'http://localhost:4000/imgs/' + user.image"
+          alt=""
+        />
+      </div>
+      <div style="width: 50%; align-items: center; display: flex; gap: 40px">
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <div class="stars-name" style="display: flex; gap: 5px">
+            <ngx-star-rating
+              [formControl]="rating"
+              [id]="'rating2'"
+              [disabled]="true"
+            ></ngx-star-rating>
+            <div style="display: flex; gap: 10px">
+              <div style="font-size: 16px">
+                <b *ngIf="this.userRatings.length > 0"
+                  >({{ this.ovrRating | number : "1.2-2" }}/5)</b
+                >
+                <b *ngIf="this.userRatings.length <= 0">(0/5)</b>
+              </div>
+
+              · {{ this.userRatings.length }} valoraciones
+            </div>
+          </div>
+          <p class="name">{{ user.name }}</p>
+        </div>
+      </div>
+      <div
+        style="width: 72%; display: flex; align-items: center"
+        *ngIf="itsMe()"
+      >
+        <a style="margin-left: auto" [routerLink]="['/profile/edit']"
+          ><button class="btn">Editar perfil</button></a
+        >
+      </div>
+      <div
+        style="width: 72%; display: flex; align-items: center"
+        *ngIf="!itsMe()"
+      >
+        <button (click)="openModalVote()" class="green-button">Valorar</button>
+      </div>
+    </div>
+  </div>
+  <div class="anuncis-wrapper">
+    <div style="padding: 25px">
+      <h1>Anuncios</h1>
+      <div class="anuncis-stats">
+        <span
+          ><p>En curso: {{ this.advertsResultNotFinished.length }}</p></span
+        >
+        <span
+          ><p>Finalizados: {{ this.advertsResultFinished.length }}</p></span
+        >
+        <span
+          ><p>Totales: {{ this.advertsResult.length }}</p></span
+        >
+      </div>
+      <div>
+        <div>
+          <h2>Ultimos anuncios:</h2>
+          <div
+            class="last-adverts"
+            style="max-width: 100%; display: flex; overflow: auto"
+          >
+            <div
+              *ngFor="let advert of this.advertsResultReversed"
+              style="padding: 20px"
+            >
+              <app-advertimage [advert]="advert"></app-advertimage>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="valoraciones">
+    <div style="padding: 25px">
+      <div>
+        <h1>Valoraciones</h1>
+      </div>
+      <div>
+        <div class="rating-wrapper" *ngFor="let ratings of this.userRatings">
+          <div style="margin-bottom: 15px" class="first-line">
+            <h2 style="margin-bottom: 0px; margin-right: 20px">
+              {{ ratings.user.name }}
+            </h2>
+            <app-stars [data]="ratings.rating"></app-stars>
+            <h3 style="margin-bottom: 0px">
+              ({{ ratings.date | date : "yyyy-MM-dd" }})
+            </h3>
+          </div>
+          <div class="second-line">
+            <img
+              class="user-image"
+              [src]="'http://localhost:4000/imgs/' + ratings.user.image"
+              alt=""
+            />
+            <div class="comment-wrapper">{{ this.ratings.comment }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

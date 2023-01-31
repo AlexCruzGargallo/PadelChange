@@ -10,10 +10,26 @@ import { ModalcreateadvertComponent } from '../modalcreateadvert/modalcreateadve
 export class AnunciosgeneralComponent implements OnInit {
   apiUrl: string = 'http://localhost:4000/api';
   adverts: any;
+  advertFiltered: any;
+  userData: any;
   constructor(private matDialog: MatDialog) {}
 
   async ngOnInit(): Promise<void> {
+    const Userid = localStorage.getItem('userId');
+    if (Userid) {
+      this.userData = await this.getUserData(Userid);
+    }
     this.adverts = await this.getAllAdvertsData();
+    if (!this.userData.admin) {
+      this.advertFiltered = this.adverts.filter(
+        (a: any) =>
+          a.user_id != localStorage.getItem('userId') && a.final_date == null
+      );
+    } else {
+      this.advertFiltered = this.adverts;
+    }
+
+    console.log(this.advertFiltered);
   }
 
   openModalCreateAd() {
@@ -38,4 +54,21 @@ export class AnunciosgeneralComponent implements OnInit {
     return Promise.resolve(adverts);
   }
 
+  public async getUserData(id: string): Promise<any> {
+    const response = await fetch(`${this.apiUrl}/users/${id}`, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const { user } = await response.json();
+
+    if (!response.ok) {
+      return Promise.reject();
+    }
+    return Promise.resolve(user);
+  }
 }

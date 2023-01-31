@@ -1,0 +1,91 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  cursor: pointer;
+}
+.user-pic {
+  height: 70px;
+  border-radius: 50%;
+  border: solid 1px gray;
+}
+.image {
+  margin-right: 20px;
+}
+.stars-name {
+  width: 28%;
+  padding-top: 5px;
+}
+.span-name {
+  margin-top: 10px;
+  margin-left: 3px;
+  font-size: 19px;
+  font-weight: 500;
+}
+.image {
+  width: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.trade-wrapper {
+  max-width: 65%;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  overflow: auto;
+}
+.sell-wrapper {
+  max-height: 110px;
+  overflow: hidden;
+  margin-right: 20px;
+  max-width: 110px;
+  display: grid;
+  font-size: 14px;
+  text-align: center;
+}
+.want-racket-image {
+  height: 70px;
+  border-radius: 50%;
+}
+.icon {
+  font-size: 50px;
+  height: 50px;
+  width: 50px;
+}
+::ng-deep label.star {
+  padding: 0 2px !important;
+  font-size: 20px !important;
+  transition: all 0s !important;
+}
+
+::ng-deep label.star:before {
+  content: "\f005" !important;
+}
+
+::ng-deep label.star:hover {
+  transform: rotate(0deg) scale(1) !important;
+}
+
+::ng-deep input.star-5:checked ~ label.star:before {
+  color: #fe7;
+  text-shadow: 0 0 0px #952 !important;
+}
+
+@media (max-width: 1080px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .image {
+    width: auto !important;
+  }
+  .trade-wrapper {
+    width: auto;
+    margin-left: 0px !important;
+    width: 100%;
+    max-width: none;
+  }
+  .stars-name {
+    width: auto;
+  }
+}

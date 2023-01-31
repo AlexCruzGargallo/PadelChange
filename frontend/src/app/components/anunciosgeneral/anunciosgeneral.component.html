@@ -2,25 +2,27 @@
   <div class="tools-wrapper">
     <div class="row-wrapper">
       <div class="filter-wrapper">
-        <mat-form-field appearance="fill">
-          <mat-label>Filtrar por distancia</mat-label>
-          <mat-select>
-            <mat-option value="Sin filtrar">Sin filtrar</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <mat-label>Filtrar por distancia</mat-label>
+        <mat-select
+          style="border: 1px solid; border-radius: 5px; padding: 6px"
+          value="Sin filtrar"
+        >
+          <mat-option value="Sin filtrar">Sin filtrar</mat-option>
+        </mat-select>
       </div>
       <div class="order-wrapper">
-        <mat-form-field appearance="fill">
-          <mat-label>Ordenar por</mat-label>
-          <mat-select>
-            <mat-option value="No ordenar" i18n>No ordenar</mat-option>
-            <mat-option value="priceasc" i18n>Precio(Más Alto)</mat-option>
-            <mat-option value="pricedesc" i18n>Precio(Más Bajo)</mat-option>
-            <mat-option value="nameasc" i18n>Nombre (A-Z)</mat-option>
-            <mat-option value="namedesc" i18n>Nombre (Z-A)</mat-option>
-            <mat-option value="season" i18n>Temporada</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <mat-label>Ordenar por</mat-label>
+        <mat-select
+          style="border: 1px solid; border-radius: 5px; padding: 6px"
+          value="No ordenar"
+        >
+          <mat-option value="No ordenar" i18n>No ordenar</mat-option>
+          <mat-option value="priceasc" i18n>Precio(Más Alto)</mat-option>
+          <mat-option value="pricedesc" i18n>Precio(Más Bajo)</mat-option>
+          <mat-option value="nameasc" i18n>Nombre (A-Z)</mat-option>
+          <mat-option value="namedesc" i18n>Nombre (Z-A)</mat-option>
+          <mat-option value="season" i18n>Temporada</mat-option>
+        </mat-select>
       </div>
 
       <div class="search-wrapper">
@@ -33,7 +35,7 @@
           (keyup)="(true)"
         />
       </div>
-      <div style="text-align: center">
+      <div style="text-align: center; padding: 20px">
         <button class="btn" (click)="openModalCreateAd()" i18n>
           Crear anuncio
         </button>
@@ -44,7 +46,7 @@
     <div class="advert-wrapperr">
       <div
         class="advert"
-        *ngFor="let advert of adverts"
+        *ngFor="let advert of advertFiltered"
         [routerLink]="['/advert', advert._id]"
       >
         <app-anuncio [data]="advert"></app-anuncio>

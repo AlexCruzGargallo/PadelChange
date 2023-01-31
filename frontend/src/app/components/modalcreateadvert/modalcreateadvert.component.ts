@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalsearchracketComponent } from '../modalsearchracket/modalsearchracket.component';
 import axios, { isCancel, AxiosError } from 'axios';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-modalcreateadvert',
@@ -27,7 +28,7 @@ export class ModalcreateadvertComponent implements OnInit {
   city: any;
   area: any;
 
-  constructor(private matDialog: MatDialog) {}
+  constructor(private matDialog: MatDialog, private _http: HttpClient) {}
 
   onCheckboxChange() {
     this.accept_offers = !this.accept_offers;
@@ -51,6 +52,14 @@ export class ModalcreateadvertComponent implements OnInit {
     this.tagList.splice(index, 1);
   }
 
+  numberOnly(event: any): boolean {
+    const charCode = event.which ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+  }
+
   save(event: any): void {
     if (this.images.length < 5) {
       var reader = new FileReader();
@@ -67,13 +76,19 @@ export class ModalcreateadvertComponent implements OnInit {
     }
   }
 
-  onSubmit() {
+  async onSubmit() {
     let want_items_ids: any[] = [];
+    let imagesName: string[] = [];
+    this.images.map((i: any) => {
+      console.log(i);
+      console.log('=>>', i.file[0].name);
+      imagesName.push(i.file[0].name);
+    });
     this.want_items.map((wi) => want_items_ids.push(wi._id));
 
     let payload = {
       user_id: localStorage.getItem('userId'),
-      images: '',
+      images: imagesName,
       //images: this.images,
       sell_item: this.myRacket._id,
       racket_state: this.stateSelected,
@@ -89,13 +104,15 @@ export class ModalcreateadvertComponent implements OnInit {
         lat: this.lat,
         lon: this.lon,
       },
+      type: this.changeFor,
       tokenPayload: {
         accessToken: localStorage.getItem('token'),
         _id: localStorage.getItem('userId'),
       },
     };
-    this.createAdvert(payload);
-
+    let res = await this.createAdvert(payload);
+    console.log('AWQUUQWUEQWEQWEQWE', res);
+    this.uploadImagesToFolder(res.id);
     console.log(payload);
   }
 
@@ -148,11 +165,11 @@ export class ModalcreateadvertComponent implements OnInit {
     let cityDetails: any = {};
     let city: any = await axios
       .request(options)
-      .then((response) => {
+      .then((response: any) => {
         cityDetails = response.data.results[0];
         console.log(response.data);
       })
-      .catch(function (error) {
+      .catch(function (error: any) {
         console.error(error);
       });
     if (cityDetails.locality && cityDetails.area) {
@@ -193,9 +210,58 @@ export class ModalcreateadvertComponent implements OnInit {
       body: JSON.stringify(args),
     });
 
-    const { message, payload } = await response.json();
-    console.log(response);
+    const res = await response.json();
+    console.log(res);
+    if (!response.ok) {
+      return Promise.reject();
+    }
+    return Promise.resolve(res);
+  }
 
-    return Promise.reject(payload?.errorMsg || message);
+  dataURItoBlob(dataURI: any) {
+    console.log('LLEGA', dataURI);
+    let array = dataURI.split(',');
+    let data = array[1];
+    const byteString = atob(data);
+    const arrayBuffer = new ArrayBuffer(byteString.length);
+    const int8Array = new Uint8Array(arrayBuffer);
+    for (let i = 0; i < byteString.length; i++) {
+      int8Array[i] = byteString.charCodeAt(i);
+    }
+    const blob = new Blob([int8Array], { type: 'image/png' });
+    return blob;
+  }
+
+  uploadImagesToFolder(id: string) {
+    this.images.map((image: any) => {
+      let fileName = '';
+
+      const urla = image.url;
+      console.log('IMAGENNNNN', urla);
+      const imageBlob = this.dataURItoBlob(urla);
+      const imageFile = new File([imageBlob], image.file[0].name, {
+        type: 'image/png',
+      });
+      console.log('aaa', imageFile);
+      const fd = new FormData();
+      if (!imageFile) {
+        console.log(imageFile);
+        return;
+      }
+      fd.append('file', imageFile);
+
+      let url = `${this.apiUrl}/adverts/upload`;
+
+      if (imageFile) {
+        fileName = imageFile.name;
+        const formData = new FormData();
+        formData.append('thumbnail', imageFile);
+        const upload$ = this._http.post(
+          `${this.apiUrl}/adverts/upload/${id}`,
+          formData
+        );
+        upload$.subscribe();
+      }
+    });
   }
 }

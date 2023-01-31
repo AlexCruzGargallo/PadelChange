@@ -14,6 +14,7 @@ const RacketSchema = new Schema({
   shape: { type: String, default: "" },
   weight: { type: String, default: "" },
   ovr_rating: { type: Number, default: 0 },
+  views: { type: Number, default: 0 },
 });
 
 export default mongoose.model("Racket", RacketSchema);

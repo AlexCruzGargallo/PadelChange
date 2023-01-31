@@ -1,0 +1,106 @@
+<div class="chat-wrapper">
+  <div class="chat-box">
+    <div class="contacts">
+      <div class="searcher-wrap">
+        <div class="search">
+          <div style="display: flex"><mat-icon>search</mat-icon></div>
+          <input
+            style="width: 140px; height: 24px; border: none"
+            placeholder="Busca un contacto"
+            type="text"
+            #txtSearch
+            (keyup)="onSearchContact(txtSearch.value)"
+          />
+        </div>
+      </div>
+      <div style="max-height: 90%; overflow-y: auto; overflow-x: hidden">
+        <div
+          [ngClass]="
+            chatsFiltered[activeChat]._id == chat._id
+              ? 'contact-selected'
+              : 'contact'
+          "
+          *ngFor="let chat of chatsFiltered | chatFiltro : search; let i = index "
+          (click)="onClickChat(i)"
+        >
+          <img
+            class="imagee"
+            [src]="'http://localhost:4000/imgs/' + chat.userTrade.image"
+            alt=""
+            *ngIf="chatsFiltered[activeChat].userTrade"
+          />
+          <div class="contact-square" style="">
+            <div *ngIf="chat.userTrade">
+              {{ chat.userTrade.name }}
+            </div>
+            <div *ngIf="chat.messages.length > 0" style="font-weight: 200">
+              {{ chat.messages.at(-1).body }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="messages" *ngIf="chatsFiltered[activeChat]">
+      <div class="messages-header" *ngIf="chatsFiltered[activeChat].userTrade">
+        <img
+          class="imagee"
+          [src]="
+            'http://localhost:4000/imgs/' +
+            chatsFiltered[activeChat].userTrade.image
+          "
+          alt=""
+        />
+        {{ chatsFiltered[activeChat].userTrade.name }}
+
+        <a
+          style="margin-left: auto; margin-right: 20px"
+          [routerLink]="['/advert', chatsFiltered[activeChat].advert_id]"
+        >
+          <button class="btn">Ir al anuncio</button></a
+        >
+      </div>
+      <div class="messages-body">
+        <div *ngFor="let msg of messageArray">
+          <div
+            [ngClass]="
+              msg.user == user._id ? 'local-user-msg' : 'other-user-msg'
+            "
+          >
+            <div>
+              {{
+                msg.user == user._id
+                  ? user.name
+                  : chatsFiltered[activeChat].userTrade.name
+              }}
+            </div>
+            <div
+              style="max-width: 100%; word-break: break-all; overflow: hidden"
+            >
+              {{ msg.message }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="messages-bottom">
+        <div class="write-box">
+          <div
+            class="icon-wrap"
+            (click)="sendMessage()"
+            style="cursor: pointer"
+          >
+            <i class="fas fa-paper-plane plane"></i>
+          </div>
+          <div class="message-wrap">
+            <input
+              placeholder="Escribe un mensaje aqui"
+              class="input-msg"
+              type="text"
+              [(ngModel)]="messageText"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

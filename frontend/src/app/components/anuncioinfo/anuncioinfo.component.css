@@ -1,0 +1,249 @@
+.head-wrap {
+  font-weight: 500;
+  width: 50%;
+  background-color: white;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 90px;
+  display: flex;
+  border-radius: 5px;
+  box-shadow: 0 8px 8px -4px #a4a8a9;
+}
+.left-panel {
+  display: flex;
+}
+.name {
+  font-size: 19px;
+}
+.user-photo {
+  cursor: pointer;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+.center-panel {
+  font-size: 16px;
+  display: flex;
+  margin-left: 20px;
+}
+
+.right-panel {
+  margin-left: auto;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+}
+.green-button {
+  cursor: pointer;
+  background-color: #008f39;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.green-button:hover {
+  background-color: #006e2c;
+}
+
+.orange-button {
+  cursor: pointer;
+  background-color: #d69303;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.orange-button:hover {
+  background-color: #925800;
+}
+
+.red-button {
+  cursor: pointer;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.red-button:hover {
+  background-color: #6e0000;
+}
+
+.racket-wrapper {
+  font-weight: 500;
+  width: 50%;
+  background-color: white;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  display: flex;
+  border-radius: 5px;
+  flex-direction: column;
+  box-shadow: 0 8px 8px -4px #a4a8a9;
+}
+
+.sub-header {
+  width: 100%;
+  padding: 25px;
+}
+
+.racket-image {
+  height: 250px;
+  width: 250px;
+}
+
+.sub-body {
+  display: flex;
+  padding: 20px;
+  padding-top: 0px;
+}
+
+.left-part {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  font-size: 19px;
+}
+.right-part {
+  width: 50%;
+  padding: 40px;
+}
+
+.info-pala {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 17px;
+}
+
+.photos-wrapper {
+  font-weight: 500;
+  width: 50%;
+  background-color: white;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  display: flex;
+  border-radius: 5px;
+  flex-direction: column;
+  box-shadow: 0 8px 8px -4px #a4a8a9;
+}
+
+.desc-wrap {
+  padding: 25px;
+  padding-top: 0px;
+}
+
+.tag {
+  border: 0px;
+  background-color: gainsboro;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.tag-div {
+  position: relative;
+  background-color: gainsboro;
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 10px;
+}
+.tags-wrapper {
+  margin-top: 15px;
+  display: flex;
+  position: relative;
+  max-width: 100%;
+  overflow: auto;
+}
+.bodychange {
+  max-width: 100%;
+  display: flex;
+  padding-bottom: 25px;
+  padding-left: 25px;
+  gap: 20px;
+  overflow: auto;
+}
+.want-images {
+  height: 100px;
+  width: 100px;
+}
+.racket-change {
+  max-width: 100px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.handshake {
+  height: 100px;
+  width: 100px;
+  font-size: 70px;
+}
+.handshake-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.last-wrapper {
+  font-weight: 500;
+  width: 50%;
+  background-color: white;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  border-radius: 5px;
+  flex-direction: column;
+  box-shadow: 0 8px 8px -4px #a4a8a9;
+}
+::ng-deep label.star {
+  padding: 0 2px !important;
+  font-size: 20px !important;
+  transition: all 0s !important;
+}
+
+::ng-deep label.star:before {
+  content: "\f005" !important;
+}
+
+::ng-deep label.star:hover {
+  transform: rotate(0deg) scale(1) !important;
+}
+
+::ng-deep input.star-5:checked ~ label.star:before {
+  color: #fe7;
+  text-shadow: 0 0 0px #952 !important;
+}
+@media (max-width: 1080px) {
+  hr {
+    display: none;
+  }
+  .head-wrap {
+    flex-direction: column;
+  }
+  .left-panel {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .stars-name {
+    flex-direction: column;
+  }
+  .right-panel {
+    margin-left: 0px !important;
+    align-items: center;
+    justify-content: center;
+  }
+}

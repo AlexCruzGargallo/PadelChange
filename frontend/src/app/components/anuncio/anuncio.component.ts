@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-anuncio',
@@ -16,8 +16,10 @@ export class AnuncioComponent implements OnInit {
   km: number = 0;
   lon: number = 0;
   lat: number = 0;
+  userRatings: any;
+  ovrRating: number = 0;
 
-  rating = new FormControl();
+  rating = new UntypedFormControl();
 
   constructor() {}
 
@@ -30,11 +32,16 @@ export class AnuncioComponent implements OnInit {
       this.wantItemsData.push(await this.getRacketData(item));
     });
 
-    console.log(this.data);
-    console.log(this.wantItemsData);
-    console.log('jeje', this.userData, this.sellItemData);
-    console.log(this.data.location[0].lat);
-    console.log(this.data.location[0].lon);
+    this.userRatings = await this.getAllUsersRatingData(this.userData);
+
+    let i = 0;
+    this.userRatings.map((rating: any) => {
+      i += rating.rating;
+    });
+
+    this.ovrRating = i / this.userRatings.length;
+    this.rating.setValue(this.ovrRating | 0);
+
     this.lat = this.data.location[0].lat;
     this.lon = this.data.location[0].lon;
 
@@ -78,6 +85,24 @@ export class AnuncioComponent implements OnInit {
       return Promise.reject();
     }
     return Promise.resolve(racket);
+  }
+
+  public async getAllUsersRatingData(id: string): Promise<any> {
+    const response = await fetch(`${this.apiUrl}/userratings/${id}`, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const { racketRatings } = await response.json();
+
+    if (!response.ok) {
+      return Promise.reject();
+    }
+    return Promise.resolve(racketRatings);
   }
 
   calcCrow(lat1: number, lon1: number, lat2: number, lon2: number): number {

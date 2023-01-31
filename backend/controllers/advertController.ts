@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import Advert from "../models/AdvertSchema";
+import Chat from "../models/ChatSchema";
 import User from "../models/UserSchema";
 
 class AdvertController {
@@ -33,8 +34,21 @@ class AdvertController {
       let rbody = req.body;
       console.log(rbody);
 
+      let newAdvId = 0;
       const advert = new Advert(req.body);
-      await advert.save();
+
+      await advert.save(function (err: any, adv: any) {
+        while (!adv) {}
+        newAdvId = adv._id;
+        var fs = require("fs");
+        var dir = `./public/adverts/${newAdvId}`;
+        if (!fs.existsSync(dir)) {
+          fs.mkdirSync(dir);
+        }
+        res.send({ id: newAdvId });
+      });
+
+      console.log("anuncioID:", newAdvId);
     } catch (err: any) {
       console.error(err);
       res.status(400).send(err);
@@ -72,6 +86,54 @@ class AdvertController {
         advert: advert,
       });
     } catch (err: any) {
+      console.error(err);
+      res.status(400).send(err);
+    }
+  }
+
+  public async upload(req: any, res: Response) {
+    try {
+      const id = req.params.id;
+      console.log("Uploading file...");
+      let file = req["files"].thumbnail;
+      console.log("File uploaded: ", file.name);
+
+      file.mv("public/adverts/" + id + "/" + file.name);
+      // Validate user inputs
+      if (!file) {
+        throw new Error("La imagen no es válida.");
+      }
+    } catch (err) {
+      console.error(err);
+      res.status(400).send(err);
+    }
+  }
+
+  public async finish(req: any, res: Response) {
+    try {
+      console.log("fine");
+      const id = req.params.id;
+
+      const filter = { _id: id };
+      const update = { final_date: new Date() };
+      console.log("fine");
+      let advert = await Advert.findOneAndUpdate(filter, update);
+    } catch (err) {
+      console.error(err);
+      res.status(400).send(err);
+    }
+  }
+
+  public async delete(req: any, res: Response) {
+    try {
+      const id = req.params.id;
+      await Advert.deleteMany({ _id: id });
+
+      await Chat.deleteMany({ advert_id: id });
+      res.send({
+        status: "ok",
+      });
+    } catch (err) {
       console.error(err);
       res.status(400).send(err);
     }

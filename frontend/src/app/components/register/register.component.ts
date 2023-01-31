@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormGroup,
+  UntypedFormGroup,
   ValidatorFn,
-  FormControl,
+  UntypedFormControl,
   Validators,
   ValidationErrors,
   AbstractControl,
@@ -20,26 +20,26 @@ export class RegisterComponent implements OnInit {
   regexlastName: RegExp = /^[a-z À-ÿ\u00f1\u00d1,.'-]+$/i;
   regexPassword: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 
-  name = new FormControl('', [
+  name = new UntypedFormControl('', [
     Validators.required,
     Validators.minLength(2),
     Validators.maxLength(60),
     Validators.pattern(this.regexName),
   ]);
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [
+  email = new UntypedFormControl('', [Validators.required, Validators.email]);
+  password = new UntypedFormControl('', [
     Validators.required,
     Validators.minLength(8),
     Validators.pattern(this.regexPassword),
   ]);
-  confirmPassword = new FormControl('', [
+  confirmPassword = new UntypedFormControl('', [
     Validators.required,
     Validators.minLength(8),
     this.confirmPasswordValidator(),
   ]);
 
   //Creating Formgroup for register
-  form = new FormGroup({
+  form = new UntypedFormGroup({
     name: this.name,
     email: this.email,
     password: this.password,
@@ -81,6 +81,7 @@ export class RegisterComponent implements OnInit {
       if (payload?.accessToken) {
         localStorage.setItem('token', payload.accessToken);
         localStorage.setItem('userId', payload.user._id);
+        localStorage.setItem('userImage', payload.user.image);
         return Promise.resolve(message);
       }
     }

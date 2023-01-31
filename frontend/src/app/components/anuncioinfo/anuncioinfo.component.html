@@ -1,1 +1,129 @@
-<p>anuncioinfo works!</p>
+<div class="head-wrap">
+  <div class="left-panel">
+    <div style="padding: 25px">
+      <a [routerLink]="['/profile', user._id]">
+        <img
+          class="user-photo"
+          [src]="'http://localhost:4000/imgs/' + user.image"
+          alt=""
+        />
+      </a>
+    </div>
+    <div style="align-items: center; display: flex">
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <div class="stars-name" style="display: flex">
+          <ngx-star-rating
+            [formControl]="rating"
+            [id]="'rating2'"
+            [disabled]="false"
+          ></ngx-star-rating>
+          (0 val)
+          <div class="center-panel">
+            <mat-icon> location_on</mat-icon>
+            {{ this.advertData.location[0].city }} ({{ km }}
+            km)
+          </div>
+        </div>
+        <p class="name">{{ user.name }}</p>
+      </div>
+    </div>
+  </div>
+  <div
+    style="display: flex; gap: 20px"
+    class="right-panel"
+    *ngIf="itsMe() && advertData.final_date == null"
+  >
+    <button routerLink="/chat" class="orange-button">Editar</button>
+    <button routerLink="/chat" class="red-button">Eliminar</button>
+    <button (click)="openModalConfirm()" class="green-button">Finalizar</button>
+  </div>
+  <div class="right-panel" *ngIf="!itsMe() && !userData.admin">
+    <button (click)="openModalChat()" class="green-button">Mensaje</button>
+  </div>
+  <div class="right-panel" *ngIf="userData.admin">
+    <button (click)="deleteAdvert()" class="red-button">Eliminar</button>
+  </div>
+</div>
+<div class="racket-wrapper">
+  <div class="sub-header">
+    <h1><b>Detalles de la pala</b></h1>
+  </div>
+  <div class="sub-body">
+    <div class="left-part">
+      <div style="margin-bottom: 20px">
+        <img
+          class="racket-image"
+          [src]="'assets/imgs/rackets/' + sell_item.img"
+          alt=""
+        />
+      </div>
+      {{ sell_item.name }}
+    </div>
+    <hr />
+    <div class="right-part">
+      <div class="info-pala">
+        <p><b>Temporada:</b> {{ sell_item.season }}</p>
+        <p><b>Material marco: </b> {{ sell_item.frame_material }}</p>
+        <p><b>Material plano: </b> {{ sell_item.flat_material }}</p>
+        <p><b>Material goma: </b> {{ sell_item.rubber_material }}</p>
+        <p><b>Tacto: </b> {{ sell_item.touch }}</p>
+        <p><b>Forma: </b> {{ sell_item.shape }}</p>
+        <p><b>Peso: </b> {{ sell_item.weight }}</p>
+        <br />
+        <p style="font-size: 24px">
+          <b>Precio mercado: </b> {{ sell_item.price }}€
+        </p>
+      </div>
+      <div></div>
+    </div>
+  </div>
+</div>
+<div class="photos-wrapper">
+  <div class="sub-header">
+    <h1>
+      <b>Fotos ({{ advertData.images.length }})</b>
+    </h1>
+  </div>
+  <div style="padding: 20px; padding-top: 0px">
+    <ng-image-slider [images]="imgCollection" #nav></ng-image-slider>
+  </div>
+</div>
+<div class="photos-wrapper">
+  <div class="sub-header">
+    <h1>
+      <b>Cambiar por...</b>
+    </h1>
+  </div>
+  <div class="bodychange">
+    <div class="racket-change" *ngFor="let racket of want_items">
+      <img
+        class="want-images"
+        [src]="'assets/imgs/rackets/' + racket.img"
+        alt=""
+      />
+      {{ racket.name }}
+    </div>
+    <div class="handshake-div" *ngIf="advertData.accept_offers">
+      <i class="fas fa-handshake handshake"></i>
+      Acepta ofertas
+    </div>
+  </div>
+</div>
+<div class="last-wrapper">
+  <div class="sub-header">
+    <h1>
+      <b>Descripción</b>
+    </h1>
+  </div>
+  <div class="desc-wrap">
+    {{ advertData.description }}
+    <hr />
+    <div class="tags-wrapper">
+      <div class="tag-div" *ngFor="let tag of advertData.tags">
+        <div style="position: relative; display: flex; align-items: center">
+          {{ tag }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

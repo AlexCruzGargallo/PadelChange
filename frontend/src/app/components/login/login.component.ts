@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
-  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -16,10 +16,10 @@ export class LoginComponent implements OnInit {
   apiUrl: string = 'http://localhost:4000/api';
   hide = true;
 
-  email = new FormControl('');
-  password = new FormControl('');
+  email = new UntypedFormControl('');
+  password = new UntypedFormControl('');
 
-  form = new FormGroup({
+  form = new UntypedFormGroup({
     email: this.email,
     password: this.password,
   });

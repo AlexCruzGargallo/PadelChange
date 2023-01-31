@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,7 @@ import { PalasgeneralComponent } from './components/palasgeneral/palasgeneral.co
 import { PalaComponent } from './components/pala/pala.component';
 import { PalainfoComponent } from './components/palainfo/palainfo.component';
 import { RacketFiltroPipe } from './pipes/racket-filtro.pipe';
+import { ChatFiltroPipe } from './pipes/chat.pipe';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalrateracketComponent } from './components/modalrateracket/modalrateracket.component';
@@ -31,6 +32,18 @@ import { ModalsearchracketComponent } from './components/modalsearchracket/modal
 import { ModalRacketPipePipe } from './pipes/modal-racket-pipe.pipe';
 import { AnuncioComponent } from './components/anuncio/anuncio.component';
 import { AnuncioinfoComponent } from './components/anuncioinfo/anuncioinfo.component';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { CommonModule } from '@angular/common';
+import { ChatComponent } from './components/chat/chat.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { AdvertimageComponent } from './components/advertimage/advertimage.component';
+import { ModalrateuserComponent } from './components/modalrateuser/modalrateuser.component';
+import { ModalconfirmfinishadvertComponent } from './components/modalconfirmfinishadvert/modalconfirmfinishadvert.component';
+import { MyadvertsComponent } from './components/myadverts/myadverts.component';
+import { MyanuncioComponent } from './components/myanuncio/myanuncio.component';
+import { ModalconfirmstartchatComponent } from './components/modalconfirmstartchat/modalconfirmstartchat.component';
+import { ModalconfirmdeleteadvertComponent } from './components/modalconfirmdeleteadvert/modalconfirmdeleteadvert.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +55,7 @@ import { AnuncioinfoComponent } from './components/anuncioinfo/anuncioinfo.compo
     PalaComponent,
     PalainfoComponent,
     RacketFiltroPipe,
+    ChatFiltroPipe,
     ModalrateracketComponent,
     StarsComponent,
     PalacreateComponent,
@@ -54,11 +68,20 @@ import { AnuncioinfoComponent } from './components/anuncioinfo/anuncioinfo.compo
     ModalRacketPipePipe,
     AnuncioComponent,
     AnuncioinfoComponent,
+    ChatComponent,
+    ProfileComponent,
+    AdvertimageComponent,
+    ModalrateuserComponent,
+    ModalconfirmfinishadvertComponent,
+    MyadvertsComponent,
+    MyanuncioComponent,
+    ModalconfirmstartchatComponent,
+    ModalconfirmdeleteadvertComponent,
   ],
-  entryComponents: [ModalrateracketComponent],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    NgImageSliderModule,
+    BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -69,7 +92,9 @@ import { AnuncioinfoComponent } from './components/anuncioinfo/anuncioinfo.compo
     MatDialogModule,
     ImageCropperModule,
     HttpClientModule,
+    CommonModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent],
 })

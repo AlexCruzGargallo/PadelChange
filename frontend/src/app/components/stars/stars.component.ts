@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-stars',
@@ -8,7 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class StarsComponent implements OnInit {
   @Input() data: any;
-  rating = new FormControl({ disabled: true });
+  rating = new UntypedFormControl({ disabled: true });
   constructor() {}
 
   ngOnInit(): void {
