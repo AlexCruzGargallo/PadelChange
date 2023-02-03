@@ -60,6 +60,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', payload.accessToken);
         localStorage.setItem('userId', payload.user._id);
         localStorage.setItem('userImage', payload.user.image);
+        localStorage.setItem('isAdmin',payload.user.admin)
         return Promise.resolve(message);
       }
     }

@@ -20,7 +20,10 @@
               ? 'contact-selected'
               : 'contact'
           "
-          *ngFor="let chat of chatsFiltered | chatFiltro : search; let i = index "
+          *ngFor="
+            let chat of chatsFiltered | chatFiltro : search;
+            let i = index
+          "
           (click)="onClickChat(i)"
         >
           <img
@@ -37,6 +40,13 @@
               {{ chat.messages.at(-1).body }}
             </div>
           </div>
+          <div
+            *ngIf="getNonreadId(chat) > 0"
+            [routerLink]="'/chat'"
+            class="red-circle"
+          >
+            {{ getNonreadId(chat) }}
+          </div>
         </div>
       </div>
     </div>
@@ -44,6 +54,8 @@
     <div class="messages" *ngIf="chatsFiltered[activeChat]">
       <div class="messages-header" *ngIf="chatsFiltered[activeChat].userTrade">
         <img
+          style="cursor: pointer"
+          [routerLink]="['/profile', chatsFiltered[activeChat].userTrade._id]"
           class="imagee"
           [src]="
             'http://localhost:4000/imgs/' +
@@ -51,8 +63,12 @@
           "
           alt=""
         />
-        {{ chatsFiltered[activeChat].userTrade.name }}
-
+        <div
+          style="cursor: pointer"
+          [routerLink]="['/profile', chatsFiltered[activeChat].userTrade._id]"
+        >
+          {{ chatsFiltered[activeChat].userTrade.name }}
+        </div>
         <a
           style="margin-left: auto; margin-right: 20px"
           [routerLink]="['/advert', chatsFiltered[activeChat].advert_id]"
@@ -63,6 +79,47 @@
       <div class="messages-body">
         <div *ngFor="let msg of messageArray">
           <div
+            *ngIf="msg.isread"
+            [ngClass]="
+              msg.user == user._id ? 'local-user-msg' : 'other-user-msg'
+            "
+          >
+            <div>
+              {{
+                msg.user == user._id
+                  ? user.name
+                  : chatsFiltered[activeChat].userTrade.name
+              }}
+            </div>
+            <div
+              style="max-width: 100%; word-break: break-all; overflow: hidden"
+            >
+              {{ msg.message }}
+            </div>
+          </div>
+        </div>
+        <div
+          *ngIf="getNonread() > 0"
+          style="
+            margin-bottom: 15px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+          "
+        >
+          <div
+            style="
+              background-color: rgb(240, 240, 240);
+              padding: 10px 20px;
+              border-radius: 10px;
+            "
+          >
+            {{ getNonread() }} Nuevos mensajes
+          </div>
+        </div>
+        <div *ngFor="let msg of messageArray; let i = index">
+          <div
+            *ngIf="!msg.isread"
             [ngClass]="
               msg.user == user._id ? 'local-user-msg' : 'other-user-msg'
             "
@@ -96,6 +153,7 @@
               placeholder="Escribe un mensaje aqui"
               class="input-msg"
               type="text"
+              (keyup.enter)="sendMessage()"
               [(ngModel)]="messageText"
             />
           </div>

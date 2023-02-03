@@ -12,6 +12,7 @@ import { AnuncioinfoComponent } from './components/anuncioinfo/anuncioinfo.compo
 import { ChatComponent } from './components/chat/chat.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MyadvertsComponent } from './components/myadverts/myadverts.component';
+import { PetitionsComponent } from './components/petitions/petitions.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'chat/:id', component: ChatComponent },
   { path: 'profile/:id', component: ProfileComponent},
   { path: 'myadverts', component: MyadvertsComponent},
+  { path: 'petitions', component: PetitionsComponent},
 
 
   { path: '', component: HomeComponent },

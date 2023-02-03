@@ -13,6 +13,8 @@ import { ModalconfirmdeleteadvertComponent } from '../modalconfirmdeleteadvert/m
 })
 export class AnuncioinfoComponent implements OnInit {
   userData: any;
+  userRatings: any;
+  ovrRating: number = 0;
   apiUrl: string = 'http://localhost:4000/api';
   id: string = '';
   user: any;
@@ -37,17 +39,35 @@ export class AnuncioinfoComponent implements OnInit {
     const Userid = localStorage.getItem('userId');
     if (Userid) {
       this.userData = await this.getUserData(Userid);
+    } else {
+      this.router.navigate(['/login']);
     }
     const id = this.actRoute.snapshot.paramMap.get('id');
     if (id) {
       this.id = id;
     }
+
     this.chats = await this.getChats();
     this.advertData = await this.getAdvertsData(this.id);
     this.user = await this.getUserData(this.advertData.user_id);
+
+    this.userRatings = await this.getAllUsersRatingData(this.user._id);
+
+    let i = 0;
+    this.userRatings.map((rating: any) => {
+      i += rating.rating;
+    });
+    this.userRatings.map(async (rating: any) => {
+      console.log(rating.created_by);
+      let user: any = await this.getUserData(rating.created_by);
+      rating.user = user;
+    });
+    this.ovrRating = i / this.userRatings.length;
+    this.rating.setValue(this.ovrRating | 0);
+
     this.lat = this.advertData.location[0].lat;
     this.lon = this.advertData.location[0].lon;
-    this.rating.setValue(5);
+
     this.sell_item = await this.getRacketData(this.advertData.sell_item);
     this.advertData.want_items.map(async (wi: string) => {
       const racketData = await this.getRacketData(wi);
@@ -84,8 +104,7 @@ export class AnuncioinfoComponent implements OnInit {
 
   async itsAdmin() {
     console.log(this.userData);
-    if(this.userData.admin){
-      
+    if (this.userData.admin) {
     }
     return this.userData.admin;
   }
@@ -115,6 +134,7 @@ export class AnuncioinfoComponent implements OnInit {
   }
 
   deleteAdvert() {
+    console.log('DELETE');
     this.matDialog.open(ModalconfirmdeleteadvertComponent, {
       data: this.advertData,
     });
@@ -190,6 +210,24 @@ export class AnuncioinfoComponent implements OnInit {
       return Promise.reject();
     }
     return Promise.resolve(chats);
+  }
+
+  public async getAllUsersRatingData(id: string): Promise<any> {
+    const response = await fetch(`${this.apiUrl}/userratings/${id}`, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const { racketRatings } = await response.json();
+
+    if (!response.ok) {
+      return Promise.reject();
+    }
+    return Promise.resolve(racketRatings);
   }
 
   calcCrow(lat1: number, lon1: number, lat2: number, lon2: number): number {

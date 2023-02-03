@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatService } from '../chat/chat.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
+  providers: [ChatService],
 })
 export class NavbarComponent implements OnInit {
   submenu: boolean = false;
@@ -12,7 +14,7 @@ export class NavbarComponent implements OnInit {
   apiImgUrl: string = 'http://localhost:4000/imgs/';
   userData: any = '';
 
-  constructor() {}
+  constructor(private _chatService: ChatService) {}
 
   async ngOnInit(): Promise<void> {
     const id = localStorage.getItem('userId');
@@ -21,6 +23,17 @@ export class NavbarComponent implements OnInit {
       this.userData = await this.getUserData(id);
       console.log(this.apiImgUrl + this.userData.image);
     }
+
+    this.getNumChats();
+  }
+
+  numChats$: number = 0;
+
+  getNumChats() {
+    this._chatService.getChats().subscribe((result) => {
+      this.numChats$ = Number(result);
+    });
+    return this.numChats$;
   }
 
   changeSubmenu() {
@@ -40,6 +53,7 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('userId');
     localStorage.removeItem('token');
     localStorage.removeItem('userImage');
+    localStorage.removeItem('isAdmin');
     window.location.reload();
   }
 

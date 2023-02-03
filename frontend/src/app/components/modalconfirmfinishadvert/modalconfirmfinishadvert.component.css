@@ -7,6 +7,7 @@
   margin-bottom: 20px;
 }
 .buttons {
+  margin-top: 30px;
   justify-content: center;
   display: flex;
   gap: 50px;

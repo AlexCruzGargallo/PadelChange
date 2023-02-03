@@ -13,6 +13,7 @@
   box-shadow: 0 8px 8px -4px #a4a8a9;
   display: flex;
   gap: 30px;
+  border: 1px solid #d1d1d1;
 }
 .anuncis-wrapper {
   margin-top: 40px;
@@ -22,6 +23,7 @@
   margin-left: auto;
   border-radius: 5px;
   box-shadow: 0 8px 8px -4px #a4a8a9;
+  border: 1px solid #d1d1d1;
 }
 .anuncis-stats {
   display: flex;
@@ -38,6 +40,7 @@
   border-radius: 5px;
   box-shadow: 0 8px 8px -4px #a4a8a9;
   margin-bottom: 90px;
+  border: 1px solid #d1d1d1;
 }
 
 .name {
@@ -85,7 +88,7 @@
   margin-bottom: 20px;
   border-radius: 10px;
   padding: 20px;
-  border: 1px solid gray;
+  border: 1px solid #cfcfcf;
 }
 .second-line {
   display: flex;

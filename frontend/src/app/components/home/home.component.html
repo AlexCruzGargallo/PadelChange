@@ -4,8 +4,7 @@
     <div class="hdr">
       <h1>¡Bienvenido a PadelChange!</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi officiis
-        ipsum officia numquam expedita ullam.
+        Intercambia tu pala de una forma rapida y sencilla.
       </p>
       <a href="#" routerLink="/adverts" class="button">Ver anuncios</a>
     </div>
@@ -62,7 +61,7 @@
     </div>
   </div>
 </section>
-<section style="background-color: rgb(221, 217, 212); padding-top: 30px">
+<section style="background-color: rgb(249, 249, 249); padding-top: 30px">
   <h1 style="text-align: center; font-weight: 600">Ultimos anuncios</h1>
   <div class="advert-wrapperr">
     <div
@@ -79,7 +78,8 @@
   <div class="rackets-wrapper">
     <div class="racket" *ngFor="let racket of rackets.slice(0, 5)">
       <img
-        [src]="'/assets/imgs/rackets/' + racket.img"
+        [routerLink]="['/racket', racket._id]"
+        [src]="'http://localhost:4000/rackets/' + racket.img"
         alt=""
         class="racket-img"
       />

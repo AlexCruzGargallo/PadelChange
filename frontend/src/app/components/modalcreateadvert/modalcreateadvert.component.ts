@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ModalsearchracketComponent } from '../modalsearchracket/modalsearchracket.component';
 import axios, { isCancel, AxiosError } from 'axios';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modalcreateadvert',
@@ -28,7 +29,12 @@ export class ModalcreateadvertComponent implements OnInit {
   city: any;
   area: any;
 
-  constructor(private matDialog: MatDialog, private _http: HttpClient) {}
+  constructor(
+    private dialogRef: MatDialogRef<ModalcreateadvertComponent>,
+    private router: Router,
+    private matDialog: MatDialog,
+    private _http: HttpClient
+  ) {}
 
   onCheckboxChange() {
     this.accept_offers = !this.accept_offers;
@@ -114,6 +120,8 @@ export class ModalcreateadvertComponent implements OnInit {
     console.log('AWQUUQWUEQWEQWEQWE', res);
     this.uploadImagesToFolder(res.id);
     console.log(payload);
+    this.dialogRef.close();
+    this.router.navigate(['/advert',res.id]);
   }
 
   openRacketModal() {

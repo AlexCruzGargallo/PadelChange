@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ModalcreateadvertComponent } from '../modalcreateadvert/modalcreateadvert.component';
 
 @Component({
@@ -12,15 +13,17 @@ export class AnunciosgeneralComponent implements OnInit {
   adverts: any;
   advertFiltered: any;
   userData: any;
-  constructor(private matDialog: MatDialog) {}
+  constructor(private router: Router, private matDialog: MatDialog) {}
 
   async ngOnInit(): Promise<void> {
+    this.adverts = await this.getAllAdvertsData();
+    console.log('FILTRADO:', this.advertFiltered);
     const Userid = localStorage.getItem('userId');
     if (Userid) {
       this.userData = await this.getUserData(Userid);
     }
-    this.adverts = await this.getAllAdvertsData();
-    if (!this.userData.admin) {
+
+    if (this.userData && !this.userData.admin) {
       this.advertFiltered = this.adverts.filter(
         (a: any) =>
           a.user_id != localStorage.getItem('userId') && a.final_date == null
@@ -29,7 +32,7 @@ export class AnunciosgeneralComponent implements OnInit {
       this.advertFiltered = this.adverts;
     }
 
-    console.log(this.advertFiltered);
+    console.log('FILTRADO:', this.advertFiltered);
   }
 
   openModalCreateAd() {

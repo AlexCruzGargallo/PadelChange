@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, UntypedFormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalpleaseloginComponent } from '../modalpleaselogin/modalpleaselogin.component';
 import { ModalrateuserComponent } from '../modalrateuser/modalrateuser.component';
 
@@ -23,7 +23,11 @@ export class ProfileComponent implements OnInit {
   advertsResultReversed: any;
   rating = new UntypedFormControl({ disabled: true });
   racketData: any;
-  constructor(private actRoute: ActivatedRoute, private matDialog: MatDialog) {}
+  constructor(
+    private router: Router,
+    private actRoute: ActivatedRoute,
+    private matDialog: MatDialog
+  ) {this.router.routeReuseStrategy.shouldReuseRoute = () => false;}
 
   async ngOnInit(): Promise<void> {
     const id = this.actRoute.snapshot.paramMap.get('id');
@@ -58,6 +62,7 @@ export class ProfileComponent implements OnInit {
     this.advertsResultNotFinished = this.advertsResult.filter(
       (a: any) => a.final_date == null
     );
+
     console.log(this.userRatings);
     console.log(this.ovrRating);
     console.log(this.userRatings);
@@ -141,5 +146,9 @@ export class ProfileComponent implements OnInit {
       return Promise.reject();
     }
     return Promise.resolve(racketRatings);
+  }
+
+  navigateTo(id: number) {
+    this.router.navigate(['profile/' , id]);
   }
 }

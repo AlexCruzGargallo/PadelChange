@@ -11,11 +11,11 @@
     </div>
     <div style="display: flex">
       <ngx-star-rating
-        [formControl]="rating"
-        [id]="'rating2'"
-        [disabled]="false"
+        [formControl]="ratingadvert"
+        [id]="'rating2-2'"
+        [disabled]="true"
       ></ngx-star-rating>
-      (0 val)
+      ({{this.userRatings.length}} val)
     </div>
 
     <div class="span-name">{{ userData.name }}</div>
@@ -24,7 +24,7 @@
     <div class="sell-wrapper">
       <div style="justify-content: center; align-items: center; display: flex">
         <img
-          [src]="'assets/imgs/rackets/' + sellItemData.img"
+          [src]="'http://localhost:4000/rackets/' + sellItemData.img"
           alt="sell-racket"
           class="want-racket-image"
         />
@@ -36,7 +36,7 @@
     </div>
     <div class="sell-wrapper" *ngFor="let want of wantItemsData">
       <img
-        [src]="'assets/imgs/rackets/' + want.img"
+        [src]="'http://localhost:4000/rackets/' + want.img"
         alt="sell-racket"
         class="want-racket-image"
       />

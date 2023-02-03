@@ -44,6 +44,7 @@
   border-radius: 5px;
   box-shadow: 8px 8px 20px 5px #a4a8a9;
   padding-top: 50px;
+  background-color: white;
 }
 .numero {
   margin: 10px;
@@ -141,6 +142,7 @@
   width: 60%;
   background-color: white;
   cursor: pointer;
+  border: 1px solid #d1d1d1;
 }
 .rackets-wrapper {
   padding-top: 30px;
@@ -154,6 +156,7 @@
 }
 
 .racket {
+  cursor: pointer;
   background-color: white;
   width: 10%;
   border-radius: 20px;
@@ -163,6 +166,15 @@
   padding: 5px;
   max-width: 100%;
   word-break: break-all;
+  border: 1px solid #d1d1d1;
+}
+
+.racket:hover {
+  -webkit-transition: transform 0.3s ease-in-out;
+  transform: scale(1.1);
+}
+.racket:after {
+  -webkit-transition: transform 0.3s ease-in-out;
 }
 
 .racket-img {
