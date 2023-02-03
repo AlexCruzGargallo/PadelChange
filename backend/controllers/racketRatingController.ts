@@ -6,10 +6,7 @@ import Utilities from "../utilities/utilities";
 class RacketRatingController {
   public async rateRacket(req: any, res: Response) {
     try {
-      console.log(req.body);
-      // User has to be logged in
       let { tokenPayload } = req.body;
-      console.log(tokenPayload);
       if (!tokenPayload || !tokenPayload._id) {
         throw new Error("No tienes permisos");
       }
@@ -25,8 +22,7 @@ class RacketRatingController {
       }
 
       let rbody  = req.body;
-      
-      console.log(rbody)
+
       const racketRating = new RacketRating(req.body);
       await racketRating.save();
 

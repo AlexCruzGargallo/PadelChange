@@ -6,9 +6,6 @@ import User from "../models/UserSchema";
 class AdvertController {
   public async createAdvert(req: any, res: Response) {
     try {
-      console.log("aaaaa");
-      console.log(req.body);
-      console.log("aaaaa");
       //check user id
       const userId = req.body.user_id;
       if (!userId) {
@@ -26,13 +23,11 @@ class AdvertController {
 
       // User has to be logged in
       let { tokenPayload } = req.body;
-      console.log(tokenPayload);
       if (!tokenPayload || !tokenPayload._id) {
         throw new Error("No tienes permisos");
       }
 
       let rbody = req.body;
-      console.log(rbody);
 
       let newAdvId = 0;
       const advert = new Advert(req.body);
@@ -47,8 +42,6 @@ class AdvertController {
         }
         res.send({ id: newAdvId });
       });
-
-      console.log("anuncioID:", newAdvId);
     } catch (err: any) {
       console.error(err);
       res.status(400).send(err);
@@ -94,9 +87,7 @@ class AdvertController {
   public async upload(req: any, res: Response) {
     try {
       const id = req.params.id;
-      console.log("Uploading file...");
       let file = req["files"].thumbnail;
-      console.log("File uploaded: ", file.name);
 
       file.mv("public/adverts/" + id + "/" + file.name);
       // Validate user inputs
@@ -111,12 +102,11 @@ class AdvertController {
 
   public async finish(req: any, res: Response) {
     try {
-      console.log("fine");
       const id = req.params.id;
 
       const filter = { _id: id };
       const update = { final_date: new Date() };
-      console.log("fine");
+
       let advert = await Advert.findOneAndUpdate(filter, update);
     } catch (err) {
       console.error(err);

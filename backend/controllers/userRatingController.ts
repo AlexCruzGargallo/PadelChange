@@ -6,10 +6,8 @@ import Utilities from "../utilities/utilities";
 class UserRatingController {
   public async rateUser(req: any, res: Response) {
     try {
-      console.log(req.body);
       // User has to be logged in
       let { tokenPayload } = req.body;
-      console.log(tokenPayload);
       if (!tokenPayload || !tokenPayload._id) {
         throw new Error("No tienes permisos");
       }
