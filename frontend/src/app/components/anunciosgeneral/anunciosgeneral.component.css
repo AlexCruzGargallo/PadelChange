@@ -10,6 +10,7 @@
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 8px 8px -4px #a4a8a9;
+  border: 1px solid #d1d1d1;
 }
 .row-wrapper {
   display: flex;
@@ -78,6 +79,7 @@ mat-form-field {
   border-radius: 5px;
   width: 48%;
   background-color: white;
+  border: 1px solid #d1d1d1;
 }
 .advert:hover {
   background-color: #fdfdfd;

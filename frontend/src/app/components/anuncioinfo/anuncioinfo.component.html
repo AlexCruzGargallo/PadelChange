@@ -17,7 +17,7 @@
             [id]="'rating2'"
             [disabled]="false"
           ></ngx-star-rating>
-          (0 val)
+          ({{this.userRatings.length}} val)
           <div class="center-panel">
             <mat-icon> location_on</mat-icon>
             {{ this.advertData.location[0].city }} ({{ km }}
@@ -34,7 +34,7 @@
     *ngIf="itsMe() && advertData.final_date == null"
   >
     <button routerLink="/chat" class="orange-button">Editar</button>
-    <button routerLink="/chat" class="red-button">Eliminar</button>
+    <button (click)="deleteAdvert()" class="red-button">Eliminar</button>
     <button (click)="openModalConfirm()" class="green-button">Finalizar</button>
   </div>
   <div class="right-panel" *ngIf="!itsMe() && !userData.admin">
@@ -46,14 +46,14 @@
 </div>
 <div class="racket-wrapper">
   <div class="sub-header">
-    <h1><b>Detalles de la pala</b></h1>
+    <h1><b>Detalles de la pala ({{advertData.racket_state}})</b></h1>
   </div>
   <div class="sub-body">
     <div class="left-part">
       <div style="margin-bottom: 20px">
         <img
           class="racket-image"
-          [src]="'assets/imgs/rackets/' + sell_item.img"
+          [src]="'http://localhost:4000/rackets/' + sell_item.img"
           alt=""
         />
       </div>
@@ -98,7 +98,7 @@
     <div class="racket-change" *ngFor="let racket of want_items">
       <img
         class="want-images"
-        [src]="'assets/imgs/rackets/' + racket.img"
+        [src]="'http://localhost:4000/rackets/' + racket.img"
         alt=""
       />
       {{ racket.name }}

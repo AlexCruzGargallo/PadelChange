@@ -81,6 +81,7 @@
   transform: scale(1.2);
 }
 .red-circle {
+  cursor: pointer;
   text-align: center;
   margin-left: 10px;
   margin-bottom: 20px;

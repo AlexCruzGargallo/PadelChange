@@ -2,7 +2,7 @@
   <div class="header-wrapper">
     <div style="width: 80%" class="star-wrap">
       <div style="margin-right: 50px">
-        <h1 style=" margin-bottom: 0">
+        <h1 style="margin-bottom: 0">
           {{ racketData.name }}
         </h1>
       </div>
@@ -14,6 +14,17 @@
       <p style="margin-bottom: 0">({{ this.ratingsLength }} Val.)</p>
     </div>
     <div style="width: 20%">
+      <div
+        style="
+          float: left;
+          display: flex;
+          align-items: center;
+          margin-top: 10px;
+        "
+      >
+        <mat-icon style="margin-right:5px">remove_red_eye</mat-icon>
+        {{ racketData.views }}
+      </div>
       <button (click)="openModalVote()" class="green-button" i18n>
         Valorar
       </button>
@@ -26,7 +37,9 @@
       <div class="left-wrapper">
         <img class="racket-image" src="{{ imgpath }}" alt="" />
         <div style="margin-top: 20px">
-          <p style=" font-size: 17px"><b>{{ racketData.name }}</b></p>
+          <p style="font-size: 17px">
+            <b>{{ racketData.name }}</b>
+          </p>
         </div>
       </div>
       <hr />
@@ -55,7 +68,7 @@
     <div>
       <div class="rating-wrapper" *ngFor="let ratings of racketsRatingData">
         <div style="margin-bottom: 15px" class="first-line">
-          <h2 style=" margin-bottom: 0px; margin-right: 20px">
+          <h2 style="margin-bottom: 0px; margin-right: 20px">
             {{ ratings.user.name }}
           </h2>
           <app-stars [data]="ratings.rating"></app-stars>
@@ -72,6 +85,21 @@
           <div class="comment-wrapper">{{ this.ratings.comment }}</div>
         </div>
       </div>
+    </div>
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+      "
+      *ngIf="this.racketsRatingData.length < 1"
+    >
+      <img
+        style="height: 150px; margin-bottom: 20px"
+        src="assets/imgs/svg/noitems.svg"
+      />
+      <h2 style="color: gray">No hay ninguna valoración en esta pala</h2>
     </div>
   </div>
 </div>

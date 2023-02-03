@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-anuncio',
@@ -19,28 +20,34 @@ export class AnuncioComponent implements OnInit {
   userRatings: any;
   ovrRating: number = 0;
 
-  rating = new UntypedFormControl();
+  ratingadvert = new UntypedFormControl({ disabled: true });
 
-  constructor() {}
+  constructor(private actRoute: ActivatedRoute) {}
 
   async ngOnInit(): Promise<void> {
     this.userData = await this.getUserData(this.data.user_id);
-    this.sellItemData = await this.getRacketData(this.data.sell_item);
-    this.rating.setValue(this.userData.overall_rating);
 
+    this.userRatings = await this.getAllUsersRatingData(this.userData._id);
+
+    let x = 0;
+    this.userRatings.map((rating: any) => {
+      x += rating.rating;
+    });
+    this.userRatings.map(async (rating: any) => {
+      console.log(rating.created_by);
+      let user: any = await this.getUserData(rating.created_by);
+      rating.user = user;
+    });
+    this.ovrRating = x / this.userRatings.length; 
+
+    this.ratingadvert.setValue(this.ovrRating | 0);
+
+    console.log('epaa', this.ovrRating, this.ratingadvert);
+
+    this.sellItemData = await this.getRacketData(this.data.sell_item);
     this.data.want_items.map(async (item: any) => {
       this.wantItemsData.push(await this.getRacketData(item));
     });
-
-    this.userRatings = await this.getAllUsersRatingData(this.userData);
-
-    let i = 0;
-    this.userRatings.map((rating: any) => {
-      i += rating.rating;
-    });
-
-    this.ovrRating = i / this.userRatings.length;
-    this.rating.setValue(this.ovrRating | 0);
 
     this.lat = this.data.location[0].lat;
     this.lon = this.data.location[0].lon;

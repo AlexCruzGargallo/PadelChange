@@ -1,1 +1,102 @@
-<p>palacreate works!</p>
+<div class="page-wrapper">
+  <div class="create-wrapper">
+    <h2>Petición de pala</h2>
+    <hr />
+    <div class="create-fields">
+      <label class="label-form" for="">Imagen de la pala:</label>
+      <img *ngIf="imageF" [src]="imageF.url" alt="" class="img-uploads" />
+      <div class="file-container">
+        <input type="file" (change)="save($event)" class="file" />
+        <br />
+        <span [innerHTML]="result"></span>
+      </div>
+      <form class="form-wrapper" action="">
+        <label class="label-form" for="">Nombre de la pala:</label>
+        <input [formControl]="name" type="text" />
+
+        <div class="flex-2">
+          <div style="width: 50%">
+            <label class="label-form" for="">Marca:</label>
+            <mat-select
+              style="
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                padding: 9px;
+                width: 83%;
+                margin: 8px 0;
+                box-sizing: border-box;
+              "
+              [(value)]="_brand"
+              (selectionChange)="onChangeBrand()"
+            >
+              <mat-option value="Ninguna" i18n>Ninguna</mat-option>
+              <mat-option *ngFor="let brand of brands" [value]="brand">{{
+                brand
+              }}</mat-option>
+            </mat-select>
+          </div>
+
+          <div>
+            <label class="label-form" for="">Temporada:</label>
+            <input [formControl]="season" type="text" />
+          </div>
+        </div>
+        <label class="label-form" for="">Precio (€):</label>
+        <input [formControl]="price" type="text" />
+
+        <label class="label-form" for="">Material Marco:</label>
+        <input [formControl]="material_frame" type="text" />
+        <label class="label-form" for="">Material plano:</label>
+        <input [formControl]="material_flat" type="text" />
+        <label class="label-form" for="">Material goma:</label>
+        <input [formControl]="material_rubber" type="text" />
+        <div class="flex-2">
+          <div style="width: 50%">
+            <label class="label-form" for="">Tacto:</label>
+            <mat-select
+              style="
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                padding: 9px;
+                width: 83%;
+                margin: 8px 0;
+                box-sizing: border-box;
+              "
+              [(value)]="_touch"
+              (selectionChange)="onChangeTouch()"
+            >
+              <mat-option value="Ninguno" i18n>Ninguno</mat-option>
+              <mat-option *ngFor="let touch of touches" [value]="touch">{{
+                touch
+              }}</mat-option>
+            </mat-select>
+          </div>
+          <div style="width: 50%">
+            <label class="label-form" for="">Forma:</label>
+            <mat-select
+              style="
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                padding: 9px;
+                width: 100%;
+                margin: 8px 0;
+                box-sizing: border-box;
+              "
+              [(value)]="_shape"
+              (selectionChange)="onChangeShape()"
+            >
+              <mat-option value="Ninguna" i18n>Ninguna</mat-option>
+              <mat-option *ngFor="let shape of shapes" [value]="shape">{{
+                shape
+              }}</mat-option>
+            </mat-select>
+          </div>
+        </div>
+        <label class="label-form" for="">Peso (g):</label>
+        <input [formControl]="weight" type="text" />
+        <p style="color: red">{{ this.errorMsg }}</p>
+        <input type="submit" (click)="onClick()" value="Enviar petición" />
+      </form>
+    </div>
+  </div>
+</div>

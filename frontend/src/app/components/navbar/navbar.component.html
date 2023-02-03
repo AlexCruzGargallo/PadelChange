@@ -10,20 +10,23 @@
   <div class="section-wrapper"><a routerLink="/adverts" i18n>Anuncios</a></div>
   <div class="section-wrapper"><a routerLink="/rackets" i18n>Palas</a></div>
   <div class="section-wrapper" *ngIf="userData.admin">
-    <a routerLink="/rackets" i18n>Peticiones de palas</a>
+    <a routerLink="/petitions" i18n>Peticiones de palas</a>
   </div>
   <div class="right-side-navbar">
-    <div class="notification-wrapper" *ngIf="isLoggedIn()">
-      <div class="red-circle">2</div>
+    <div
+      [routerLink]="'/chat'"
+      class="notification-wrapper"
+      *ngIf="isLoggedIn()"
+    >
+      <div [routerLink]="'/chat'" *ngIf="this.numChats$ > 0" class="red-circle">
+        {{ this.numChats$ }}
+      </div>
       <a [routerLink]="'/chat'">
-        <mat-icon style="color: black" class="chat-icon-nav">
-          chat_bubble</mat-icon
-        >
+        <i
+          style="font-size: 30px; color: black"
+          class="fas fa-regular fa-envelope"
+        ></i>
       </a>
-    </div>
-    <div class="message-wrapper" *ngIf="isLoggedIn()">
-      <div class="red-circle">2</div>
-      <mat-icon class="bell-icon-nav">notifications</mat-icon>
     </div>
     <div class="profile-wrapper" tabindex="0">
       <div *ngIf="isLoggedIn()">

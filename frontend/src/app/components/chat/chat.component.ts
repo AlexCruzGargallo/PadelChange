@@ -17,7 +17,7 @@ export class ChatComponent implements OnInit {
   activeChat = 0;
   messageText: string = '';
   search: string = '';
-  messageArray: Array<{ user: String; message: String }> = [];
+  messageArray: Array<{ user: String; message: String; isread: Boolean }> = [];
 
   constructor(
     private _chatService: ChatService,
@@ -61,12 +61,29 @@ export class ChatComponent implements OnInit {
       });
     }
     this.chatsFiltered[this.activeChat].messages.map((m: any) => {
-      this.messageArray.push({ user: m.author, message: m.body });
+      this.messageArray.push({
+        user: m.author,
+        message: m.body,
+        isread: m.isread,
+      });
     });
     this._chatService.joinRoom({
       user: localStorage.getItem('userId'),
       room: this.chatsFiltered[this.activeChat]._id,
     });
+  }
+
+  getNonreadId(chat: any) {
+    console.log("eeEE",chat.messages);
+    return chat.messages.filter(
+      (msg: any) =>
+        msg.isread == false && msg.author != localStorage.getItem('userId')
+    ).length;
+  }
+  getNonread() {
+    return this.messageArray.filter(
+      (msg) => msg.isread == false && msg.user != localStorage.getItem('userId')
+    ).length;
   }
 
   sendMessage() {
@@ -83,6 +100,7 @@ export class ChatComponent implements OnInit {
       user: localStorage.getItem('userId'),
       room: this.chatsFiltered[this.activeChat]._id,
       message: this.messageText,
+      isread: false,
     });
 
     this.messageText = '';
@@ -100,10 +118,14 @@ export class ChatComponent implements OnInit {
     });
     this.messageArray = [];
     this.chatsFiltered[this.activeChat].messages.map((m: any) => {
-      this.messageArray.push({ user: m.author, message: m.body });
+      this.messageArray.push({
+        user: m.author,
+        message: m.body,
+        isread: m.isread,
+      });
     });
-
-    console.log(this.messageArray);
+    this.markasread(this.chatsFiltered[this.activeChat]._id);
+    console.log(this.chatsFiltered[this.activeChat]._id);
   }
 
   onSearchContact(contact: string) {
@@ -157,6 +179,26 @@ export class ChatComponent implements OnInit {
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       },
       body: JSON.stringify(args),
+    });
+
+    const { user } = await response.json();
+
+    if (!response.ok) {
+      return Promise.reject();
+    }
+    return Promise.resolve(user);
+  }
+
+  public async markasread(args: any): Promise<any> {
+    const response: Response = await fetch(`${this.apiUrl}/chat/read/${args}`, {
+      method: 'PUT',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      },
     });
 
     const { user } = await response.json();

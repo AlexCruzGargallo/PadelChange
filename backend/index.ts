@@ -6,6 +6,7 @@ import UsersRouter from "./routes/userRouter";
 import RacketsRouter from "./routes/racketRouter";
 import ChatRouter from "./routes/chatRouter";
 import RacketRatingsRouter from "./routes/racketRatingRouter";
+import RacketPetitionRouter from "./routes/racketPetitionRouter";
 import UserRatingsRouter from "./routes/userRatingRouter";
 import AdvertsRouter from "./routes/advertRouter";
 import connectDB from "./config/db";
@@ -30,6 +31,7 @@ app.use("/api/racketratings", RacketRatingsRouter);
 app.use("/api/userratings", UserRatingsRouter);
 app.use("/api/adverts", AdvertsRouter);
 app.use("/api/chat", ChatRouter);
+app.use("/api/racketPetitions", RacketPetitionRouter);
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -47,7 +49,6 @@ const io = require("socket.io")(http, {
 io.on("connection", (socket: any) => {
   socket.on("join", function (data: any) {
     socket.join(data.room);
-    console.log(data.user + "joined the room : " + data.room);
 
     socket.to(data.room).emit("new user joined", {
       user: data.user,
@@ -57,7 +58,6 @@ io.on("connection", (socket: any) => {
 
   socket.on("leave", function (data: any) {
     socket.leave(data.room);
-    console.log(data.user + "joined the room : " + data.room);
     socket.to(data.room).emit("user left", socket.id);
   });
 
@@ -65,6 +65,7 @@ io.on("connection", (socket: any) => {
     io.in(data.room).emit("new message", {
       user: data.user,
       message: data.message,
+      isread: false,
     });
   });
 });

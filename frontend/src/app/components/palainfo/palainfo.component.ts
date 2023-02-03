@@ -17,7 +17,7 @@ export class PalainfoComponent implements OnInit {
   ratingsLength: number = 0;
   ovrRating: number = 0;
   id: string = '';
-  imgpath: string = 'assets/imgs/rackets/';
+  imgpath: string = 'http://localhost:4000/rackets/';
   rating = new UntypedFormControl({ disabled: true });
 
   constructor(private actRoute: ActivatedRoute, private matDialog: MatDialog) {}

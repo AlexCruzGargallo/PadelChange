@@ -1,0 +1,91 @@
+<div class="page-wrapper">
+  <div class="petitions-wrapper">
+    <h1>Peticiones de palas</h1>
+    <hr style="width: 50%" />
+    <div
+      style="
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <table class="table" border-collapse="separate" cellspacing="0 1em;">
+        <tr>
+          <th></th>
+          <th>Fecha</th>
+          <th>Usuario</th>
+          <th>Nombre de la pala</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+        <tbody
+          style="box-shadow: 0px 5px 12px -12px rgb(0 0 0 / 29%)"
+          *ngFor="let pet of petitions"
+        >
+          <tr style="border-spacing: 0">
+            <td>
+              <a (click)="pet.open = !pet.open">
+                <mat-icon style="cursor: pointer">{{
+                  pet.open ? "expand_more" : "chevron_right"
+                }}</mat-icon>
+              </a>
+            </td>
+            <td>{{ pet.date }}</td>
+            <td>{{ pet.userInfo.name }}</td>
+            <td>{{ pet.racket.name }}</td>
+            <td>{{ pet.userInfo.email }}</td>
+            <td style="display: flex">
+              <a (click)="accept(pet)"
+                ><mat-icon class="check-icon">check</mat-icon></a
+              >
+              <a (click)="decline(pet)"
+                ><mat-icon class="cancel-icon">close</mat-icon></a
+              >
+            </td>
+          </tr>
+          <tr *ngIf="pet.open">
+            <td colspan="6">
+              <div style="width: 100%; display: flex">
+                <div
+                  style="min-width: 50%; display: flex; justify-content: center"
+                >
+                  <img
+                    style="
+                      height: 300px;
+                      width: 300px;
+                      aspect-ratio: 1/1;
+                      object-fit: contain;
+                    "
+                    [src]="'http://localhost:4000/petitions/' + pet.racket.img"
+                    alt=""
+                  />
+                </div>
+                <hr />
+                <div style="width: 50%; padding: 50px">
+                  <p><b>Nombre de la pala: </b>{{ pet.racket.name }}</p>
+                  <p><b i18n>Temporada: </b>{{ pet.racket.season }}</p>
+                  <p>
+                    <b i18n>Material Marco: </b> {{ pet.racket.frame_material }}
+                  </p>
+                  <p>
+                    <b i18n>Material plano: </b> {{ pet.racket.flat_material }}
+                  </p>
+                  <p>
+                    <b i18n>Material goma: </b> {{ pet.racket.rubber_material }}
+                  </p>
+                  <p><b i18n>Tacto: </b> {{ pet.racket.touch }}</p>
+                  <p><b i18n>Forma: </b> {{ pet.racket.shape }}</p>
+                  <p><b i18n>Peso: </b> {{ pet.racket.weight }}</p>
+                  <p style="font-size: 22px">
+                    <b i18n>Precio Mercado: </b> {{ pet.racket.price }}€
+                  </p>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

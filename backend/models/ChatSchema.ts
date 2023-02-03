@@ -6,6 +6,7 @@ const MessageSchema = new Schema({
   author: { type: String, required: true },
   body: { type: String, required: true },
   date: { type: Date, required: true },
+  isread: { type: Boolean, default: false },
 });
 
 const ChatSchema = new Schema({

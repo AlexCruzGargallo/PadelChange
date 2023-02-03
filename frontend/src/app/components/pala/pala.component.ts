@@ -8,7 +8,7 @@ import { UntypedFormControl } from '@angular/forms';
 })
 export class PalaComponent implements OnInit {
   @Input() data: any;
-  imgpath: string = 'assets/imgs/rackets/';
+  imgpath: string = 'http://localhost:4000/rackets/';
   rating = new UntypedFormControl();
 
   constructor() {}

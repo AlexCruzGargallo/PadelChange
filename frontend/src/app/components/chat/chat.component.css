@@ -10,6 +10,7 @@
   height: 80%;
   margin-bottom: 80px;
   border-radius: 5px;
+  border: 1px solid #d1d1d1;
 }
 .chat-box {
   border-radius: 5px;
@@ -27,7 +28,7 @@
   width: 20%;
   height: 100%;
   background-color: rgb(255, 255, 255);
-  border-right: 3px solid rgb(249 249 249);
+  border-right: 1px solid #d1d1d1;
 }
 .messages {
   height: 100%;
@@ -44,7 +45,7 @@
   border-top-right-radius: 5px;
   background-color: white;
   height: 10%;
-  border-bottom: 3px solid rgb(249 249 249);
+  border-bottom: 1px solid #d1d1d1;
 }
 .messages-body {
   max-height: 80%;
@@ -75,6 +76,7 @@
   display: flex;
 }
 .message-wrap {
+  padding-left: 20px;
   border: 1px solid rgb(192, 198, 204);
   width: 95%;
 }
@@ -108,7 +110,7 @@ input:focus {
   display: flex;
   padding: 15px;
   max-height: 100px;
-  width: 100%;
+  max-width: 100%;
   cursor: pointer;
 }
 .imagee {
@@ -122,7 +124,7 @@ input:focus {
   display: flex;
   padding: 15px;
   max-height: 100px;
-  width: 100%;
+  max-width: 100%;
   background-color: rgb(240, 240, 240);
 }
 .contact:hover {
@@ -171,6 +173,21 @@ input:focus {
   display: flex;
   flex-direction: column;
   padding: 10px;
+}
+
+.red-circle {
+  cursor: pointer;
+  text-align: center;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  width: 25px;
+  height: 13px;
+  padding: 4px;
+  padding-bottom: 6px;
+  color: aliceblue;
+  background-color: red;
+  border-radius: 50%;
+  z-index: 2;
 }
 
 @media (max-width: 1450px) {

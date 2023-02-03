@@ -1,10 +1,20 @@
 <div class="confirm-wrapper">
-    <div class="text">
-      Deseas iniciar un chat?
-    </div>
-    <div class="buttons">
-      <button (click)="startChat()" class="green-button">Aceptar</button>
-      <button (click)="closeModal()" class="white-button">Cancelar</button>
-    </div>
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    "
+  >
+    <img
+      style="height: 150px; margin-bottom: 20px"
+      src="assets/imgs/svg/question.svg"
+    />
+    <h2 style="color: gray">Estas seguro que deseas iniciar un chat?</h2>
   </div>
-  
+  <div class="buttons">
+    <button (click)="startChat()" class="green-button">Aceptar</button>
+    <button (click)="closeModal()" class="white-button">Cancelar</button>
+  </div>
+</div>

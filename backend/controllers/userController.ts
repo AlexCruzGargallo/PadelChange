@@ -34,7 +34,6 @@ class UserController {
       // Create Mongoose object
       const user = new User(req.body);
       await user.save();
-      console.log(`User has been created`, user);
 
       let aux = JSON.parse(JSON.stringify(user));
       delete aux.__v;
@@ -100,8 +99,6 @@ class UserController {
   public async upload(req: any, res: Response) {
     try {
       console.log("Uploading file...");
-      console.log(req.body);
-      console.log(req.file);
       let file = req["files"].thumbnail;
 
       console.log("File uploaded: ", file.name);
@@ -147,7 +144,7 @@ class UserController {
       const body = req.body;
       let { image, name, email } = body;
       const { tokenPayload } = body;
-      console.log(body);
+
       if (!tokenPayload || !tokenPayload._id) {
         res.status(400).send("sin token");
         return;
@@ -182,7 +179,6 @@ class UserController {
       // Save Mongoose object
       await user.save();
 
-      console.log(`User has been modified`, user);
     } catch (err: any) {
       console.log(err);
       res.status(400).send(err);

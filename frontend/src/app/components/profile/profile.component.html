@@ -19,7 +19,7 @@
             <div style="display: flex; gap: 10px">
               <div style="font-size: 16px">
                 <b *ngIf="this.userRatings.length > 0"
-                  >({{ this.ovrRating | number : "1.2-2" }}/5)</b
+                  >({{ this.ovrRating | number : "1.1-1" }}/5)</b
                 >
                 <b *ngIf="this.userRatings.length <= 0">(0/5)</b>
               </div>
@@ -60,7 +60,7 @@
           ><p>Totales: {{ this.advertsResult.length }}</p></span
         >
       </div>
-      <div>
+      <div *ngIf="this.advertsResultReversed.length > 0">
         <div>
           <h2>Ultimos anuncios:</h2>
           <div
@@ -83,19 +83,21 @@
       <div>
         <h1>Valoraciones</h1>
       </div>
-      <div>
+      <div *ngIf="this.userRatings.length > 0">
         <div class="rating-wrapper" *ngFor="let ratings of this.userRatings">
           <div style="margin-bottom: 15px" class="first-line">
             <h2 style="margin-bottom: 0px; margin-right: 20px">
               {{ ratings.user.name }}
             </h2>
             <app-stars [data]="ratings.rating"></app-stars>
-            <h3 style="margin-bottom: 0px">
-              ({{ ratings.date | date : "yyyy-MM-dd" }})
+            <h3 style="margin-bottom: 0px;margin-left: 10px">
+              {{" "+ ratings.date | date : "MMM d, y" }}
             </h3>
           </div>
           <div class="second-line">
             <img
+              style="cursor: pointer"
+              (click)="navigateTo(ratings.user._id)"
               class="user-image"
               [src]="'http://localhost:4000/imgs/' + ratings.user.image"
               alt=""
@@ -103,6 +105,21 @@
             <div class="comment-wrapper">{{ this.ratings.comment }}</div>
           </div>
         </div>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          text-align: center;
+        "
+        *ngIf="this.userRatings.length < 1"
+      >
+        <img
+          style="height: 150px; margin-bottom: 20px"
+          src="assets/imgs/svg/noitems.svg"
+        />
+        <h2 style="color: gray">No hay ninguna valoración en este perfil</h2>
       </div>
     </div>
   </div>
